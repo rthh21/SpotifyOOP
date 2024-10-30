@@ -1,6 +1,7 @@
 #include <iostream>
 #include <array>
 #include <Helper.h>
+#include <vector>
 
 class Song{
     public:
@@ -51,7 +52,8 @@ class Artist{
 int main() {
     
     Artist artist1("Travis Scott", "RAP");
-    
+    std::cout<<artist1.name;
+
     Helper helper;
     helper.help();
     
