@@ -20,7 +20,7 @@ class Song{
             this->duration = 0;
         }
         
-        Song(const std::string title, const std::string genre, const int duration){
+        Song(const std::string& title, const std::string& genre, const int duration){
             this->title = title;
             this->genre = genre;
             this->duration = duration;
@@ -38,7 +38,7 @@ class Album{
         std::string genre;
         std::vector<Song> songs;
         
-        Album(const std::string name, const std::string genre){
+        Album(const std::string& name, const std::string& genre){
             this->name = name;
             this->genre = genre;
         }
@@ -60,7 +60,7 @@ class Artist{
         std::vector<Album> albums;
         std::vector<Song> songs;
         
-        Artist(const std::string name, const std::string genre){
+        Artist(const std::string& name, const std::string& genre){
             this->name = name;
             this->genre = genre;
         }
@@ -91,7 +91,7 @@ class Playlist{
         this->createdBy = "null";
     }
     
-    Playlist(const std::string name, const std::string createdBy){
+    Playlist(const std::string& name, const std::string& createdBy){
         this->name = name;
         this->createdBy = createdBy;
     }
@@ -212,6 +212,7 @@ int main() {
         // }
     }
     
+    fin.close();
     Helper helper;
     helper.help();
     
