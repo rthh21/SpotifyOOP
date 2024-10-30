@@ -3,6 +3,10 @@
 #include <Helper.h>
 #include <vector>
 #include <cstring>
+#include <fstream>
+#include <algorithm>
+#include <random>
+#include <chrono>
 
 class Song{
     public:
@@ -23,7 +27,7 @@ class Song{
         }
         
         friend std::ostream& operator<<(std::ostream& os, const Song& song){
-            os << "Song name: "<<song.title<<", genre: "<<song.genre<<", and duration: "<<song.duration;
+            os << "Song name: "<<song.title<<", genre: "<<song.genre<<", and duration: "<<song.duration<<'\n';
             return os;
         }
 };
@@ -44,7 +48,7 @@ class Album{
         }   
         
         friend std::ostream& operator<<(std::ostream& os, const Album& album) {
-        os << "Album Name: " << album.name << ", Genre: " << album.genre;
+        os << "Album Name: " << album.name << ", Genre: " << album.genre<<'\n';
         return os;
     }
 };
@@ -70,18 +74,17 @@ class Artist{
         }
         
         friend std::ostream& operator<<(std::ostream& os, const Artist& artist){
-            os << "Artist Name: " << artist.name << ", Genre: " << artist.genre;
+            os << "Artist Name: " << artist.name << ", Genre: " << artist.genre<<'\n';
             return os;
         }
 };
 
 class Playlist{
-    private:
-        std::vector<Song> songs;
     public:
         std::string name;
         std::string createdBy;
-    
+        std::vector<Song> songs;
+        
     //constructor
     Playlist(){
         this->name = "null";
@@ -123,16 +126,44 @@ class Playlist{
     }
     
     friend std::ostream& operator<<(std::ostream& os, const Playlist& playlist){
-        os << "Playlist Name: " << playlist.name << ", Genre: " << playlist.createdBy;
+        os << "Playlist Name: " << playlist.name << ", Genre: " << playlist.createdBy<<'\n';
         return os;
     }
+};
+
+class Player{
+    private:
+        std::string currentSong;
+        int volume;
+        Playlist playlist;
+    //TODO
+    // Funtii : PLAY/PAUSE, PREVIOUS/NEXT SONG, VOLUME CHANGER.
+    
+    public:
+        void shuffle(Playlist playlist){
+            unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+            std::default_random_engine rng(seed);
+            std::shuffle(std::begin(playlist.songs), std::end(playlist.songs), rng);
+            std::cout<<"\n\nShuffle ON!";
+            for(int i=0; i<playlist.songs.size(); i++)
+                    std::cout<<playlist.songs[i]<<" ";
+            std::cout<<'\n';
+        }
 };
 
 int main() {
     std::cout<<"Type 'exit' to end the program.";
     std::string token;
+    std::ifstream fin("melodii.txt");
+    if (!fin.is_open()) {
+        std::cerr << "Error: Could not open the file." << std::endl;
+        return 1; // Exit or handle the error appropriately
+    }
     
+    Player player;
     while (1) {
+        fin.clear();
+        fin.seekg(0);
         std::cout<<"\n> ";
         std::getline(std::cin, token);
         
@@ -154,9 +185,34 @@ int main() {
                 std::cout<<song1;
             }
             //TODO
+            
+            if(token.find("playlist") != std::string::npos){
+                std::string playlistName;
+                std::cout<<"\nEnter playlist name: ";
+                std::getline(std::cin, playlistName);
+                Playlist playlist1(playlistName,"rth");
+                
+                std::string x;
+                while(std::getline(fin,x)){
+                    Song song1(x,"",0);
+                    playlist1.addSongInPlaylist(song1);
+                }
+                for(int i=0; i<playlist1.songs.size(); i++)
+                    std::cout<<playlist1.songs[i];
+                player.shuffle(playlist1);
+            }
         }
+        
+        // if(token.find("shuffle") != std::string::npos){
+        //     std::string playlistName;
+        //     std::cout<<"\nEnter playlist name: ";
+        //     std::getline(std::cin, playlistName);
+        //     Playlist playlist1(playlistName,"rth");
+            
+        // }
     }
     
+    fin.close();
     Helper helper;
     helper.help();
     
