@@ -5,16 +5,16 @@
 
 ## Milestone #0
 
-- [ ] Player MP3 stil Spotify
+- [x] Player MP3 stil Spotify
 - [ ] [TODO]
 
 ## Milestone #1
 
 #### Cerințe
-- [ ] definirea a minim **3-4 clase** folosind compunere cu clasele definite de voi
-- [ ] constructori de inițializare cu parametri
-- [ ] pentru o aceeași (singură) clasă: constructor de copiere, `operator=` de copiere, destructor
-- [ ] `operator<<` pentru toate clasele pentru afișare (std::ostream)
+- [x] definirea a minim **3-4 clase** folosind compunere cu clasele definite de voi
+- [x] constructori de inițializare cu parametri
+- [x] pentru o aceeași (singură) clasă: constructor de copiere, `operator=` de copiere, destructor
+- [x] `operator<<` pentru toate clasele pentru afișare (std::ostream)
 - [ ] cât mai multe `const` (unde este cazul)
 - [ ] implementarea a minim 3 funcții membru publice pentru funcționalități specifice temei alese, dintre care cel puțin 1-2 funcții mai complexe
   - nu doar citiri/afișări sau adăugat/șters elemente într-un/dintr-un vector
@@ -22,7 +22,7 @@
   - preferabil sub formă de teste unitare, mai ales dacă vorbim de aplicații consolă 
   - crearea de obiecte și apelarea tuturor funcțiilor membru publice în main
   - vor fi adăugate în fișierul `tastatura.txt` DOAR exemple de date de intrare de la tastatură (dacă există); dacă aveți nevoie de date din fișiere, creați alte fișiere separat
-- [ ] tag de `git`: de exemplu `v0.1`
+- [x] tag de `git`: de exemplu `v0.1`
 - [ ] serviciu de integrare continuă (CI); exemplu: GitHub Actions
 
 ## Milestone #2
