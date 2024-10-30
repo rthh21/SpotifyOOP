@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Sunrise
 Midnight Dream
 Ocean Waves
@@ -13,3 +14,20 @@ Silent Whispers
 Moonlight Shadow
 Endless Summer
 Crystal Skies
+=======
+Sunrise
+Midnight Dream
+Ocean Waves
+Lost in Time
+Heartbeat
+Into the Night
+Echoes
+Beyond the Horizon
+Chasing Stars
+Freefall
+Firelight
+Silent Whispers
+Moonlight Shadow
+Endless Summer
+Crystal Skies
+>>>>>>> 38b44b73026b562531440f5fc1c8b02d07521690
