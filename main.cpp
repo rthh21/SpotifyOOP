@@ -151,7 +151,7 @@ class Player{
     //TODO
     // Funtii : PLAY/PAUSE, PREVIOUS/NEXT SONG, VOLUME CHANGER.
     public:
-        Player(const std::string currentSong, int volume, const Playlist& playlist){
+        Player(const std::string& currentSong, int volume, const Playlist& playlist){
             this->currentSong = currentSong;
             this->volume = volume;
             this->playlist = playlist;
