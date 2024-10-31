@@ -48,7 +48,10 @@ class Album{
         }   
         
         friend std::ostream& operator<<(std::ostream& os, const Album& album) {
-        os << "Album Name: " << album.name << ", Genre: " << album.genre<<'\n';
+        os << "Album Name: " << album.name << ", Genre: " << album.genre<<'\n'<<"Songs:\n";
+        for(int i=0; i<album.songs.size(); i++){
+            os <<album.songs[i].title<<'\n';
+        }
         return os;
     }
 };
@@ -122,11 +125,14 @@ class Playlist{
         songs.push_back(song);
     }
     void removeSongPosInPlaylist(int x){
-        songs.erase(songs.begin()+x);
+        songs.erase(songs.begin()+x+1);
     }
     
     friend std::ostream& operator<<(std::ostream& os, const Playlist& playlist){
         os << "Playlist Name: " << playlist.name << ", Genre: " << playlist.createdBy<<'\n';
+        for(int i=0; i<playlist.songs.size(); i++){
+            os <<playlist.songs[i].title<<'\n';
+        }
         return os;
     }
 };
@@ -152,65 +158,38 @@ class Player{
 };
 
 int main() {
-    std::cout<<"Type 'exit' to end the program.";
-    std::string token;
+
     std::ifstream fin("melodii.txt");
     if (!fin.is_open()) {
         std::cerr << "Error: Could not open the file." << std::endl;
-        return 1; // Exit or handle the error appropriately
+        return 1; 
     }
     
-    Player player;
-    while (1) {
-        fin.clear();
-        fin.seekg(0);
-        std::cout<<"\n> ";
-        std::getline(std::cin, token);
-        
-        if (token.find("exit") != std::string::npos) 
-            break;
-        
-        if(token.find("new") != std::string::npos){
-            //TODO
-            if(token.find("song") != std::string::npos){
-                std::string title, genre;
-                int duration;
-                std::cout<<"\nEnter song title: ";
-                std::getline(std::cin, title);
-                std::cout<<"Enter song genre: ";
-                std::getline(std::cin, genre);
-                std::cout<<"Enter song duration: ";
-                std::cin>>duration;
-                Song song1(title,genre,duration);
-                std::cout<<song1;
-            }
-            //TODO
-            
-            if(token.find("playlist") != std::string::npos){
-                std::string playlistName;
-                std::cout<<"\nEnter playlist name: ";
-                std::getline(std::cin, playlistName);
-                Playlist playlist1(playlistName,"rth");
-                
-                std::string x;
-                while(std::getline(fin,x)){
-                    Song song1(x,"",0);
-                    playlist1.addSongInPlaylist(song1);
-                }
-                for(int i=0; i<playlist1.songs.size(); i++)
-                    std::cout<<playlist1.songs[i];
-                player.shuffle(playlist1);
-            }
-        }
-        
-        // if(token.find("shuffle") != std::string::npos){
-        //     std::string playlistName;
-        //     std::cout<<"\nEnter playlist name: ";
-        //     std::getline(std::cin, playlistName);
-        //     Playlist playlist1(playlistName,"rth");
-            
-        // }
-    }
+    Artist TravisScott("Travis Scott", "rap");
+
+    // Create an album
+    Album Utopia("Utopia", "rap");
+    
+    std::string numeMelodie;
+    while(getline(fin, numeMelodie))
+        Utopia.addSongInAlbum(Song(numeMelodie, "rap", 210));
+
+    // Add album to the artist
+    TravisScott.addAlbum(Utopia);
+
+    // Print the first album in TravisScott's collection
+    std::cout << TravisScott.albums[0] << std::endl;
+    
+    TravisScott.addSongToArtist(Song("Sicko Mode","pop",225));
+    std::cout << TravisScott.songs[0] << std::endl;
+    
+    Playlist MyPlaylist("PlaylistRAP","rthh");
+    MyPlaylist.addSongInPlaylist(TravisScott.albums[0].songs[2]);
+    std::cout << MyPlaylist << std::endl;
+    
+    MyPlaylist.removeSongPosInPlaylist(1);
+    std::cout << MyPlaylist << std::endl;
+    
     
     fin.close();
     Helper helper;
