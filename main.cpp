@@ -130,7 +130,7 @@ class Playlist{
     
     friend std::ostream& operator<<(std::ostream& os, const Playlist& playlist){
         os << "Playlist Name: " << playlist.name << ", Genre: " << playlist.createdBy<<'\n';
-        for(int i=0; i<playlist.songs.size(); i++){
+        for(auto i=0; i<playlist.songs.size(); i++){
             os <<playlist.songs[i].title<<'\n';
         }
         return os;
@@ -151,14 +151,15 @@ class Player{
             std::default_random_engine rng(seed);
             std::shuffle(std::begin(playlist.songs), std::end(playlist.songs), rng);
             std::cout<<"\n\nShuffle ON!";
-            for(int i=0; i<playlist.songs.size(); i++)
+            for(auto i=0; i<playlist.songs.size(); i++)
                     std::cout<<playlist.songs[i]<<" ";
             std::cout<<'\n';
         }
 };
 
 int main() {
-
+    Player player;
+    
     std::ifstream fin("melodii.txt");
     if (!fin.is_open()) {
         std::cerr << "Error: Could not open the file." << std::endl;
@@ -185,11 +186,15 @@ int main() {
     
     Playlist MyPlaylist("PlaylistRAP","rthh");
     MyPlaylist.addSongInPlaylist(TravisScott.albums[0].songs[2]);
+    MyPlaylist.addSongInPlaylist(TravisScott.albums[0].songs[5]);
+    MyPlaylist.addSongInPlaylist(TravisScott.albums[0].songs[10]);
+    
     std::cout << MyPlaylist << std::endl;
     
     MyPlaylist.removeSongPosInPlaylist(1);
     std::cout << MyPlaylist << std::endl;
     
+    player.shuffle(MyPlaylist);
     
     fin.close();
     Helper helper;
