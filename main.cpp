@@ -26,6 +26,8 @@ class Song{
             this->duration = duration;
         }
         
+        ~Song(){}
+        
         friend std::ostream& operator<<(std::ostream& os, const Song& song){
             os << "Song name: "<<song.title<<", genre: "<<song.genre<<", and duration: "<<song.duration<<'\n';
             return os;
@@ -47,9 +49,11 @@ class Album{
             songs.push_back(song);
         }   
         
+        ~Album(){}
+        
         friend std::ostream& operator<<(std::ostream& os, const Album& album) {
         os << "Album Name: " << album.name << ", Genre: " << album.genre<<'\n'<<"Songs:\n";
-        for(int i=0; i<album.songs.size(); i++){
+        for(std::size_t i=0; i<album.songs.size(); i++){
             os <<album.songs[i].title<<'\n';
         }
         return os;
@@ -67,6 +71,8 @@ class Artist{
             this->name = name;
             this->genre = genre;
         }
+        
+        ~Artist(){}
         
         void addAlbum(const Album& album){
             albums.push_back(album);
@@ -125,12 +131,12 @@ class Playlist{
         songs.push_back(song);
     }
     void removeSongPosInPlaylist(int x){
-        songs.erase(songs.begin()+x+1);
+        songs.erase(songs.begin()+x);
     }
     
     friend std::ostream& operator<<(std::ostream& os, const Playlist& playlist){
-        os << "Playlist Name: " << playlist.name << ", Genre: " << playlist.createdBy<<'\n';
-        for(auto i=0; i<playlist.songs.size(); i++){
+        os << "Playlist Name: " << playlist.name << ", created by: " << playlist.createdBy<<'\n';
+        for(std::size_t i=0;i<playlist.songs.size(); i++){
             os <<playlist.songs[i].title<<'\n';
         }
         return os;
@@ -144,15 +150,28 @@ class Player{
         Playlist playlist;
     //TODO
     // Funtii : PLAY/PAUSE, PREVIOUS/NEXT SONG, VOLUME CHANGER.
+    public:
+        Player(const std::string currentSong, int volume, const Playlist& playlist){
+            this->currentSong = currentSong;
+            this->volume = volume;
+            this->playlist = playlist;
+        }
+        
+        Player(){
+            this->currentSong = "null";
+            this->volume = 0;
+        }
+        
+        ~Player(){}
     
     public:
-        void shuffle(Playlist playlist){
+        void shuffle(Playlist targetPlaylist){
             unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
             std::default_random_engine rng(seed);
-            std::shuffle(std::begin(playlist.songs), std::end(playlist.songs), rng);
-            std::cout<<"\n\nShuffle ON!";
-            for(auto i=0; i<playlist.songs.size(); i++)
-                    std::cout<<playlist.songs[i]<<" ";
+            std::shuffle(std::begin(targetPlaylist.songs), std::end(targetPlaylist.songs), rng);
+            std::cout<<"\n\nShuffle ON!\n";
+            for(std::size_t i=0; i<targetPlaylist.songs.size(); i++)
+                    std::cout<<targetPlaylist.songs[i];
             std::cout<<'\n';
         }
 };
@@ -187,7 +206,8 @@ int main() {
     Playlist MyPlaylist("PlaylistRAP","rthh");
     MyPlaylist.addSongInPlaylist(TravisScott.albums[0].songs[2]);
     MyPlaylist.addSongInPlaylist(TravisScott.albums[0].songs[5]);
-    MyPlaylist.addSongInPlaylist(TravisScott.albums[0].songs[10]);
+    MyPlaylist.addSongInPlaylist(TravisScott.albums[0].songs[7]);
+    MyPlaylist.addSongInPlaylist(TravisScott.songs[0]);
     
     std::cout << MyPlaylist << std::endl;
     
@@ -195,6 +215,14 @@ int main() {
     std::cout << MyPlaylist << std::endl;
     
     player.shuffle(MyPlaylist);
+    
+    Playlist copiePlaylist(MyPlaylist);
+    std::cout<<copiePlaylist<<std::endl; 
+    Playlist copieEgalPlaylist;
+    copieEgalPlaylist = MyPlaylist;
+    std::cout<<copieEgalPlaylist<<std::endl;
+    
+    
     
     fin.close();
     Helper helper;
