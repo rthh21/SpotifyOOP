@@ -164,7 +164,6 @@ class Player{
     private:
         std::string currentSong;
         int volume;
-        Playlist playlist;
     public:
         Player(const std::string& currentSong, int volume){
             this->currentSong = currentSong;
@@ -189,7 +188,7 @@ class Player{
 
             std::cout << "\n\nShuffle ON!\n";
             for (const auto& song : shuffledSongs) {
-                std::cout << song;
+                std::cout << " " << song;
             }
         }
 };
@@ -204,8 +203,10 @@ int main(){
     
     std::string line;
     std::vector<Artist> artists;
-    std::string name,genre;
+    std::vector<Playlist> playlists;
+    std::string name,genre,aux;
     int artistCounter = -1, number;
+    Player player;
     
     if(ok==0)
     while(std::getline(fin,line)){
@@ -248,6 +249,35 @@ int main(){
             Song song(name,genre);
             artists[artistCounter].addSong(song);
         }
+        
+        if(type == "Playlist"){
+            std::getline(ss,name,':');
+            Playlist playlist(name,"rthh");
+            while(std::getline(fin,line)){
+                std::stringstream ss(line);
+                int nrArtist,nrAlbum,nrSong;
+                std::getline(ss,aux,':');
+                nrArtist = std::stoi(aux)-1;
+                if(line.find('-') != std::string::npos){
+                    std::cout<<line<<'\n';                    
+                    std::getline(ss,aux,'-');
+                    nrAlbum = std::stoi(aux) - 1;
+                    std::vector<Album> auxA = artists[nrArtist].getAlbums();
+                    std::vector<Song> auxS = auxA[nrAlbum].getSongs();
+                    while(std::getline(ss,aux,',')){
+                        nrSong = std::stoi(aux) - 1;
+                        playlist.addSong(auxS[nrSong]);
+                    }
+                } else{
+                    std::vector<Song> auxA = artists[nrArtist].getSongs();
+                    while(std::getline(ss,aux,',')){
+                        nrSong = std::stoi(aux) - 1;
+                        playlist.addSong(auxA[nrSong]);
+                    }
+                }
+            }
+            player.shuffle(playlist);
+        }  
     }
     
     if(ok==0)

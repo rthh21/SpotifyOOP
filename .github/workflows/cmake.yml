@@ -53,9 +53,6 @@ jobs:
 
       - name: Run cppcheck
         uses: ./.github/actions/cppcheck
-
-      - name: Run Cppcheck
-        run: cppcheck --enable=warning,information --error-exitcode=1 .
       
   clang-tidy:
     name: "Clang-Tidy"
