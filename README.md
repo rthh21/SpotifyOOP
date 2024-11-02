@@ -16,7 +16,7 @@ Aplicatia consta intr-un MP3 player in care poti creea playlisturi, poti adauga 
 - [x] constructori de inițializare cu parametri
 - [x] pentru o aceeași (singură) clasă: constructor de copiere, `operator=` de copiere, destructor
 - [x] `operator<<` pentru toate clasele pentru afișare (std::ostream)
-- [ ] cât mai multe `const` (unde este cazul)
+- [x] cât mai multe `const` (unde este cazul)
 - [x] implementarea a minim 3 funcții membru publice pentru funcționalități specifice temei alese, dintre care cel puțin 1-2 funcții mai complexe
   - nu doar citiri/afișări sau adăugat/șters elemente într-un/dintr-un vector
 - [x] scenariu de utilizare a claselor definite:

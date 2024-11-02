@@ -24,6 +24,6 @@ Song:Stargazing,rap,220
 Artist:The Weeknd
 Song:Blinding Lights
 
-Playlist:MyPlaylist
+Playlist:rthh's playlist
 1:1-4,6,8
 2:1
