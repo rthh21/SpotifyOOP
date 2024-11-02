@@ -9,78 +9,89 @@
 #include <chrono>
 
 class Song{
-    public:
+    private:
         std::string title;
         std::string genre;
         int duration;
-        
+    public:
         Song(){
             this->title = "null";
             this->genre = "null";
             this->duration = 0;
         }
-        
+        Song(const std::string& title, const std::string& genre){
+            this->title = title;
+            this->genre = genre;
+            this->duration = 0;
+        }
         Song(const std::string& title, const std::string& genre, const int duration){
             this->title = title;
             this->genre = genre;
             this->duration = duration;
         }
-        
         ~Song(){}
         
-        friend std::ostream& operator<<(std::ostream& os, const Song& song){
-            os << "Song name: "<<song.title<<", genre: "<<song.genre<<", and duration: "<<song.duration<<'\n';
+        std::string getTitle() const { return this->title; }
+        std::string getGenre() const { return genre; }
+        int getDuration() const { return duration; }
+        
+        friend std::ostream& operator<<(std::ostream& os, const Song& auxSong){
+            os << "Song name: "<<auxSong.title<<", genre: "<<auxSong.genre<<", and duration: "<<auxSong.duration<<'\n';
             return os;
         }
 };
 
 class Album{
-    public:
+    private:
         std::string name;
         std::string genre;
         std::vector<Song> songs;
+    public:
+        void addSong(const Song& song){
+            songs.push_back(song);
+        }
         
         Album(const std::string& name, const std::string& genre){
-            this->name = name;
-            this->genre = genre;
+                this->name = name;
+                this->genre = genre;
         }
-        
-        void addSongInAlbum(const Song &song){
-            songs.push_back(song);
-        }   
-        
         ~Album(){}
         
-        friend std::ostream& operator<<(std::ostream& os, const Album& album) {
-        os << "Album Name: " << album.name << ", Genre: " << album.genre<<'\n'<<"Songs:\n";
-        for(std::size_t i=0; i<album.songs.size(); i++){
-            os <<album.songs[i].title<<'\n';
+        std::string getName() const { return name; }
+        std::string getGenre() const { return genre; }
+        const std::vector<Song>& getSongs() const { return songs; }
+        
+        friend std::ostream& operator<<(std::ostream& os, const Album& auxAlbum){
+            os << "Album Name: " << auxAlbum.name << ", Genre: " << auxAlbum.genre<<'\n';
+            return os;
         }
-        return os;
-    }
 };
 
 class Artist{
-    public:
+    private:
         std::string name;
         std::string genre;
         std::vector<Album> albums;
         std::vector<Song> songs;
+    public:
+        void addAlbum(const Album& album){
+            albums.push_back(album);
+        }
+        void addSong(const Song& song){
+            songs.push_back(song);
+        }
+        
         
         Artist(const std::string& name, const std::string& genre){
             this->name = name;
             this->genre = genre;
         }
-        
         ~Artist(){}
-        
-        void addAlbum(const Album& album){
-            albums.push_back(album);
-        }
-        
-        void addSongToArtist(const Song& song){
-            songs.push_back(song);
-        }
+    
+        std::string getName() const { return name; }
+        std::string getGenre() const { return genre; }
+        const std::vector<Album>& getAlbums() const { return albums; }
+        const std::vector<Song>& getSongs() const { return songs; }
         
         friend std::ostream& operator<<(std::ostream& os, const Artist& artist){
             os << "Artist Name: " << artist.name << ", Genre: " << artist.genre<<'\n';
@@ -89,58 +100,64 @@ class Artist{
 };
 
 class Playlist{
-    public:
+    private:
         std::string name;
         std::string createdBy;
         std::vector<Song> songs;
-        
-    //constructor
-    Playlist(){
-        this->name = "null";
-        this->createdBy = "null";
-    }
-    
-    Playlist(const std::string& name, const std::string& createdBy){
-        this->name = name;
-        this->createdBy = createdBy;
-    }
-    
-    //contructor copy
-    Playlist(const Playlist& CpyPlaylist){
-        this->name = CpyPlaylist.name;
-        this->createdBy = CpyPlaylist.createdBy;
-        this->songs = CpyPlaylist.songs;
-        std::cout<<"Copy constructor for playlist: "<<this->name<<std::endl;
-    }
-    
-    //destructor
-    ~Playlist(){
-        std::cout<<"Destructor for playlist.\n";
-    }
-    
-    //Operator '='
-    Playlist& operator=(const Playlist& fPlaylist){
-        this->name = fPlaylist.name;
-        this->createdBy = fPlaylist.createdBy;
-        this->songs = fPlaylist.songs;
-        std::cout<<" Succesfully '=' !\n";
-        return *this;
-    }
-    
-    void addSongInPlaylist(const Song& song){
-        songs.push_back(song);
-    }
-    void removeSongPosInPlaylist(int x){
-        songs.erase(songs.begin()+x);
-    }
-    
-    friend std::ostream& operator<<(std::ostream& os, const Playlist& playlist){
-        os << "Playlist Name: " << playlist.name << ", created by: " << playlist.createdBy<<'\n';
-        for(std::size_t i=0;i<playlist.songs.size(); i++){
-            os <<playlist.songs[i].title<<'\n';
+    public:
+        void addSong(const Song& song){
+            songs.push_back(song);
         }
-        return os;
-    }
+        void addAlbum(const Album& album){
+            for(const auto& song : album.getSongs()){
+                songs.push_back(song); 
+            }
+        }
+        void removeSongPos(int x){
+            songs.erase(songs.begin()+x);
+        }
+        void showSongs(){
+            for(const auto& song : this->getSongs()){
+                std::cout << song.getTitle() << "\n";
+            }
+        }
+        
+        Playlist(){
+            this->name = "null";
+            this->createdBy = "null";
+        }
+        Playlist(const std::string& name, const std::string& createdBy){
+            this->name = name;
+            this->createdBy = createdBy;
+        }
+        
+        Playlist(const Playlist& CpyPlaylist){    /// COPY CONSTRUCTOR
+            this->name = CpyPlaylist.name;
+            this->createdBy = CpyPlaylist.createdBy;
+            this->songs = CpyPlaylist.songs;
+            std::cout<<"Copy constructor for playlist: "<<this->name<<std::endl;
+        }
+        
+        ~Playlist(){
+            std::cout<<"Destructor for playlist.\n";
+        }
+        
+        Playlist& operator=(const Playlist& fPlaylist){ /// OP '='
+            this->name = fPlaylist.name;
+            this->createdBy = fPlaylist.createdBy;
+            this->songs = fPlaylist.songs;
+            std::cout<<" Succesfully '=' !\n";
+            return *this;
+        }
+        
+        std::string getName() const { return name; }
+        std::string getCreatedBy() const { return createdBy; }
+        const std::vector<Song>& getSongs() const { return songs; }
+        
+        friend std::ostream& operator<<(std::ostream& os, const Playlist& playlist){
+            os << "Playlist Name: " << playlist.name << ", created by: " << playlist.createdBy<<'\n';
+            return os;
+        }
 };
 
 class Player{
@@ -148,13 +165,10 @@ class Player{
         std::string currentSong;
         int volume;
         Playlist playlist;
-    //TODO
-    // Funtii : PLAY/PAUSE, PREVIOUS/NEXT SONG, VOLUME CHANGER.
     public:
-        Player(const std::string& currentSong, int volume, const Playlist& playlist){
+        Player(const std::string& currentSong, int volume){
             this->currentSong = currentSong;
             this->volume = volume;
-            this->playlist = playlist;
         }
         
         Player(){
@@ -163,70 +177,93 @@ class Player{
         }
         
         ~Player(){}
-    
-    public:
-        void shuffle(Playlist targetPlaylist){
+        
+        std::string getCurrentSong() const { return currentSong; }
+        int getVolume() const { return volume; }
+        
+        void shuffle(const Playlist& targetPlaylist) {
+            std::vector<Song> shuffledSongs = targetPlaylist.getSongs();  // Use getter to access songs
             unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
             std::default_random_engine rng(seed);
-            std::shuffle(std::begin(targetPlaylist.songs), std::end(targetPlaylist.songs), rng);
-            std::cout<<"\n\nShuffle ON!\n";
-            for(std::size_t i=0; i<targetPlaylist.songs.size(); i++)
-                    std::cout<<targetPlaylist.songs[i];
-            std::cout<<'\n';
+            std::shuffle(std::begin(shuffledSongs), std::end(shuffledSongs), rng);
+
+            std::cout << "\n\nShuffle ON!\n";
+            for (const auto& song : shuffledSongs) {
+                std::cout << song;
+            }
         }
 };
 
-int main() {
-    Player player;
+int main(){
     
-    std::ifstream fin("melodii.txt");
+    std::ifstream fin("tastatura.txt");
     if (!fin.is_open()) {
         std::cerr << "Error: Could not open the file." << std::endl;
         return 1; 
     }
     
-    Artist TravisScott("Travis Scott", "rap");
-
-    // Create an album
-    Album Utopia("Utopia", "rap");
+    std::string line;
+    std::vector<Artist> artists;
+    std::string name,genre;
+    int artistCounter = -1, number;
     
-    std::string numeMelodie;
-    while(getline(fin, numeMelodie))
-        Utopia.addSongInAlbum(Song(numeMelodie, "rap", 210));
-
-    // Add album to the artist
-    TravisScott.addAlbum(Utopia);
-
-    // Print the first album in TravisScott's collection
-    std::cout << TravisScott.albums[0] << std::endl;
+    while(std::getline(fin,line)){
+        std::stringstream ss(line);
+        std::string type;
+        std::getline(ss,type,':');
+        
+        if(type == "Artist"){
+            std::getline(ss,name,',');
+            std::getline(ss,genre);
+            Artist artist(name,genre);
+            artists.push_back(artist);
+            artistCounter++;
+        }
+        
+        if(type == "Album"){
+            std::getline(ss,name,',');
+            std::getline(ss,genre,',');
+            std::string numberString;
+            std::getline(ss,numberString);
+            number = std::stoi(numberString);
+            
+            Album album(name,genre);
+            
+            for(int i = 0; i < number; i++){
+                std::getline(fin,line);
+                std::stringstream sss(line); // sss = ss song
+                std::getline(sss,name,',');
+                Song song(name,genre);
+                album.addSong(song);
+            }
+            artists[artistCounter].addAlbum(album);
+        }
+        
+        if(type == "Song"){
+            std::string lengthString;
+            std::getline(ss,name,',');
+            std::getline(ss,genre,',');
+            std::getline(ss,lengthString,'\n');
+            Song song(name,genre);
+            artists[artistCounter].addSong(song);
+        }
+    }
     
-    TravisScott.addSongToArtist(Song("Sicko Mode","pop",225));
-    std::cout << TravisScott.songs[0] << std::endl;
+    for(const auto& artist : artists){
+        std::cout << std::endl;
+        std::cout << artist;
+        for(const auto& album : artist.getAlbums()){
+            std::cout << "   " << album;
+            for(const auto& song : album.getSongs()){
+                std::cout << "      " << song;
+        }
+        }
+        for(const auto& song : artist.getSongs()){
+            std::cout << "   " << song;
+        }
+    }
     
-    Playlist MyPlaylist("PlaylistRAP","rthh");
-    MyPlaylist.addSongInPlaylist(TravisScott.albums[0].songs[2]);
-    MyPlaylist.addSongInPlaylist(TravisScott.albums[0].songs[5]);
-    MyPlaylist.addSongInPlaylist(TravisScott.albums[0].songs[7]);
-    MyPlaylist.addSongInPlaylist(TravisScott.songs[0]);
-    
-    std::cout << MyPlaylist << std::endl;
-    
-    MyPlaylist.removeSongPosInPlaylist(1);
-    std::cout << MyPlaylist << std::endl;
-    
-    player.shuffle(MyPlaylist);
-    
-    Playlist copiePlaylist(MyPlaylist);
-    std::cout<<copiePlaylist<<std::endl; 
-    Playlist copieEgalPlaylist;
-    copieEgalPlaylist = MyPlaylist;
-    std::cout<<copieEgalPlaylist<<std::endl;
-    
-    
-    
-    fin.close();
     Helper helper;
     helper.help();
-    
     return 0;
 }
