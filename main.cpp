@@ -195,11 +195,11 @@ class Player{
 };
 
 int main(){
-    
+    int ok = 0;
     std::ifstream fin("tastatura.txt");
     if (!fin.is_open()) {
-        std::cerr << "Error: Could not open the file." << std::endl;
-        return 1; 
+        std::cout << "Error: Could not open the file." << std::endl;
+        ok = 1; 
     }
     
     std::string line;
@@ -207,6 +207,7 @@ int main(){
     std::string name,genre;
     int artistCounter = -1, number;
     
+    if(ok==0)
     while(std::getline(fin,line)){
         std::stringstream ss(line);
         std::string type;
@@ -249,6 +250,7 @@ int main(){
         }
     }
     
+    if(ok==0)
     for(const auto& artist : artists){
         std::cout << std::endl;
         std::cout << artist;
