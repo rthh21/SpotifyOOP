@@ -172,7 +172,7 @@ class Player{
         //     this->volume = volume;
         // }
         
-        Player(const int volume){
+        explicit Player(const int volume){
             this->volume = volume;
         }
         
@@ -314,9 +314,9 @@ int main(){
     std::cout << "\nVolum: " << player.getVolume();
     
     Song songtest("test","test",202);
-    Album albumtest("test","test");
+    Album albumtest("test","jazz");
     std::cout << "\ngetDuration: " << songtest.getDuration() << '\n';
-    std::cout << "\ngetGenre: " << albumtest.getGenre() << '\n';
+    std::cout << "getGenre: " << albumtest.getGenre() << '\n';
     
     Helper helper;
     helper.help();
