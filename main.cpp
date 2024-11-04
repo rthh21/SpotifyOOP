@@ -120,7 +120,7 @@ class Playlist{
             int i = 0;
             for(const auto& song : this->getSongs()){
                 i++;
-                std::cout << i << ". " << song.getTitle() << "\n";
+                std::cout << i << ". " << song.getTitle() << '\n';
             }
         }
         
@@ -137,7 +137,7 @@ class Playlist{
             this->name = CpyPlaylist.name;
             this->createdBy = CpyPlaylist.createdBy;
             this->songs = CpyPlaylist.songs;
-            std::cout<<"Copy constructor for playlist: "<<this->name<<std::endl;
+            std::cout<<"Copy constructor for playlist: "<<this->name<<'\n';
         }
         
         ~Playlist(){
@@ -164,25 +164,28 @@ class Playlist{
 
 class Player{
     private:
-        std::string currentSong;
+        //std::string currentSong;
         int volume;
     public:
-        Player(const std::string& currentSong, const int volume){
-            this->currentSong = currentSong;
+        // Player(const std::string& currentSong, const int volume){
+        //     this->currentSong = currentSong;
+        //     this->volume = volume;
+        // }
+        
+        Player(const int volume){
             this->volume = volume;
         }
         
         Player(){
-            this->currentSong = "null";
             this->volume = 0;
         }
         
         ~Player(){}
         
-        const std::string& getCurrentSong() const { return currentSong; }
+        //const std::string& getCurrentSong() const { return currentSong; }
         const int& getVolume() const { return volume; }
         
-        void shuffle(const Playlist targetPlaylist) {
+        void shuffle(const Playlist& targetPlaylist) {
             int i = 0;
             std::vector<Song> shuffledSongs = targetPlaylist.getSongs();  // Use getter to access songs
             unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
@@ -192,45 +195,42 @@ class Player{
             std::cout << "\n\nShuffle ON!\n";
             for (const auto& song : shuffledSongs) {
                 i++;
-                std::cout << i << ". " << song.getTitle() << "\n";
-
+                std::cout << i << ". " << song.getTitle() << '\n';
             }
         }
 };
 
 int main(){
-    int ok = 0;
     std::ifstream fin("tastatura.txt");
     if (!fin.is_open()) {
-        std::cout << "Error: Could not open the file." << std::endl;
-        ok = 1; 
+        std::cerr << "Error: Could not open the file." << '\n';
+        return -1; 
     }
     
-    std::string line;
     std::vector<Artist> artists;
     std::vector<Playlist> playlists;
-    std::string name,genre,aux;
-    int artistCounter = -1, number;
-    Player player;
+    Player player(50);
     
-    if(ok==0)
+    std::string line;
     while(std::getline(fin,line)){
         std::stringstream ss(line);
         std::string type;
         std::getline(ss,type,':');
         
         if(type == "Artist"){
+            std::string name, genre;
             std::getline(ss,name,',');
             std::getline(ss,genre);
             Artist artist(name,genre);
             artists.push_back(artist);
-            artistCounter++;
         }
         
         if(type == "Album"){
+            std::string name, genre;
             std::getline(ss,name,',');
             std::getline(ss,genre,',');
             std::string numberString;
+            int number;
             std::getline(ss,numberString);
             number = std::stoi(numberString);
             
@@ -243,37 +243,43 @@ int main(){
                 Song song(name,genre);
                 album.addSong(song);
             }
-            artists[artistCounter].addAlbum(album);
+            artists.back().addAlbum(album);
         }
         
         if(type == "Song"){
-            std::string lengthString;
+            std::string name, genre, lengthString;
             std::getline(ss,name,',');
             std::getline(ss,genre,',');
             std::getline(ss,lengthString,'\n');
             Song song(name,genre);
-            artists[artistCounter].addSong(song);
+            artists.back().addSong(song);
+
         }
         
         if(type == "Playlist"){
+            std::string name;
             std::getline(ss,name,':');
             Playlist playlist(name,"rthh");
             while(std::getline(fin,line)){  
                 std::stringstream ssp(line);
-                int nrArtist,nrAlbum,nrSong;
+                int nrArtist;
+                std::string aux;
                 std::getline(ssp,aux,':');
                 nrArtist = std::stoi(aux)-1;
-                if(line.find('-') != std::string::npos){             
+                if(line.find('-') != std::string::npos){  
+                    int nrAlbum;
                     std::getline(ssp,aux,'-');
                     nrAlbum = std::stoi(aux) - 1;
                     std::vector<Album> auxA = artists[nrArtist].getAlbums();
                     std::vector<Song> auxS = auxA[nrAlbum].getSongs();
+                    int nrSong;
                     while(std::getline(ssp,aux,',')){
                         nrSong = std::stoi(aux) - 1;
                         playlist.addSong(auxS[nrSong]);
                     }
                 } else {
                     std::vector<Song> auxA = artists[nrArtist].getSongs();
+                    int nrSong;
                     while(std::getline(ssp,aux,',')){
                         nrSong = std::stoi(aux) - 1;
                         playlist.addSong(auxA[nrSong]);
@@ -284,27 +290,31 @@ int main(){
         }  
     }
     
-    if(ok==0)
+
     for(const auto& artist : artists){
-        std::cout << std::endl;
+        std::cout << '\n';
         std::cout << artist;
         for(const auto& album : artist.getAlbums()){
             std::cout << "   " << album;
             for(const auto& song : album.getSongs()){
                 std::cout << "      " << song;
-        }
+            }
         }
         for(const auto& song : artist.getSongs()){
             std::cout << "   " << song;
         }
-    
-    std::cout << "----------------------------\nPlaylist: " << playlists[0].getName() << "\n";
+    }
+    std::cout << "----------------------------\nPlaylist: " << playlists[0].getName() << " by " << playlists[0].getCreatedBy() << '\n';
     playlists[0].showSongs();
     player.shuffle(playlists[0]);
-    std::cout << "\nPlaylist: "<< playlists[0].getName() << "\n";
+    std::cout << "\nPlaylist: "<< playlists[0].getName() << '\n';
     playlists[0].removeSongPos(1);
     playlists[0].showSongs();        
-    }
+    
+    std::cout << "\nVolum: " << player.getVolume();
+    
+    Song songtest("test","test",202);
+    std::cout << "\ngetDuration: " << songtest.getDuration() << '\n';
     
     Helper helper;
     helper.help();
