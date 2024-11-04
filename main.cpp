@@ -272,15 +272,15 @@ int main(){
                     nrAlbum = std::stoi(aux) - 1;
                     std::vector<Album> auxA = artists[nrArtist].getAlbums();
                     std::vector<Song> auxS = auxA[nrAlbum].getSongs();
-                    int nrSong;
                     while(std::getline(ssp,aux,',')){
+                        int nrSong;
                         nrSong = std::stoi(aux) - 1;
                         playlist.addSong(auxS[nrSong]);
                     }
                 } else {
                     std::vector<Song> auxA = artists[nrArtist].getSongs();
-                    int nrSong;
                     while(std::getline(ssp,aux,',')){
+                        int nrSong;
                         nrSong = std::stoi(aux) - 1;
                         playlist.addSong(auxA[nrSong]);
                     }
@@ -314,7 +314,9 @@ int main(){
     std::cout << "\nVolum: " << player.getVolume();
     
     Song songtest("test","test",202);
+    Album albumtest("test","test");
     std::cout << "\ngetDuration: " << songtest.getDuration() << '\n';
+    std::cout << "\ngetGenre: " << albumtest.getGenre() << '\n';
     
     Helper helper;
     helper.help();
