@@ -31,9 +31,9 @@ class Song{
         }
         ~Song(){}
         
-        std::string getTitle() const { return this->title; }
-        std::string getGenre() const { return genre; }
-        int getDuration() const { return duration; }
+        const std::string& getTitle() const { return this->title; }
+        const std::string& getGenre() const { return genre; }
+        const int& getDuration() const { return duration; }
         
         friend std::ostream& operator<<(std::ostream& os, const Song& auxSong){
             os << "Song name: "<<auxSong.title<<", genre: "<<auxSong.genre<<", and duration: "<<auxSong.duration<<'\n';
@@ -57,8 +57,8 @@ class Album{
         }
         ~Album(){}
         
-        std::string getName() const { return name; }
-        std::string getGenre() const { return genre; }
+        const std::string& getName() const { return name; }
+        const std::string& getGenre() const { return genre; }
         const std::vector<Song>& getSongs() const { return songs; }
         
         friend std::ostream& operator<<(std::ostream& os, const Album& auxAlbum){
@@ -88,8 +88,8 @@ class Artist{
         }
         ~Artist(){}
     
-        std::string getName() const { return name; }
-        std::string getGenre() const { return genre; }
+        const std::string& getName() const { return name; }
+        const std::string& getGenre() const { return genre; }
         const std::vector<Album>& getAlbums() const { return albums; }
         const std::vector<Song>& getSongs() const { return songs; }
         
@@ -152,8 +152,8 @@ class Playlist{
             return *this;
         }
         
-        std::string getName() const { return name; }
-        std::string getCreatedBy() const { return createdBy; }
+        const std::string& getName() const { return name; }
+        const std::string& getCreatedBy() const { return createdBy; }
         const std::vector<Song>& getSongs() const { return songs; }
         
         friend std::ostream& operator<<(std::ostream& os, const Playlist& playlist){
@@ -179,8 +179,8 @@ class Player{
         
         ~Player(){}
         
-        std::string getCurrentSong() const { return currentSong; }
-        int getVolume() const { return volume; }
+        const std::string& getCurrentSong() const { return currentSong; }
+        const int& getVolume() const { return volume; }
         
         void shuffle(const Playlist targetPlaylist) {
             int i = 0;
@@ -297,14 +297,14 @@ int main(){
         for(const auto& song : artist.getSongs()){
             std::cout << "   " << song;
         }
-    }
+    
     std::cout << "----------------------------\nPlaylist: " << playlists[0].getName() << "\n";
     playlists[0].showSongs();
     player.shuffle(playlists[0]);
     std::cout << "\nPlaylist: "<< playlists[0].getName() << "\n";
     playlists[0].removeSongPos(1);
-    playlists[0].showSongs();
-    
+    playlists[0].showSongs();        
+    }
     
     Helper helper;
     helper.help();
