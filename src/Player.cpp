@@ -1,4 +1,4 @@
-#include "..\headers\Player.hpp"
+#include "Player.hpp"
 
 Player::Player(int volume) : volume(volume) {}
 

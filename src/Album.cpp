@@ -1,4 +1,4 @@
-#include "..\headers\Album.hpp"
+#include "Album.hpp"
 
 
 Album::Album(const std::string& name, const std::string& genre)

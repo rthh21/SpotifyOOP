@@ -12,6 +12,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 include(cmake/Options.cmake)
+include_directories(${PROJECT_SOURCE_DIR}/headers)
+include_directories(${PROJECT_SOURCE_DIR}/src)
 
 ###############################################################################
 

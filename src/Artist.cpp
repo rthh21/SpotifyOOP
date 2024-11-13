@@ -1,4 +1,4 @@
-#include "..\headers\Artist.hpp"
+#include "Artist.hpp"
 
 Artist::Artist(const std::string& name, const std::string& genre)
     : name(name), genre(genre) {}

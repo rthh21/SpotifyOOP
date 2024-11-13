@@ -1,4 +1,4 @@
-#include "..\headers\Song.hpp"
+#include "Song.hpp"
 
 
 Song::Song() : title("null"), genre("null"), duration(0) {}

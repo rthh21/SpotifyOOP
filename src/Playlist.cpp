@@ -1,4 +1,4 @@
-#include "..\headers\Playlist.hpp"
+#include "Playlist.hpp"
 #include <iostream>
 
 Playlist::Playlist() : name("null"), createdBy("null") {}
