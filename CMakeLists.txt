@@ -45,6 +45,11 @@ include(cmake/Options.cmake)
 add_executable(${PROJECT_NAME}
     main.cpp
     generated/src/Helper.cpp
+    src/Song.cpp
+    src/Artist.cpp
+    src/Album.cpp
+    src/Player.cpp
+    src/Playlist.cpp
 )
 
 include(cmake/CompilerFlags.cmake)
