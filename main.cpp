@@ -4,11 +4,11 @@
 #include <vector>
 #include <cstring>
 #include <fstream>
-#include "headers\Song.hpp"
-#include "headers\Album.hpp"
-#include "headers\Artist.hpp"
-#include "headers\Playlist.hpp"
-#include "headers\Player.hpp"
+#include "Song.hpp"
+#include "Album.hpp"
+#include "Artist.hpp"
+#include "Playlist.hpp"
+#include "Player.hpp"
 
 int main(){
     std::ifstream fin("tastatura.txt");
