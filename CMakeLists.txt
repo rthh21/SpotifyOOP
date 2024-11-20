@@ -14,7 +14,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 include(cmake/Options.cmake)
 include_directories(${PROJECT_SOURCE_DIR}/headers)
 include_directories(${PROJECT_SOURCE_DIR}/src)
-include_directories(${SFML_SOURCE_DIR}/include)
+include_directories(${PROJECT_SOURCE_DIR}/install_dir/include/SFML)
 
 ###############################################################################
 
