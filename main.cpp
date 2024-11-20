@@ -9,7 +9,7 @@
 #include "Artist.hpp"
 #include "Playlist.hpp"
 #include "Player.hpp"
-#include "SFML/Window.hpp"
+#include "Window.hpp"
 
 int main(){
  
