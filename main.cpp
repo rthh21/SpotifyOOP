@@ -9,8 +9,10 @@
 #include "Artist.hpp"
 #include "Playlist.hpp"
 #include "Player.hpp"
+#include "SFML/Window.hpp"
 
 int main(){
+ 
     std::ifstream fin("tastatura.txt");
     if (!fin.is_open()) {
         std::cerr << "Error: Could not open the file." << '\n';
