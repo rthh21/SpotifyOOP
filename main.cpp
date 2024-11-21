@@ -125,9 +125,8 @@ int main(){
     
     std::cout << "\nVolum: " << player.getVolume();
     
-    Song songtest("test","test",202);
+    Song songtest("test","test");
     Album albumtest("test","jazz");
-    std::cout << "\ngetDuration: " << songtest.getDuration() << '\n';
     std::cout << "getGenre: " << albumtest.getGenre() << '\n';
     
     Helper helper;

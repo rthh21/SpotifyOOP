@@ -13,8 +13,8 @@ class Player {
     private:
         int volume;
     public:
-        explicit Player(int volume);
         Player();
+        explicit Player(int volume);
         ~Player();
         
         const int& getVolume() const;

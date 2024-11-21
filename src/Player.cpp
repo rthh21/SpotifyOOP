@@ -1,8 +1,8 @@
 #include "Player.hpp"
 
-Player::Player(int volume) : volume(volume) {}
-
 Player::Player() : volume(0) {}
+
+Player::Player(int volume) : volume(volume) {}
 
 Player::~Player() {}
 
