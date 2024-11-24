@@ -9,10 +9,13 @@
 #include "Artist.hpp"
 #include "Playlist.hpp"
 #include "Player.hpp"
+
+#define SDL_MAIN_HANDLED // fix pentru "main"
+
 #include "SDL.h"
 #include "SDL_mixer.h"
 
-int WinMain(){
+int main(){
 
   if (SDL_Init(SDL_INIT_AUDIO) < 0) {
         std::cerr << "SDL_Init(SDL_INIT_AUDIO) failed: " << SDL_GetError() << std::endl;

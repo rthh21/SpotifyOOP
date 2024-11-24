@@ -59,7 +59,7 @@ include(cmake/CompilerFlags.cmake)
 
 # use SYSTEM so cppcheck and clang-tidy do not report warnings from these directories
 target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE generated/include)
-target_include_directories(${PROJECT_NAME} PRIVATE libs/SDL2/include libs/SDL2_Mixer/include)
+target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE libs/SDL2/include libs/SDL2_Mixer/include)
 ###############################################################################
 target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE headers)
 target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE src)
@@ -73,10 +73,6 @@ target_link_libraries(${PROJECT_NAME} PRIVATE SDL2.dll SDL2_mixer.dll)
 # target_link_libraries(${PROJECT_NAME} <SomeLib>)
 
 ###############################################################################
-
-# Force console application instead of GUI app for MinGW
-set(CMAKE_EXE_LINKER_FLAGS "-mconsole")
-
 
 # copy binaries to "bin" folder; these are uploaded as artifacts on each release
 # DESTINATION_DIR is set as "bin" in cmake/Options.cmake:6
