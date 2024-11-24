@@ -9,10 +9,58 @@
 #include "Artist.hpp"
 #include "Playlist.hpp"
 #include "Player.hpp"
-#include "Window.hpp"
+#include "SDL.h"
+#include "SDL_mixer.h"
 
-int main(){
- 
+int WinMain(){
+
+  if (SDL_Init(SDL_INIT_AUDIO) < 0) {
+        std::cerr << "SDL_Init(SDL_INIT_AUDIO) failed: " << SDL_GetError() << std::endl;
+        return -1;
+    }
+
+    if (Mix_Init(MIX_INIT_FLAC) == 0) {
+        std::cerr << "Mix_Init failed: " << Mix_GetError() << std::endl;
+        SDL_Quit();
+        return -1;
+    }
+
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024) == -1) {
+        std::cerr << "Mix_OpenAudio failed: " << Mix_GetError() << std::endl;
+        Mix_Quit();
+        SDL_Quit();
+        return -1;
+    }
+
+    const char* filename = "music/stargazing.flac";
+    Mix_Music* music = Mix_LoadMUS(filename);
+    if (!music) {
+        std::cerr << "Mix_LoadMUS failed: " << Mix_GetError() << std::endl;
+        Mix_CloseAudio();
+        Mix_Quit();
+        SDL_Quit();
+        return -1;
+    }
+
+    if (Mix_PlayMusic(music, -1) == -1) {
+        std::cerr << "Mix_PlayMusic failed: " << Mix_GetError() << std::endl;
+        Mix_FreeMusic(music);
+        Mix_CloseAudio();
+        Mix_Quit();
+        SDL_Quit();
+        return -1;
+    }
+
+    std::cout << "Playing FLAC file. Press any key to quit...\n";
+    std::cin.get();
+
+    // Clean up and quit
+    Mix_FreeMusic(music);
+    Mix_CloseAudio();
+    Mix_Quit();
+    SDL_Quit();
+
+//----------------------------------------------------------------------------------
     std::ifstream fin("tastatura.txt");
     if (!fin.is_open()) {
         std::cerr << "Error: Could not open the file." << '\n';
