@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.26)
+cmake_minimum_required(VERSION 3.28)
 
 # NOTE: update executable name in .github/workflows/cmake.yml:25 when changing executable name in this file
 # for now, the project name is used as the executable name
@@ -66,7 +66,7 @@ target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE src)
 target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE music)
 
 target_link_directories(${PROJECT_NAME} PRIVATE libs/SDL2/lib libs/SDL2_Mixer/lib)
-target_link_libraries(${PROJECT_NAME} PRIVATE SDL2.dll SDL2_mixer.dll)
+target_link_libraries(${PROJECT_NAME} PRIVATE SDL2 SDL2_mixer)
 # target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE ext/<SomeHppLib>/include)
 # target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE ${<SomeLib>_SOURCE_DIR}/include)
 # target_link_directories(${PROJECT_NAME} PRIVATE ${<SomeLib>_BINARY_DIR}/lib)

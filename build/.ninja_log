@@ -1,13 +1,9 @@
 # ninja log v5
-20	299	7541623642428245	build.ninja	ef24b79a752eba3a
-18	149	7541621106719630	CMakeFiles/oop.dir/generated/src/Helper.cpp.obj	554066ca14dbda80
-44	1635	7541621121605524	CMakeFiles/oop.dir/src/Playlist.cpp.obj	8bab5885ea62de27
-18	31	0	clean	c0505d4284e53968
-23	1294	7541621118158419	CMakeFiles/oop.dir/src/Song.cpp.obj	8f423c9fd93cdbe1
-3123	3443	7541621138084367	oop.exe	4c6a11bebf0995b3
-33	1463	7541621119862819	CMakeFiles/oop.dir/src/Album.cpp.obj	b5a189e0959d0f9e
-28	1552	7541621120770665	CMakeFiles/oop.dir/src/Artist.cpp.obj	aa0e32ac55580bea
-39	2406	7541621129314156	CMakeFiles/oop.dir/src/Player.cpp.obj	afc1a5d18fbccb4e
-19	2171	7541623602379566	CMakeFiles/oop.dir/main.cpp.obj	5903a105bf282903
-17	301	7541623642428245	build.ninja	ef24b79a752eba3a
-22	331	7541623644486565	oop.exe	4c6a11bebf0995b3
+8	136	7541631629946808	CMakeFiles/oop.dir/generated/src/Helper.cpp.obj	554066ca14dbda80
+13	1072	7541631639316380	CMakeFiles/oop.dir/src/Song.cpp.obj	8f423c9fd93cdbe1
+21	1267	7541631641279549	CMakeFiles/oop.dir/src/Album.cpp.obj	b5a189e0959d0f9e
+17	1360	7541631642216591	CMakeFiles/oop.dir/src/Artist.cpp.obj	aa0e32ac55580bea
+31	1390	7541631642527194	CMakeFiles/oop.dir/src/Playlist.cpp.obj	8bab5885ea62de27
+25	2188	7541631650506832	CMakeFiles/oop.dir/src/Player.cpp.obj	afc1a5d18fbccb4e
+4	2952	7541631658135687	CMakeFiles/oop.dir/main.cpp.obj	5903a105bf282903
+2953	3334	7541631659807841	oop.exe	4c6a11bebf0995b3
