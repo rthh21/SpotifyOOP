@@ -4,7 +4,6 @@
 #include <string>
 #include "AudioFile.hpp"
 
-
 class FLAC : public AudioFile{
 private:
     int compression; // level of compressiong

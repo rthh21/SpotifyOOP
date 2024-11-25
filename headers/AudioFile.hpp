@@ -14,11 +14,9 @@ public:
     
     void play_info() const;
     
-    
     virtual void play() const = 0;
     virtual void display() const = 0;
     virtual AudioFile* clone() const = 0;
-    //TODO:
 };
 
 #endif

@@ -59,9 +59,10 @@ include(cmake/CompilerFlags.cmake)
 target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE generated/include)
 target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE libs/SDL2/include libs/SDL2_Mixer/include)
 ###############################################################################
-target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE headers)
-target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE src)
-target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE music)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/headers)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/music)
+
 
 target_link_directories(${PROJECT_NAME} PRIVATE libs/SDL2/lib libs/SDL2_Mixer/lib)
 target_link_libraries(${PROJECT_NAME} PRIVATE SDL2 SDL2_mixer)

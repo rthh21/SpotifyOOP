@@ -26,9 +26,9 @@ void FLAC::play() const {
         SDL_Quit();
     }
     else{
-    std::cout << "Playing FLAC\n";
-    double duration = Mix_MusicDuration(music) * 1000; // seconds -> miliseconds
-    SDL_Delay(duration);
+        std::cout << "Playing FLAC\n";
+        double duration = Mix_MusicDuration(music) * 1000; // seconds -> miliseconds
+        SDL_Delay(duration);
     }
     
     Mix_FreeMusic(music);

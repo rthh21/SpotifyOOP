@@ -38,7 +38,7 @@ Aplicatia consta intr-un MP3 player in care poti creea playlisturi, poti adauga 
     - constructori virtuali (clone): sunt necesari, dar nu se consideră funcții specifice temei
     - afișare virtuală, interfață non-virtuală
   - [x] apelarea constructorului din clasa de bază din constructori din derivate
-  - [] clasă cu atribut de tip pointer la o clasă de bază cu derivate; aici apelați funcțiile virtuale prin pointer de bază, eventual prin interfața non-virtuală din bază
+  - [ ] clasă cu atribut de tip pointer la o clasă de bază cu derivate; aici apelați funcțiile virtuale prin pointer de bază, eventual prin interfața non-virtuală din bază
     - [ ] suprascris cc/op= pentru copieri/atribuiri corecte, copy and swap
     - [ ] `dynamic_cast`/`std::dynamic_pointer_cast` pentru downcast cu sens
     - [ ] smart pointers (recomandat, opțional)
