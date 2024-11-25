@@ -7,18 +7,18 @@
 class AudioFile{
 protected:
     std::string PATH;
-    int duration;
 public:
     AudioFile();
-    explicit AudioFile(const std::string& PATH, int duration);
-    virtual AudioFile* clone() const;
+    explicit AudioFile(const std::string& PATH);
     virtual ~AudioFile();
     
-    virtual void play() const;
-    virtual void display() const;
-    
-    //TODO:
     void play_info() const;
+    
+    
+    virtual void play() const = 0;
+    virtual void display() const = 0;
+    virtual AudioFile* clone() const = 0;
+    //TODO:
 };
 
 #endif

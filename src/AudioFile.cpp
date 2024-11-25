@@ -1,16 +1,13 @@
 #include "AudioFile.hpp"
 
-AudioFile::AudioFile() : PATH("NULL"), duration(0) {}
+AudioFile::AudioFile() : PATH("NULL") {}
 
-explicit AudioFile::AudioFile(const std::string& PATH, int duration) : PATH(PATH), duration(duration) {}
-virtual AudioFile::AudioFile* clone() const = 0;
+AudioFile::AudioFile(const std::string& PATH) : PATH(PATH) {}
 
-virtual ~AudioFile() {}
-
-virtual void AudioFile::play() const = 0;
-virtual void AudioFile::display() const = 0;
+AudioFile::~AudioFile() {}
 
 void AudioFile::play_info() const{
-    std::cout<<"PATH: "<<PATH<<", duration: "<< duration<<std::endl;
-    //TODO : SFML PLAY
+    std::cout<<"PATH: "<<PATH<<std::endl;
+    play();
+    display();
 }

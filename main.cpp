@@ -9,6 +9,8 @@
 #include "Artist.hpp"
 #include "Playlist.hpp"
 #include "Player.hpp"
+#include "AudioFile.hpp"
+#include "FLAC.hpp"
 
 #define SDL_MAIN_HANDLED // fix pentru "main"
 
@@ -35,33 +37,9 @@ int main(){
         return -1;
     }
 
-    const char* filename = "music/stargazing.flac";
-    Mix_Music* music = Mix_LoadMUS(filename);
-    if (!music) {
-        std::cerr << "Mix_LoadMUS failed: " << Mix_GetError() << std::endl;
-        Mix_CloseAudio();
-        Mix_Quit();
-        SDL_Quit();
-        return -1;
-    }
-
-    if (Mix_PlayMusic(music, -1) == -1) {
-        std::cerr << "Mix_PlayMusic failed: " << Mix_GetError() << std::endl;
-        Mix_FreeMusic(music);
-        Mix_CloseAudio();
-        Mix_Quit();
-        SDL_Quit();
-        return -1;
-    }
-
-    std::cout << "Playing FLAC file. Press any key to quit...\n";
-    std::cin.get();
-
-    // Clean up and quit
-    Mix_FreeMusic(music);
-    Mix_CloseAudio();
-    Mix_Quit();
-    SDL_Quit();
+    AudioFile *s;
+    s = new FLAC("music/stargazing.flac",0);
+    s->play();
 
 //----------------------------------------------------------------------------------
     std::ifstream fin("tastatura.txt");

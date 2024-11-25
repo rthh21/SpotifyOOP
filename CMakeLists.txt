@@ -42,15 +42,13 @@ include(cmake/Options.cmake)
 ###############################################################################
 
 # NOTE: update executable name in .github/workflows/cmake.yml:25 when changing name here
+file(GLOB SRC "src/*.cpp")
+
 add_executable(${PROJECT_NAME}
     main.cpp
     generated/src/Helper.cpp
     env_fixes.h 
-    src/Song.cpp
-    src/Artist.cpp
-    src/Album.cpp
-    src/Player.cpp
-    src/Playlist.cpp
+    ${SRC}
 )
 
 include(cmake/CompilerFlags.cmake)
