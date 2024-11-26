@@ -15,7 +15,7 @@
 #include "Playlist.hpp"
 #include "Player.hpp"
 #include "AudioFile.hpp"
-#include "FLAC.hpp"
+#include "flac.hpp"
 #include "mp3.hpp"
 
 
