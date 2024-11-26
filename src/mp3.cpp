@@ -25,14 +25,26 @@ void MP3::play() const {
     }
     else {
         std::cout << "Playing MP3\n";
-        double duration = Mix_MusicDuration(music) * 1000; // seconds -> miliseconds
-        SDL_Delay(duration);
+        // double duration = Mix_MusicDuration(music) * 1000; // seconds -> miliseconds
+        // SDL_Delay(duration);
+        std::cin.get();
     }
     
     Mix_FreeMusic(music);
-    Mix_CloseAudio();
-    Mix_Quit();
-    SDL_Quit();
+}
+
+Mix_Music* MP3::file() const {
+    Mix_Music* music = Mix_LoadMUS(PATH.c_str());
+
+    if (!music) {
+        std::cerr << "Mix_LoadMUS failed: " << Mix_GetError() << '\n';
+        Mix_CloseAudio();
+        Mix_Quit();
+        SDL_Quit();
+        return nullptr;
+    }
+    // Returning the pointer to the caller
+    return music;
 }
 
 void MP3::display() const{

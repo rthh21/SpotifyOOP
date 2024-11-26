@@ -9,6 +9,9 @@
 #include <iostream>
 #include "Playlist.hpp"
 #include "Song.hpp"
+#include "AudioFile.hpp"
+#include "flac.hpp"
+#include "mp3.hpp"
 
 class Player {
 private:
@@ -20,18 +23,18 @@ public:
     ~Player();
         
     int init() const;
+    void start();
     
+    int queue_status();
     void add_to_queue(Song& song);
     void add_to_queue(Album& album);
     void add_to_queue(Playlist& playlist);
     void remove_from_queue(std::size_t position);
-    void play_queue();
-    // int play_queue1();
     
     void shuffle(const Playlist& targetPlaylist);
     
     
-    void play(Song& song);
+    void play(std::deque<Song> &song_queue);
     void pause();
     void resume();
 };

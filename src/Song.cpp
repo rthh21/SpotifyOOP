@@ -1,5 +1,8 @@
 #include "Song.hpp"
 #include "AudioFile.hpp"
+#include "SDL.h"
+#include "SDL_mixer.h"
+#include "Song.hpp"
 
 Song::Song() : title("null"), genre("null"), audiofile(nullptr) {}  // nullptr instead of NULL
 Song::Song(const std::string& title, const std::string& genre, std::shared_ptr<AudioFile> audiofile)
@@ -7,18 +10,16 @@ Song::Song(const std::string& title, const std::string& genre, std::shared_ptr<A
 
 Song::~Song() {}  
 
-void Song::play() {
-    if (audiofile) {
-        audiofile->play();  // Play using the smart pointer
-    }
-}
-
 const std::string& Song::getTitle() const {
     return title;
 }
 
 const std::string& Song::getGenre() const {
     return genre;
+}
+
+std::shared_ptr<AudioFile> Song::getAudioFile() {
+    return audiofile;
 }
 
 std::ostream& operator<<(std::ostream& os, const Song& auxSong) {

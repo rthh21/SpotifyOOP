@@ -3,6 +3,10 @@
 
 #include <string>
 #include "AudioFile.hpp"
+#define SDL_MAIN_HANDLED // fix pentru "main"
+
+#include "SDL.h"
+#include "SDL_mixer.h"
 
 class FLAC : public AudioFile{
 private:
@@ -12,6 +16,7 @@ public:
     explicit FLAC(const std::string& PATH, int compression);
     virtual ~FLAC();
     
+    Mix_Music* file() const override; 
     void play() const override;
     void display() const override;
     AudioFile* clone() const override;

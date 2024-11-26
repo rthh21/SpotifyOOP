@@ -5,6 +5,8 @@
 #include <iostream>
 #include <memory>  // Include for smart pointers
 #include "AudioFile.hpp"
+#include "SDL.h"
+#include "SDL_mixer.h"
 
 class Song {
 private:
@@ -18,11 +20,10 @@ public:
 
     ~Song();  // Destructor will automatically clean up the audiofile
 
-    void play();
-
     const std::string& getTitle() const;
     const std::string& getGenre() const;
-
+    std::shared_ptr<AudioFile> getAudioFile();
+    
     friend std::ostream& operator<<(std::ostream& os, const Song& auxSong);
 };
 

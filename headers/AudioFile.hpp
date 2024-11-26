@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <string>
+#include "SDL.h"
+#include "SDL_mixer.h"
 
 class AudioFile{
 protected:
@@ -14,6 +16,7 @@ public:
     
     void play_info() const;
     
+    virtual Mix_Music* file() const = 0;
     virtual void play() const = 0;
     virtual void display() const = 0;
     virtual AudioFile* clone() const = 0;
