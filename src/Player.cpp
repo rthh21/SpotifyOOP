@@ -1,9 +1,15 @@
 #include <string>
 #include "Player.hpp"
 #include "Song.hpp"
+#include "Artist.hpp"
+#include "Album.hpp"
+
 #include "AudioFile.hpp"
 #include "flac.hpp"
 #include "mp3.hpp"
+
+#include <filesystem>
+namespace fs = std::filesystem;
 
 #include "SDL.h"
 #include "SDL_mixer.h"
@@ -17,7 +23,7 @@ Player::Player(int volume) : volume(volume) {}
 
 Player::~Player() {}
 
-int Player::init() const{
+int Player::init(){
     if (SDL_Init(SDL_INIT_AUDIO) < 0) {
         std::cerr << "SDL_Init(SDL_INIT_AUDIO) failed: " << SDL_GetError() << std::endl;
         return -1;
@@ -35,11 +41,70 @@ int Player::init() const{
         SDL_Quit();
         return -1;
     }   
+    
+    load_files();
+    
     return 0;
 }
  
+void Player::load_files() {
+    std::string artist_name, song_name, album_name;
+
+    std::string path = "..\\music";
+    if (!fs::is_directory(path)) {
+        std::cerr << "Directory does not exist: " << path << std::endl;
+        return;
+    }
+
+    for (const auto & entry : fs::directory_iterator(path)) {
+        std::string token = entry.path().string();
+
+        if (token.find("Artist-") != std::string::npos) {
+            artist_name = token.substr(token.find("Artist-") + 7);
+            std::cout << "Artist: " << artist_name << '\n';
+
+            for (const auto & entry_artist : fs::directory_iterator(token)) {
+                std::string token_artist = entry_artist.path().string();
+
+                if (token_artist.find("Album-") != std::string::npos) {
+                    album_name = token_artist.substr(token_artist.find("Album-") + 6);
+                    std::cout << "Album: " << album_name << '\n';
+                    for (const auto & entry_artist : fs::directory_iterator(token)) {
+                        std::string token_artist = entry_artist.path().string();
+                        
+                    }
+                }
+
+                //Song song = load_file_type(token_artist);
+            }
+        }
+    }
+}
+ 
+// Song& Player::load_file_type(const std::string& token_artist){
+//     std::string song_name,
+//     if (token_artist.find(".flac") != std::string::npos) {
+//         song_name = token_artist.substr(token_artist.find_last_of("\\") + 1);
+//         song_name = song_name.substr(song_name.find('-') + 1, song_name.find(".flac") - song_name.find('-') - 1);
+//         std::shared_ptr<AudioFile> flac_ptr = std::make_shared<FLAC>(song_name,5);
+//         Song song(song_name, artist_name, flac_ptr);
+//         std::cout << "Song: " << song_name << '\n';
+//     } 
+//     else if (token_artist.find(".mp3") != std::string::npos) {
+//         song_name = token_artist.substr(token_artist.find_last_of("\\") + 1);
+//         song_name = song_name.substr(song_name.find('-') + 1, song_name.find(".mp3") - song_name.find('-') - 1);
+//         std::shared_ptr<AudioFile> mp3_ptr = std::make_shared<MP3>(song_name,5);
+//         Song song(song_name, artist_name, mp3_ptr);
+//         std::cout << "Song: " << song_name << '\n';
+//     }
+//     return song;
+// }
+// TODO 
+ 
 void Player::start(){
+    init();
     int sq = 0; // status queue
+    
     
     //melodii
     std::shared_ptr<AudioFile> type1 = std::make_shared<FLAC>("music/stargazing.flac", 5);
@@ -67,8 +132,9 @@ void Player::start(){
             play(song_queue);
             song_queue.pop_front();
         }
-        if(song_queue.empty()){
+        if(song_queue.empty() && Mix_PlayingMusic()){
             sq = 1;
+            std::cout<<"Queue is empty!\n";
         }
         
         if(c=="skip"){
@@ -79,8 +145,12 @@ void Player::start(){
             }
             else{
                 pause();
-                std::cout<<"Queue empty!\n";
+                std::cout<<"Queue is empty!\n";
             }
+        }
+        
+        if(c=="shuffle"){
+            shuffle(song_queue);
         }
         
         if(c=="pause"){
@@ -99,6 +169,8 @@ void Player::start(){
             }
         }
         if(c=="break"){
+            if(!Mix_PlayingMusic())
+                pause();
             std::cout<<"\n\n Aplication killed, press any key!\n";
             std::cin.get();
             std::cin.get();
@@ -138,23 +210,14 @@ void Player::remove_from_queue(std::size_t position){
     }
 }
 
-//test
-// void Player::play_queue(){
-//     std::thread audioThread(&Player::play_queue1, this);
-//     audioThread.detach();
-// }
-
-void Player::shuffle(const Playlist& targetPlaylist) {
-    int i = 0;
-    std::vector<Song> shuffledSongs = targetPlaylist.getSongs();
+void Player::shuffle(std::deque<Song> &song_queue) {
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     std::default_random_engine rng(seed);
-    std::shuffle(std::begin(shuffledSongs), std::end(shuffledSongs), rng);
+    std::shuffle(std::begin(song_queue), std::end(song_queue), rng);
 
-    std::cout << "\n\nShuffle ON!\n";
-    for (const auto& song : shuffledSongs) {
-        i++;
-        std::cout << i << ". " << song.getTitle() << '\n';
+    std::cout << "Shuffle queue:\n";
+    for (const auto& song : song_queue) {
+        std::cout << song;
     }
 }
 

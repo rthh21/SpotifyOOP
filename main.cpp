@@ -24,7 +24,6 @@
 
 int main(){
     Player player;
-    player.init();
     player.start();
     
     Helper helper;

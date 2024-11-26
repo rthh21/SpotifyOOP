@@ -17,12 +17,17 @@ class Player {
 private:
     int volume;
     static std::deque<Song> song_queue;
+    // std::vector<Song> songs;
+    // std::vector<Album> albums;
+    // std::vector<Artist> artists;
 public:
     Player();
     explicit Player(int volume);
     ~Player();
         
-    int init() const;
+    int init();
+    void load_files();
+    Song* load_file_type(const std::string& token_artist);
     void start();
     
     int queue_status();
@@ -31,8 +36,7 @@ public:
     void add_to_queue(Playlist& playlist);
     void remove_from_queue(std::size_t position);
     
-    void shuffle(const Playlist& targetPlaylist);
-    
+    void shuffle(std::deque<Song> &song_queue);
     
     void play(std::deque<Song> &song_queue);
     void pause();
