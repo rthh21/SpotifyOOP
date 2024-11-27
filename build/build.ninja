@@ -47,7 +47,7 @@ build cmake_object_order_depends_target_oop: phony || .
 build CMakeFiles/oop.dir/main.cpp.obj: CXX_COMPILER__oop_unscanned_ C$:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/main.cpp || cmake_object_order_depends_target_oop
   DEP_FILE = CMakeFiles\oop.dir\main.cpp.obj.d
   FLAGS = -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic
-  INCLUDES = -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/generated/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2_Mixer/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/music
+  INCLUDES = -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/music -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/generated/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2_Mixer/include
   OBJECT_DIR = CMakeFiles\oop.dir
   OBJECT_FILE_DIR = CMakeFiles\oop.dir
   TARGET_COMPILE_PDB = CMakeFiles\oop.dir\
@@ -56,16 +56,16 @@ build CMakeFiles/oop.dir/main.cpp.obj: CXX_COMPILER__oop_unscanned_ C$:/Users/rt
 build CMakeFiles/oop.dir/generated/src/Helper.cpp.obj: CXX_COMPILER__oop_unscanned_ C$:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/generated/src/Helper.cpp || cmake_object_order_depends_target_oop
   DEP_FILE = CMakeFiles\oop.dir\generated\src\Helper.cpp.obj.d
   FLAGS = -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic
-  INCLUDES = -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/generated/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2_Mixer/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/music
+  INCLUDES = -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/music -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/generated/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2_Mixer/include
   OBJECT_DIR = CMakeFiles\oop.dir
   OBJECT_FILE_DIR = CMakeFiles\oop.dir\generated\src
   TARGET_COMPILE_PDB = CMakeFiles\oop.dir\
   TARGET_PDB = oop.pdb
 
-build CMakeFiles/oop.dir/src/Song.cpp.obj: CXX_COMPILER__oop_unscanned_ C$:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/Song.cpp || cmake_object_order_depends_target_oop
-  DEP_FILE = CMakeFiles\oop.dir\src\Song.cpp.obj.d
+build CMakeFiles/oop.dir/src/Album.cpp.obj: CXX_COMPILER__oop_unscanned_ C$:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/Album.cpp || cmake_object_order_depends_target_oop
+  DEP_FILE = CMakeFiles\oop.dir\src\Album.cpp.obj.d
   FLAGS = -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic
-  INCLUDES = -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/generated/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2_Mixer/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/music
+  INCLUDES = -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/music -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/generated/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2_Mixer/include
   OBJECT_DIR = CMakeFiles\oop.dir
   OBJECT_FILE_DIR = CMakeFiles\oop.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\oop.dir\
@@ -74,16 +74,16 @@ build CMakeFiles/oop.dir/src/Song.cpp.obj: CXX_COMPILER__oop_unscanned_ C$:/User
 build CMakeFiles/oop.dir/src/Artist.cpp.obj: CXX_COMPILER__oop_unscanned_ C$:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/Artist.cpp || cmake_object_order_depends_target_oop
   DEP_FILE = CMakeFiles\oop.dir\src\Artist.cpp.obj.d
   FLAGS = -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic
-  INCLUDES = -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/generated/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2_Mixer/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/music
+  INCLUDES = -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/music -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/generated/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2_Mixer/include
   OBJECT_DIR = CMakeFiles\oop.dir
   OBJECT_FILE_DIR = CMakeFiles\oop.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\oop.dir\
   TARGET_PDB = oop.pdb
 
-build CMakeFiles/oop.dir/src/Album.cpp.obj: CXX_COMPILER__oop_unscanned_ C$:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/Album.cpp || cmake_object_order_depends_target_oop
-  DEP_FILE = CMakeFiles\oop.dir\src\Album.cpp.obj.d
+build CMakeFiles/oop.dir/src/AudioFile.cpp.obj: CXX_COMPILER__oop_unscanned_ C$:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/AudioFile.cpp || cmake_object_order_depends_target_oop
+  DEP_FILE = CMakeFiles\oop.dir\src\AudioFile.cpp.obj.d
   FLAGS = -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic
-  INCLUDES = -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/generated/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2_Mixer/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/music
+  INCLUDES = -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/music -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/generated/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2_Mixer/include
   OBJECT_DIR = CMakeFiles\oop.dir
   OBJECT_FILE_DIR = CMakeFiles\oop.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\oop.dir\
@@ -92,7 +92,7 @@ build CMakeFiles/oop.dir/src/Album.cpp.obj: CXX_COMPILER__oop_unscanned_ C$:/Use
 build CMakeFiles/oop.dir/src/Player.cpp.obj: CXX_COMPILER__oop_unscanned_ C$:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/Player.cpp || cmake_object_order_depends_target_oop
   DEP_FILE = CMakeFiles\oop.dir\src\Player.cpp.obj.d
   FLAGS = -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic
-  INCLUDES = -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/generated/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2_Mixer/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/music
+  INCLUDES = -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/music -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/generated/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2_Mixer/include
   OBJECT_DIR = CMakeFiles\oop.dir
   OBJECT_FILE_DIR = CMakeFiles\oop.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\oop.dir\
@@ -101,7 +101,43 @@ build CMakeFiles/oop.dir/src/Player.cpp.obj: CXX_COMPILER__oop_unscanned_ C$:/Us
 build CMakeFiles/oop.dir/src/Playlist.cpp.obj: CXX_COMPILER__oop_unscanned_ C$:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/Playlist.cpp || cmake_object_order_depends_target_oop
   DEP_FILE = CMakeFiles\oop.dir\src\Playlist.cpp.obj.d
   FLAGS = -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic
-  INCLUDES = -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/generated/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2_Mixer/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/music
+  INCLUDES = -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/music -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/generated/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2_Mixer/include
+  OBJECT_DIR = CMakeFiles\oop.dir
+  OBJECT_FILE_DIR = CMakeFiles\oop.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\oop.dir\
+  TARGET_PDB = oop.pdb
+
+build CMakeFiles/oop.dir/src/Song.cpp.obj: CXX_COMPILER__oop_unscanned_ C$:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/Song.cpp || cmake_object_order_depends_target_oop
+  DEP_FILE = CMakeFiles\oop.dir\src\Song.cpp.obj.d
+  FLAGS = -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic
+  INCLUDES = -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/music -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/generated/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2_Mixer/include
+  OBJECT_DIR = CMakeFiles\oop.dir
+  OBJECT_FILE_DIR = CMakeFiles\oop.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\oop.dir\
+  TARGET_PDB = oop.pdb
+
+build CMakeFiles/oop.dir/src/flac.cpp.obj: CXX_COMPILER__oop_unscanned_ C$:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/flac.cpp || cmake_object_order_depends_target_oop
+  DEP_FILE = CMakeFiles\oop.dir\src\flac.cpp.obj.d
+  FLAGS = -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic
+  INCLUDES = -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/music -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/generated/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2_Mixer/include
+  OBJECT_DIR = CMakeFiles\oop.dir
+  OBJECT_FILE_DIR = CMakeFiles\oop.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\oop.dir\
+  TARGET_PDB = oop.pdb
+
+build CMakeFiles/oop.dir/src/mp3.cpp.obj: CXX_COMPILER__oop_unscanned_ C$:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/mp3.cpp || cmake_object_order_depends_target_oop
+  DEP_FILE = CMakeFiles\oop.dir\src\mp3.cpp.obj.d
+  FLAGS = -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic
+  INCLUDES = -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/music -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/generated/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2_Mixer/include
+  OBJECT_DIR = CMakeFiles\oop.dir
+  OBJECT_FILE_DIR = CMakeFiles\oop.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\oop.dir\
+  TARGET_PDB = oop.pdb
+
+build CMakeFiles/oop.dir/src/wav.cpp.obj: CXX_COMPILER__oop_unscanned_ C$:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/wav.cpp || cmake_object_order_depends_target_oop
+  DEP_FILE = CMakeFiles\oop.dir\src\wav.cpp.obj.d
+  FLAGS = -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic
+  INCLUDES = -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src -IC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/music -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/generated/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2/include -isystem C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2_Mixer/include
   OBJECT_DIR = CMakeFiles\oop.dir
   OBJECT_FILE_DIR = CMakeFiles\oop.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\oop.dir\
@@ -115,7 +151,7 @@ build CMakeFiles/oop.dir/src/Playlist.cpp.obj: CXX_COMPILER__oop_unscanned_ C$:/
 #############################################
 # Link the executable oop.exe
 
-build oop.exe: CXX_EXECUTABLE_LINKER__oop_ CMakeFiles/oop.dir/main.cpp.obj CMakeFiles/oop.dir/generated/src/Helper.cpp.obj CMakeFiles/oop.dir/src/Song.cpp.obj CMakeFiles/oop.dir/src/Artist.cpp.obj CMakeFiles/oop.dir/src/Album.cpp.obj CMakeFiles/oop.dir/src/Player.cpp.obj CMakeFiles/oop.dir/src/Playlist.cpp.obj
+build oop.exe: CXX_EXECUTABLE_LINKER__oop_ CMakeFiles/oop.dir/main.cpp.obj CMakeFiles/oop.dir/generated/src/Helper.cpp.obj CMakeFiles/oop.dir/src/Album.cpp.obj CMakeFiles/oop.dir/src/Artist.cpp.obj CMakeFiles/oop.dir/src/AudioFile.cpp.obj CMakeFiles/oop.dir/src/Player.cpp.obj CMakeFiles/oop.dir/src/Playlist.cpp.obj CMakeFiles/oop.dir/src/Song.cpp.obj CMakeFiles/oop.dir/src/flac.cpp.obj CMakeFiles/oop.dir/src/mp3.cpp.obj CMakeFiles/oop.dir/src/wav.cpp.obj
   LINK_LIBRARIES = -lSDL2  -lSDL2_mixer  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   LINK_PATH = -LC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2/lib   -LC:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/libs/SDL2_Mixer/lib
   OBJECT_DIR = CMakeFiles\oop.dir

@@ -9,6 +9,7 @@
 #include <iostream>
 #include "Playlist.hpp"
 #include "Song.hpp"
+#include "Artist.hpp"
 #include "AudioFile.hpp"
 #include "flac.hpp"
 #include "mp3.hpp"
@@ -19,7 +20,7 @@ private:
     static std::deque<Song> song_queue;
     // std::vector<Song> songs;
     // std::vector<Album> albums;
-    // std::vector<Artist> artists;
+    std::vector<Artist> artists;
 public:
     Player();
     explicit Player(int volume);
@@ -27,7 +28,7 @@ public:
         
     int init();
     void load_files();
-    Song* load_file_type(const std::string& token_artist);
+    Song& load_file_type(const std::string& token_artist);
     void start();
     
     int queue_status();
@@ -39,6 +40,7 @@ public:
     void shuffle(std::deque<Song> &song_queue);
     
     void play(std::deque<Song> &song_queue);
+    void play(Song& song);
     void pause();
     void resume();
 };
