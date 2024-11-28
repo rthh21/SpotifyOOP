@@ -15,6 +15,27 @@ include(cmake/Options.cmake)
 
 ###############################################################################
 
+
+if(WIN32)
+    # On Windows, specify the path to SDL2 and SDL2_mixer manually if necessary
+    set(SDL2_DIR "C:/msys64/ucrt64/lib/cmake/SDL2")
+    set(SDL2_MIXER_DIR "C:/msys64/ucrt64/lib/cmake/SDL2_mixer")
+
+    # Add search paths for MinGW and MSYS2 libraries
+    link_directories("C:/msys64/ucrt64/lib")
+elseif(APPLE)
+    # Mac-specific setup, if you use brew for SDL2 and SDL2_mixer
+    find_package(SDL2 REQUIRED HINTS /usr/local/lib/cmake/SDL2)
+    find_package(SDL2_mixer REQUIRED HINTS /usr/local/lib/cmake/SDL2_mixer)
+elseif(UNIX)
+    # Linux-specific configuration, assuming SDL2 and SDL2_mixer are installed
+    find_package(SDL2 REQUIRED)
+    find_package(SDL2_mixer REQUIRED)
+endif()
+
+
+###############################################################################
+
 # external dependencies with FetchContent
 # include(FetchContent)
 #

@@ -160,7 +160,6 @@ void Player::start(){
                     if(found == 0){
                         for(const auto & search_in_album : artist.getAlbums()){
                             for(const auto & search_song : search_in_album.getSongs()){
-                                
                                 if(search_song.getTitle() == song_name && found == 0){
                                     std::cout<<search_song.getTitle();
                                     song_found = search_song;
@@ -172,13 +171,15 @@ void Player::start(){
                     }
                 }
             }
-            
             if(found == 1){
-                play(song_queue);
+                play(song_found);
             }
             else std::cout<<"Song wasn't found.";
             std::cout<<'\n';
         }
+        
+        // add to queue sq = 0 !!!!!
+        
         
         if(c=="play-queue" && !song_queue.empty()){
             play(song_queue);
