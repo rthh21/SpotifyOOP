@@ -122,12 +122,12 @@ void Player::start(){
     int sq = 0; // status queue
     
     // // melodii
-    // std::shared_ptr<AudioFile> type1 = std::make_shared<FLAC>("music/Artist-Travis Scott/stargazing.flac", 5);
-    // Song song1("Stargazing","rap",type1);
-    // std::shared_ptr<AudioFile> type2 = std::make_shared<MP3>("music/Artist-Travis Scott/Album-Utopia/Fe!N.mp3", 5);
-    // Song song2("FE!N","rap",type2);     
-    // add_to_queue(song1);
-    // add_to_queue(song2);
+    std::shared_ptr<AudioFile> type1 = std::make_shared<FLAC>("music/Artist-Travis Scott/stargazing.flac", 5);
+    Song song1("Stargazing","rap",type1);
+    std::shared_ptr<AudioFile> type2 = std::make_shared<MP3>("music/Artist-Travis Scott/Album-Utopia/Fe!N.mp3", 5);
+    Song song2("FE!N","rap",type2);     
+    add_to_queue(song1);
+    add_to_queue(song2);
     
     //start loop
     while(1){
@@ -144,12 +144,13 @@ void Player::start(){
             std::string song_name;
             std::cin.get();
             std::cout<<"What song do you want to play? > ";
-            std::cin>>song_name;
+            std::getline(std::cin,song_name,'\n');
             song_name = song_name.substr(0,song_name.find_last_of('\n'));
             
             for(const auto & artist : artists){
                 if(found == 0){
                     for(const auto & search_song : artist.getSongs()){
+                        std::cout<<search_song.getTitle();
                         if(search_song.getTitle() == song_name && found == 0){
                             std::cout<<search_song.getTitle();
                             song_found = search_song;
@@ -161,7 +162,6 @@ void Player::start(){
                         for(const auto & search_in_album : artist.getAlbums()){
                             for(const auto & search_song : search_in_album.getSongs()){
                                 if(search_song.getTitle() == song_name && found == 0){
-                                    std::cout<<search_song.getTitle();
                                     song_found = search_song;
                                     std::cout<<" was found!\n";
                                     found = 1;
@@ -185,13 +185,12 @@ void Player::start(){
             play(song_queue);
             song_queue.pop_front();
             sq = 1;
-        }
-        if(!song_queue.empty() && !Mix_PlayingMusic() && sq == 0){
+        } else if(!song_queue.empty() && !Mix_PlayingMusic()){
             play(song_queue);
             song_queue.pop_front();
         }
         if(song_queue.empty() && Mix_PlayingMusic()){
-            sq = 1;
+            sq = 0;
             std::cout<<"Queue is empty!\n";
         }
         
@@ -225,6 +224,7 @@ void Player::start(){
                 std::cout<<song;
             }
         }
+        
         if(c=="stop"){
             if(Mix_PlayingMusic())
                 pause();

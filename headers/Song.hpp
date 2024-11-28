@@ -13,7 +13,6 @@ private:
     std::string title;
     std::string genre;
     std::shared_ptr<AudioFile> audiofile;  // Use unique_ptr for AudioFile
-    
 public:
     Song();
     Song(const std::string& title, const std::string& genre, std::shared_ptr<AudioFile> audiofile);  // Accept smart pointer
