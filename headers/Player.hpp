@@ -1,5 +1,5 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#ifndef PLAYER_HPP
+#define PLAYER_HPP
 
 #include <vector>
 #include <queue>
@@ -29,22 +29,31 @@ public:
     void load_files();
     Song& load_file_type(const std::string& token_artist);
     void start();
+    void stop() const;
     
     Playlist find_playlist();
     Song find_song();
+    Album find_album();
     
-    int queue_status();
-    void add_to_queue(Song& song);
-    void add_to_queue(Album& album);
-    void add_to_queue(Playlist& playlist);
-    void remove_from_queue(std::size_t position);
+    void print_flac_songs();
+    void print_mp3_songs();
+    
+    void add_to_queue(const Song& song);
+    void add_to_queue(const Album& album);
+    void add_to_queue(const Playlist& playlist);
+    void remove_from_queue(const std::size_t position);
+    void clear_queue();
     
     void shuffle(std::deque<Song> &song_queue);
     
     void play(std::deque<Song> &song_queue);
     void play(Song& song);
-    void pause();
-    void resume();
+    void play(Album& album);
+    void play(Playlist& playlist);
+    
+    void pause() const;
+    void resume() const;
+    static void song_cnt();
 };
 
 #endif

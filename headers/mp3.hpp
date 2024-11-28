@@ -16,8 +16,7 @@ public:
     explicit MP3(const std::string& PATH, int bitrate);
     virtual ~MP3();
     
-    Mix_Music* file() const override; 
-    void play() const override;
+    Mix_Music* file() const override;
     void display() const override;
     AudioFile* clone() const override;
 };

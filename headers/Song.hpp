@@ -17,15 +17,16 @@ private:
 public:
     Song();
     Song(const std::string& title, const std::string& genre, std::shared_ptr<AudioFile> audiofile);  
-
+    Song(const Song& other);
     ~Song(); 
 
     const int& getCnt() const;
     const std::string& getTitle() const;
     const std::string& getGenre() const;
-    std::shared_ptr<AudioFile> getAudioFile();
+    std::shared_ptr<AudioFile> getAudioFile() const;
     
     friend std::ostream& operator<<(std::ostream& os, const Song& auxSong);
+    Song &operator=(Song other);
 };
 
 #endif

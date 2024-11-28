@@ -8,6 +8,6 @@ AudioFile::~AudioFile() {}
 
 void AudioFile::play_info() const{
     std::cout<<"PATH: "<<PATH<<std::endl;
-    play();
+    std::cout<<file();
     display();
 }

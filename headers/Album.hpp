@@ -13,7 +13,8 @@ class Album{
         std::vector<Song> songs;
     public:
         void addSong(const Song& song);
-    
+        
+        Album();
         Album(const std::string& name, const std::string& genre);
         ~Album();
         

@@ -1,8 +1,8 @@
 #include "Album.hpp"
 
+Album::Album() : name("--null"), genre("--null") {}
 
-Album::Album(const std::string& name, const std::string& genre)
-    : name(name), genre(genre) {}
+Album::Album(const std::string& name, const std::string& genre) : name(name), genre(genre) {}
 
 Album::~Album() {}
 

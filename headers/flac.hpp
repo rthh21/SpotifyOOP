@@ -16,8 +16,7 @@ public:
     explicit FLAC(const std::string& PATH, int compression);
     virtual ~FLAC();
     
-    Mix_Music* file() const override; 
-    void play() const override;
+    Mix_Music* file() const override;
     void display() const override;
     AudioFile* clone() const override;
 };
