@@ -25,7 +25,7 @@ public:
     explicit Player(int volume);
     ~Player();
         
-    int init();
+    void init();
     void load_files();
     Song& load_file_type(const std::string& token_artist);
     void start();

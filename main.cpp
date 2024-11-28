@@ -1,5 +1,9 @@
 #include <iostream>
 #include <Helper.h>
+
+#include "Exceptions.hpp"
+#include "CheckInit.hpp"
+
 #define SDL_MAIN_HANDLED // fix pentru "main"
 
 #include "Player.hpp"
@@ -8,7 +12,12 @@
 
 int main(){
     Player player;
-    player.start();
+    try {
+        player.init();
+        player.start();
+    } catch (const check_init &e){
+        std::cerr << "Error: " << e.what()<<std::endl;
+    }
     
     Helper helper;
     helper.help();

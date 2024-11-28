@@ -8,6 +8,11 @@
 #include "flac.hpp"
 #include "mp3.hpp"
 
+#include "Exceptions.hpp"
+#include "CheckDirectory.hpp"
+#include "CheckInit.hpp"
+#include "CheckPlaying.hpp"
+
 #include <filesystem>
 namespace fs = std::filesystem;
 
@@ -23,102 +28,99 @@ Player::Player(int volume) : volume(volume) {}
 
 Player::~Player() {}
 
-int Player::init(){
+void Player::init() {
     if (SDL_Init(SDL_INIT_AUDIO) < 0) {
-        std::cerr << "SDL_Init(SDL_INIT_AUDIO) failed: " << SDL_GetError() << std::endl;
-        return -1;
+        throw check_init("SDL_Init(SDL_INIT_AUDIO) failed: ");
     }
-    
+
     if (Mix_Init(MIX_INIT_FLAC) == 0 || Mix_Init(MIX_INIT_MP3) == 0) {
-        std::cerr << "Mix_Init failed: " << Mix_GetError() << std::endl;
-        SDL_Quit();
-        return -1;
+        throw check_init("Mix_Init failed: ");
     }
 
     if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024) == -1) {
-        std::cerr << "Mix_OpenAudio failed: " << Mix_GetError() << std::endl;
-        Mix_Quit();
-        SDL_Quit();
-        return -1;
-    }   
-    
+        stop();
+        throw check_init("Mix_OpenAudio failed: ");
+    }
+
     load_files();
-    
-    return 0;
 }
  
 void Player::load_files() {
     std::string artist_name, song_name, album_name;
 
     std::string path = "..\\music";
-    if (!fs::is_directory(path)) {
-        std::cerr << "Directory does not exist: " << path << std::endl;
-        return;
+    
+    try {
+        if (!fs::is_directory(path)){
+            throw is_not_directory(path);
+        }
+        
+        for (const auto &entry : fs::directory_iterator(path)) {
+            std::string token = entry.path().string();
+            
+            //artist
+            if (token.find("Artist-") != std::string::npos) {
+                artist_name = token.substr(token.find("Artist-") + 7);
+                std::cout << "Artist: " << artist_name << '\n';
+                Artist artist(artist_name,"");
+                for (const auto & entry_artist : fs::directory_iterator(token)) {
+                    std::string token_artist = entry_artist.path().string();
+                    
+                    //album
+                    if (token_artist.find("Album-") != std::string::npos) {
+                        album_name = token_artist.substr(token_artist.find("Album-") + 6);
+                        std::cout << "Album: " << album_name << '\n';
+                        Album album(album_name,"");
+                        for (const auto & entry_artist : fs::directory_iterator(token_artist)) {
+                            std::string token_album = entry_artist.path().string();
+                            if (token_album.find(".flac") != std::string::npos) {
+                                song_name = token_album.substr(token_album.find_last_of("\\") + 1);
+                                song_name = song_name.substr(song_name.find('-') + 1, song_name.find(".flac") - song_name.find('-') - 1);
+                                std::shared_ptr<AudioFile> flac_ptr = std::make_shared<FLAC>(token_album,5);
+                                Song song(song_name, artist_name, flac_ptr);
+                                album.addSong(song);
+                                std::cout << "Song: " << song_name << '\n';
+                            } 
+                            else if (token_album.find(".mp3") != std::string::npos) {
+                                song_name = token_album.substr(token_album.find_last_of("\\") + 1);
+                                song_name = song_name.substr(song_name.find('-') + 1, song_name.find(".mp3") - song_name.find('-') - 1);
+                                std::shared_ptr<AudioFile> mp3_ptr = std::make_shared<MP3>(token_album,5);
+                                Song song(song_name, artist_name, mp3_ptr);
+                                album.addSong(song);
+                                std::cout << "Song: " << song_name << '\n';
+                            }
+                        }
+                        artist.addAlbum(album);
+                    }
+                    
+                    //melodie
+                    if (token_artist.find(".flac") != std::string::npos) {
+                        song_name = token_artist.substr(token_artist.find_last_of("\\") + 1);
+                        song_name = song_name.substr(song_name.find('-') + 1, song_name.find(".flac") - song_name.find('-') - 1);
+                        std::shared_ptr<AudioFile> flac_ptr = std::make_shared<FLAC>(token_artist,5);
+                        Song song(song_name, artist_name, flac_ptr);
+                        artist.addSong(song);
+                        std::cout << "Song: " << song_name << '\n';
+                    } 
+                    else if (token_artist.find(".mp3") != std::string::npos) {
+                        song_name = token_artist.substr(token_artist.find_last_of("\\") + 1);
+                        song_name = song_name.substr(song_name.find('-') + 1, song_name.find(".mp3") - song_name.find('-') - 1);
+                        std::shared_ptr<AudioFile> mp3_ptr = std::make_shared<MP3>(token_artist,5);
+                        Song song(song_name, artist_name, mp3_ptr);
+                        artist.addSong(song);
+                        std::cout << "Song: " << song_name << '\n';
+                    }
+                }
+                artists.push_back(artist);
+            }
+        }
+    } catch (const is_not_directory& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
     }
 
-    for (const auto &entry : fs::directory_iterator(path)) {
-        std::string token = entry.path().string();
-        
-        //artist
-        if (token.find("Artist-") != std::string::npos) {
-            artist_name = token.substr(token.find("Artist-") + 7);
-            std::cout << "Artist: " << artist_name << '\n';
-            Artist artist(artist_name,"");
-            for (const auto & entry_artist : fs::directory_iterator(token)) {
-                std::string token_artist = entry_artist.path().string();
-                
-                //album
-                if (token_artist.find("Album-") != std::string::npos) {
-                    album_name = token_artist.substr(token_artist.find("Album-") + 6);
-                    std::cout << "Album: " << album_name << '\n';
-                    Album album(album_name,"");
-                    for (const auto & entry_artist : fs::directory_iterator(token_artist)) {
-                        std::string token_album = entry_artist.path().string();
-                        if (token_album.find(".flac") != std::string::npos) {
-                            song_name = token_album.substr(token_album.find_last_of("\\") + 1);
-                            song_name = song_name.substr(song_name.find('-') + 1, song_name.find(".flac") - song_name.find('-') - 1);
-                            std::shared_ptr<AudioFile> flac_ptr = std::make_shared<FLAC>(token_album,5);
-                            Song song(song_name, artist_name, flac_ptr);
-                            album.addSong(song);
-                            std::cout << "Song: " << song_name << '\n';
-                        } 
-                        else if (token_album.find(".mp3") != std::string::npos) {
-                            song_name = token_album.substr(token_album.find_last_of("\\") + 1);
-                            song_name = song_name.substr(song_name.find('-') + 1, song_name.find(".mp3") - song_name.find('-') - 1);
-                            std::shared_ptr<AudioFile> mp3_ptr = std::make_shared<MP3>(token_album,5);
-                            Song song(song_name, artist_name, mp3_ptr);
-                            album.addSong(song);
-                            std::cout << "Song: " << song_name << '\n';
-                        }
-                    }
-                    artist.addAlbum(album);
-                }
-                
-                //melodie
-                if (token_artist.find(".flac") != std::string::npos) {
-                    song_name = token_artist.substr(token_artist.find_last_of("\\") + 1);
-                    song_name = song_name.substr(song_name.find('-') + 1, song_name.find(".flac") - song_name.find('-') - 1);
-                    std::shared_ptr<AudioFile> flac_ptr = std::make_shared<FLAC>(token_artist,5);
-                    Song song(song_name, artist_name, flac_ptr);
-                    artist.addSong(song);
-                    std::cout << "Song: " << song_name << '\n';
-                } 
-                else if (token_artist.find(".mp3") != std::string::npos) {
-                    song_name = token_artist.substr(token_artist.find_last_of("\\") + 1);
-                    song_name = song_name.substr(song_name.find('-') + 1, song_name.find(".mp3") - song_name.find('-') - 1);
-                    std::shared_ptr<AudioFile> mp3_ptr = std::make_shared<MP3>(token_artist,5);
-                    Song song(song_name, artist_name, mp3_ptr);
-                    artist.addSong(song);
-                    std::cout << "Song: " << song_name << '\n';
-                }
-            }
-            artists.push_back(artist);
-        }
-    }
 }
  
 void Player::start(){
-    init();
     int sq = 0; // status queue
     
     //start loop
@@ -430,12 +432,22 @@ void Player::clear_queue(){
     }
 }
 
-void Player::play(std::deque<Song> &song_queue){
-    Mix_PlayMusic(song_queue.front().getAudioFile()->file(),2);  
-    std::cout<<"Playing: "<<song_queue.front();
+void Player::play(std::deque<Song> &song_queue) {
+    try {
+        Mix_PlayMusic(song_queue.front().getAudioFile()->file(), 2);
+        std::cout << "Playing: " << song_queue.front();
+    } catch (const check_playing& e) {
+        std::cerr << "Error playing song: " << e.what() << std::endl;
+    }
 }
+
 void Player::play(Song& song){
-    Mix_PlayMusic(song.getAudioFile()->file(),2);
+    try {
+        Mix_PlayMusic(song.getAudioFile()->file(), 2);
+        std::cout << "Playing: " << song_queue.front();
+    } catch (const check_playing& e) {
+        std::cerr << "Error playing song: " << e.what() << std::endl;
+    }
 }
 void Player::play(Album& album){
     clear_queue();
