@@ -3,7 +3,7 @@
 
 #include <string>
 #include <iostream>
-#include <memory>  // Include for smart pointers
+#include <memory> 
 #include "AudioFile.hpp"
 #include "SDL.h"
 #include "SDL_mixer.h"
@@ -12,13 +12,15 @@ class Song {
 private:
     std::string title;
     std::string genre;
-    std::shared_ptr<AudioFile> audiofile;  // Use unique_ptr for AudioFile
+    std::shared_ptr<AudioFile> audiofile; 
+    static int cnt;
 public:
     Song();
-    Song(const std::string& title, const std::string& genre, std::shared_ptr<AudioFile> audiofile);  // Accept smart pointer
+    Song(const std::string& title, const std::string& genre, std::shared_ptr<AudioFile> audiofile);  
 
-    ~Song();  // Destructor will automatically clean up the audiofile
+    ~Song(); 
 
+    const int& getCnt() const;
     const std::string& getTitle() const;
     const std::string& getGenre() const;
     std::shared_ptr<AudioFile> getAudioFile();

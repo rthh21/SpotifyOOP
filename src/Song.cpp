@@ -4,11 +4,17 @@
 #include "SDL_mixer.h"
 #include "Song.hpp"
 
-Song::Song() : title("null"), genre("null"), audiofile(nullptr) {}  // nullptr instead of NULL
+int Song::cnt = 0;
+
+Song::Song() : title("--null"), genre("--null"), audiofile(nullptr) {++cnt;}  // nullptr instead of NULL
 Song::Song(const std::string& title, const std::string& genre, std::shared_ptr<AudioFile> audiofile)
-    : title(title), genre(genre), audiofile(std::move(audiofile)) {}  // Move the smart pointer
+    : title(title), genre(genre), audiofile(std::move(audiofile)) {++cnt;}  // Move the smart pointer
 
 Song::~Song() {}  
+
+const int& Song::getCnt() const{
+    return cnt;
+}
 
 const std::string& Song::getTitle() const {
     return title;

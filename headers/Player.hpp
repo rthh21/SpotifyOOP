@@ -18,9 +18,8 @@ class Player {
 private:
     int volume;
     static std::deque<Song> song_queue;
-    // std::vector<Song> songs;
-    // std::vector<Album> albums;
     std::vector<Artist> artists;
+    std::vector<Playlist> playlists;
 public:
     Player();
     explicit Player(int volume);
@@ -30,6 +29,9 @@ public:
     void load_files();
     Song& load_file_type(const std::string& token_artist);
     void start();
+    
+    Playlist find_playlist();
+    Song find_song();
     
     int queue_status();
     void add_to_queue(Song& song);

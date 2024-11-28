@@ -1,7 +1,7 @@
 #include "Playlist.hpp"
 #include <iostream>
 
-Playlist::Playlist() : name("null"), createdBy("null") {}
+Playlist::Playlist() : name("--null"), createdBy("--null") {}
 
 Playlist::Playlist(const std::string& name, const std::string& createdBy)
     : name(name), createdBy(createdBy) {}
@@ -11,9 +11,7 @@ Playlist::Playlist(const Playlist& CpyPlaylist)
     std::cout << "Copy constructor for playlist: " << this->name << '\n';
 }
 
-Playlist::~Playlist() {
-    std::cout << "Destructor for playlist.\n";
-}
+Playlist::~Playlist() {}
 
 Playlist& Playlist::operator=(const Playlist& equalPlaylist) {
     name = equalPlaylist.name;
