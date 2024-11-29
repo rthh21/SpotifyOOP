@@ -50,7 +50,7 @@ Aplicatia consta intr-un MP3 player in care poti creea playlisturi, poti adauga 
 - [x] STL
 - [x] cât mai multe `const`
 - [x] funcții *de nivel înalt*, de eliminat cât mai mulți getters/setters/funcții low-level
-- [ ] tag de `git`: de exemplu `v0.2`
+- [x] tag de `git`: de exemplu `v0.2`
 
 ## Milestone #3
 
