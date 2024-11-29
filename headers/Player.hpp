@@ -37,6 +37,7 @@ public:
     
     void print_flac_songs();
     void print_mp3_songs();
+    void print_ogg_songs();
     
     void add_to_queue(const Song& song);
     void add_to_queue(const Album& album);

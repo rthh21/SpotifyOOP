@@ -7,6 +7,7 @@
 #include "AudioFile.hpp"
 #include "flac.hpp"
 #include "mp3.hpp"
+#include "ogg.hpp"
 
 #include "Exceptions.hpp"
 #include "CheckDirectory.hpp"
@@ -89,6 +90,14 @@ void Player::load_files() {
                                 album.addSong(song);
                                 std::cout << "Song: " << song_name << '\n';
                             }
+                            else if (token_album.find(".ogg") != std::string::npos) {
+                                song_name = token_album.substr(token_album.find_last_of("\\") + 1);
+                                song_name = song_name.substr(song_name.find('-') + 1, song_name.find(".ogg") - song_name.find('-') - 1);
+                                std::shared_ptr<AudioFile> ogg_ptr = std::make_shared<OGG>(token_album,5);
+                                Song song(song_name, artist_name, ogg_ptr);
+                                album.addSong(song);
+                                std::cout << "Song: " << song_name << '\n';
+                            }
                         }
                         artist.addAlbum(album);
                     }
@@ -107,6 +116,14 @@ void Player::load_files() {
                         song_name = song_name.substr(song_name.find('-') + 1, song_name.find(".mp3") - song_name.find('-') - 1);
                         std::shared_ptr<AudioFile> mp3_ptr = std::make_shared<MP3>(token_artist,5);
                         Song song(song_name, artist_name, mp3_ptr);
+                        artist.addSong(song);
+                        std::cout << "Song: " << song_name << '\n';
+                    }
+                    else if (token_artist.find(".ogg") != std::string::npos) {
+                        song_name = token_artist.substr(token_artist.find_last_of("\\") + 1);
+                        song_name = song_name.substr(song_name.find('-') + 1, song_name.find(".ogg") - song_name.find('-') - 1);
+                        std::shared_ptr<AudioFile> ogg_ptr = std::make_shared<OGG>(token_artist,5);
+                        Song song(song_name, artist_name, ogg_ptr);
                         artist.addSong(song);
                         std::cout << "Song: " << song_name << '\n';
                     }
@@ -146,7 +163,9 @@ void Player::start(){
         if(c=="mp3"){
             print_mp3_songs();
         }
-        
+        if(c=="ogg"){
+            print_ogg_songs();
+        }        
         //test
         
         if(c=="play-song"){
@@ -500,6 +519,22 @@ void Player::print_mp3_songs(){
         for(const auto &album : artist.getAlbums()){
             for(const auto &song : album.getSongs()){
                 if(auto mp3_pointer = std::dynamic_pointer_cast<MP3>(song.getAudioFile())){
+                    std::cout<<song;
+                }
+            }
+        }
+    }
+}
+void Player::print_ogg_songs(){
+    for(const auto &artist : artists){
+        for(const auto &song : artist.getSongs()){
+            if(auto ogg_pointer = std::dynamic_pointer_cast<OGG>(song.getAudioFile())){
+                std::cout<<song;
+            }
+        }
+        for(const auto &album : artist.getAlbums()){
+            for(const auto &song : album.getSongs()){
+                if(auto ogg_pointer = std::dynamic_pointer_cast<OGG>(song.getAudioFile())){
                     std::cout<<song;
                 }
             }
