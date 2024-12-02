@@ -81,7 +81,7 @@ include(cmake/CompilerFlags.cmake)
 
 # use SYSTEM so cppcheck and clang-tidy do not report warnings from these directories
 target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE generated/include)
-target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE libs/SDL2/include libs/SDL2_Mixer/include)
+include_directories(${PROJECT_NAME} SYSTEM PRIVATE libs/SDL2/include libs/SDL2_Mixer/include)
 ###############################################################################
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/headers)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src)
