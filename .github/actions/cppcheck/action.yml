@@ -12,7 +12,7 @@ runs:
         key: cppcheck-${{ env.CPPCHECK_VER }}
 
     - name: Build cppcheck
-      shell: bash
+      shell: bash  # <-- Add this line
       if: steps.cache-cppcheck.outputs.cache-hit != 'true'
       run: |
         bash ./scripts/build_cppcheck.sh -v ${CPPCHECK_VER}
@@ -25,7 +25,7 @@ runs:
         key: cppcheck-${{ env.CPPCHECK_VER }}
 
     - name: Install cppcheck
-      shell: bash
+      shell: bash  # <-- Add this line
       run: |
         cd cppcheck
         sudo cmake --install build
@@ -36,8 +36,9 @@ runs:
         custom_flags: '-DCMAKE_EXPORT_COMPILE_COMMANDS=ON'
 
     - name: Install SDL2 development libraries
+      shell: bash  # <-- Add this line
       run: sudo apt-get install -y libsdl2-dev
 
     - name: Run cppcheck
-      shell: bash
+      shell: bash  # <-- Add this line
       run: bash ./scripts/run_cppcheck.sh
