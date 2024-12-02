@@ -1,38 +1,59 @@
-name: 'Install packages'
-description: 'Install required packages'
-
+name: "Setup SDL"
+description: "Set up SDL"
+inputs:
+  version:
+    description: "Required version of SDL (2.x.y, 2-any, 2-latest, 2-head, 3-head), or git hash"
+    default: "2-any"
+    required: true
+  version-sdl-image:
+    description: "Version of SDL_image (2.x.y, 2-any, 2-latest, 2-head, 3-head), git hash, or <empty>"
+    required: false
+  version-sdl-mixer:
+    description: "Version of SDL_mixer (2.x.y, 2-any, 2-latest, 2-head, 3-head), git hash, or <empty>"
+    required: false
+  version-sdl-net:
+    description: "Version of SDL_net (2.x.y, 2-any, 2-latest, 2-head, 3-head), git hash, or <empty>"
+    required: false
+  version-sdl-rtf:
+    description: "Version of SDL_rtf (2.x.y, 2-any, 2-latest, 2-head, 3-head), git hash, or <empty>"
+    required: false
+  version-sdl-ttf:
+    description: "Version of SDL_ttf (2.x.y, 2-any, 2-latest, 2-head, 3-head), git hash, or <empty>"
+    required: false
+  pre-release:
+    description: "Allow pre-releases"
+    default: "true"
+    required: true
+  build-type:
+    description: "CMake build type (Release/Debug/RelWithDebInfo/MinSizeRel)"
+    default: "Debug"
+    required: true
+  sdl-test:
+    description: "Build and install SDL_test library"
+    default: "false"
+  cmake-toolchain-file:
+    description: "Path of a CMake toolchain file"
+  cmake-generator:
+    description: "CMake generator name (see https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html)"
+  cmake-arguments:
+    description: "Extra CMake arguments during configuration"
+  install-linux-dependencies:
+    description: "Install dependencies (supports apt-get, dnf, brew, and msys2-pacman)"
+  shell:
+    description: "Run commands as `$shell $file` (with $file containing the build commands)"
+  discriminator:
+    description: "Unique string to include in the GitHub SDL cache hash"
+  add-to-environment:
+    description: "Add path of the SDL (shared) library to PATH/LD_LIBRARY_PATH/DYLD_LIBRARY_PATH"
+    default: "false"
+  token:
+    description: "A GitHub API token."
+    default: ${{ github.token }}
+outputs:
+  prefix:
+    description: "Actual root of the built SDL package"
+  version:
+    description: "SDL version"
 runs:
-  using: "composite"
-  steps:
-    # Common Linux dependencies
-    - name: Install Linux Dependencies
-      shell: bash
-      if: runner.os == 'Linux'
-      run: |
-        sudo apt-get update
-        sudo apt-get install ninja-build
-        # https://github.com/llvm/llvm-project/issues/78354
-        sudo sysctl vm.mmap_rnd_bits=28
-
-    # Also see https://github.com/actions/runner-images/discussions/9446#discussioncomment-8668538
-    - name: Install Clang ${{ matrix.clang_ver }}
-      shell: bash
-      if: runner.os == 'Linux' && matrix.runs_msan == true
-      run: |
-        wget https://apt.llvm.org/llvm.sh
-        chmod +x ./llvm.sh
-        sudo ./llvm.sh ${{ matrix.clang_ver }}
-
-    - name: Install libc++ (Linux Clang ${{ matrix.clang_ver }})
-      shell: bash
-      if: runner.os == 'Linux' && matrix.runs_msan == true
-      run: |
-        # sudo apt-get update
-        sudo apt-get install --no-install-recommends libc++-${{ matrix.clang_ver }}-dev libc++abi-${{ matrix.clang_ver }}-dev
-
-    - name: Install valgrind
-      shell: bash
-      if: runner.os == 'Linux' && matrix.runs_valgrind == true
-      run: |
-        # sudo apt-get update
-        sudo apt-get install --no-install-recommends valgrind
+  using: "node20"
+  main: "packed/index.js"

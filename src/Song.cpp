@@ -33,7 +33,7 @@ std::shared_ptr<AudioFile> Song::getAudioFile() const {
 }
 
 std::ostream& operator<<(std::ostream& os, const Song& auxSong) {
-    os << "Song name: " << auxSong.title << ", genre: " << auxSong.genre << '\n';
+    os << "Song name: " << auxSong.getTitle() << ", genre: " << auxSong.getGenre() << '\n';
     return os;
 }
 

@@ -172,7 +172,7 @@ void Player::start(){
             Song song_found = find_song();
             if(song_found.getTitle() != "--null"){
                 play(song_found);
-                std::cout<<song_found.getTitle()<<" was found!\n";
+                // std::cout<<song_found.getTitle()<<" was found!\n";
             }
             else std::cout<<"Song not found.\n";
         }
@@ -338,34 +338,34 @@ void Player::start(){
     }    
 }
  
-Song Player::find_song(){
-    Song song_found;
+Song Player::find_song() {
     std::string song_name;
     std::cin.get();
-    std::getline(std::cin,song_name,'\n');
-    song_name = song_name.substr(0,song_name.find_last_of('\n'));
-            
-    for(const auto & artist : artists){
-        for(const auto & search_song : artist.getSongs()){
-            if(search_song.getTitle() == song_name){
-                std::cout<<search_song.getTitle();
-                song_found = search_song;
-                return song_found;
+    std::getline(std::cin, song_name, '\n'); 
+    Song song_found;
+    std::cout << "Searching for song: " << song_name << "\n";
+
+    for (const auto& artist : artists) {
+        for (const auto& search_song : artist.getSongs()) {
+            if (search_song.getTitle() == song_name) {
+                //std::cout << "Song found: " << search_song.getTitle() << "\n";
+                return search_song; 
             }
         }
-        for(const auto & artist : artist.getAlbums()){
-            for(const auto & search_song : artist.getSongs()){
-                if(search_song.getTitle() == song_name){
-                    std::cout << "Song found: " << search_song.getTitle() << "\n";
-                    song_found = search_song;
-                    return song_found;
+        for (const auto& album : artist.getAlbums()) {
+            for (const auto& search_song : album.getSongs()) {
+                if (search_song.getTitle() == song_name) {
+                    //std::cout << "Song found: " << search_song.getTitle() << "\n";
+                    return search_song; 
                 }
             }
         }
     }
-    Song song_not_found;
-    return song_not_found;
+
+    std::cout << "Song not found.\n";
+    return song_found; 
 }
+
 
 Playlist Player::find_playlist(){
     Playlist playlist_found;
@@ -463,7 +463,7 @@ void Player::play(std::deque<Song> &song_queue) {
 void Player::play(Song& song){
     try {
         Mix_PlayMusic(song.getAudioFile()->file(), 2);
-        std::cout << "Playing: " << song_queue.front();
+        std::cout << "Playing: " << song;
     } catch (const check_playing& e) {
         std::cerr << "Error playing song: " << e.what() << std::endl;
     }
