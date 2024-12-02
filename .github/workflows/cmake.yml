@@ -2,10 +2,10 @@ name: C++ CI
 
 on:
   push:
-    branches: ['*'] # NOTE: replace/update with appropriate branch name(s)
+    branches: ['*']
     tags: ['*']
   pull_request:
-    branches: ['*'] # NOTE: replace/update with appropriate branch name(s)
+    branches: ['*']
   workflow_dispatch:
     inputs:
       build_type:
@@ -134,11 +134,28 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Install SDL2 and SDL2_mixer libraries
+      - name: Install SDL2 and SDL2_mixer libraries (Linux)
         if: runner.os == 'Linux'
         run: |
           sudo apt update
           sudo apt install -y libsdl2-dev libsdl2-mixer-dev
+
+      - name: Install SDL2 and SDL2_mixer libraries (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          brew update
+          brew install sdl2 sdl2_mixer
+
+      - name: Install SDL2 and SDL2_mixer libraries (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          git clone https://github.com/microsoft/vcpkg.git
+          ./vcpkg/bootstrap-vcpkg.sh
+          ./vcpkg/vcpkg install sdl2 sdl2-mixer
+
+      - name: Set vcpkg environment (Windows)
+        if: runner.os == 'Windows'
+        run: echo "VCPKG_ROOT=${{ github.workspace }}/vcpkg" >> $GITHUB_ENV
 
       - name: Set timestamp and zip name
         run: |
