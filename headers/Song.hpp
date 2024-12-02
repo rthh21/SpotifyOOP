@@ -1,12 +1,10 @@
 #ifndef SONG_H
 #define SONG_H
 
-#include <string>
-#include <iostream>
-#include <memory> 
 #include "AudioFile.hpp"
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_mixer.h>
+#include <iostream>
+#include <string>
+#include <memory>
 
 class Song {
 private:

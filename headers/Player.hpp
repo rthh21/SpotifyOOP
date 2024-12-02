@@ -1,18 +1,15 @@
 #ifndef PLAYER_HPP
 #define PLAYER_HPP
 
+#include "Song.hpp"
+#include "Artist.hpp"
+#include "Playlist.hpp"
+#include <iostream>
 #include <vector>
 #include <queue>
 #include <algorithm>
 #include <chrono>
 #include <random>
-#include <iostream>
-#include "Playlist.hpp"
-#include "Song.hpp"
-#include "Artist.hpp"
-#include "AudioFile.hpp"
-#include "flac.hpp"
-#include "mp3.hpp"
 
 class Player {
 private:
@@ -47,13 +44,13 @@ public:
     
     void shuffle(std::deque<Song> &song_queue);
     
-    void play(std::deque<Song> &song_queue);
-    void play(Song& song);
-    void play(Album& album);
-    void play(Playlist& playlist);
+    static void play(const std::deque<Song> &song_queue);
+    void play(const Song& song);
+    void play(const Album& album);
+    void play(const Playlist& playlist);
     
-    void pause() const;
-    void resume() const;
+    static void pause();
+    static void resume();
     static void song_cnt();
 };
 

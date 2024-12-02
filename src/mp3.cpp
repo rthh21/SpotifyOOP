@@ -1,5 +1,5 @@
-#include <iostream>
 #include "mp3.hpp"
+#include <iostream>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_mixer.h>
 

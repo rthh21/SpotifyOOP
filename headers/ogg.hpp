@@ -1,10 +1,8 @@
 #ifndef OGG_HPP
 #define OGG_HPP
 
-#include <string>
 #include "AudioFile.hpp"
-#define SDL_MAIN_HANDLED // fix pentru "main"
-
+#include <string>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_mixer.h>
 
@@ -14,7 +12,7 @@ private:
 public:
     OGG();
     explicit OGG(const std::string& PATH, int bitrate);
-    virtual ~OGG();
+    ~OGG() override;
     
     Mix_Music* file() const override;
     void display() const override;

@@ -1,8 +1,6 @@
-#include <iostream>
 #include "AudioFile.hpp"
 #include "flac.hpp"
-#define SDL_MAIN_HANDLED // fix pentru "main"
-
+#include <iostream>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_mixer.h>
 
@@ -21,7 +19,7 @@ Mix_Music* FLAC::file() const {
         SDL_Quit();
         return nullptr;
     }
-    // Returning the pointer to the caller
+    
     return music;
 }
 

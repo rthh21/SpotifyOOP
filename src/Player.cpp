@@ -1,9 +1,4 @@
-#include <string>
 #include "Player.hpp"
-#include "Song.hpp"
-#include "Artist.hpp"
-#include "Album.hpp"
-
 #include "AudioFile.hpp"
 #include "flac.hpp"
 #include "mp3.hpp"
@@ -14,11 +9,12 @@
 #include "CheckInit.hpp"
 #include "CheckPlaying.hpp"
 
+#include <string>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_mixer.h>
 #include <filesystem>
 namespace fs = std::filesystem;
 
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_mixer.h>
 
 
 std::deque<Song> Player::song_queue;
@@ -47,11 +43,11 @@ void Player::init() {
 }
  
 void Player::load_files() {
-    std::string artist_name, song_name, album_name;
+    std::string song_name;
 
-    std::string path = "..\\music";
     
     try {
+        std::string path = "..\\music";
         if (!fs::is_directory(path)){
             throw is_not_directory(path);
         }
@@ -61,26 +57,26 @@ void Player::load_files() {
             
             //artist
             if (token.find("Artist-") != std::string::npos) {
-                artist_name = token.substr(token.find("Artist-") + 7);
-                std::cout << "Artist: " << artist_name << '\n';
+                std::string artist_name = token.substr(token.find("Artist-") + 7);
+                std::cout<<"Artist: "<<artist_name<<'\n';
                 Artist artist(artist_name,"");
-                for (const auto & entry_artist : fs::directory_iterator(token)) {
-                    std::string token_artist = entry_artist.path().string();
+                for (const auto & artist_token : fs::directory_iterator(token)) {
+                    std::string token_artist = artist_token.path().string();
                     
                     //album
                     if (token_artist.find("Album-") != std::string::npos) {
-                        album_name = token_artist.substr(token_artist.find("Album-") + 6);
-                        std::cout << "Album: " << album_name << '\n';
+                        std::string album_name = token_artist.substr(token_artist.find("Album-") + 6);
+                        std::cout<<"Album: "<<album_name<<'\n';
                         Album album(album_name,"");
-                        for (const auto & entry_artist : fs::directory_iterator(token_artist)) {
-                            std::string token_album = entry_artist.path().string();
+                        for (const auto & artist_token : fs::directory_iterator(token_artist)) {
+                            std::string token_album = artist_token.path().string();
                             if (token_album.find(".flac") != std::string::npos) {
                                 song_name = token_album.substr(token_album.find_last_of("\\") + 1);
                                 song_name = song_name.substr(song_name.find('-') + 1, song_name.find(".flac") - song_name.find('-') - 1);
                                 std::shared_ptr<AudioFile> flac_ptr = std::make_shared<FLAC>(token_album,5);
                                 Song song(song_name, artist_name, flac_ptr);
                                 album.addSong(song);
-                                std::cout << "Song: " << song_name << '\n';
+                                std::cout<<"Song: "<<song_name<<'\n';
                             } 
                             else if (token_album.find(".mp3") != std::string::npos) {
                                 song_name = token_album.substr(token_album.find_last_of("\\") + 1);
@@ -88,7 +84,7 @@ void Player::load_files() {
                                 std::shared_ptr<AudioFile> mp3_ptr = std::make_shared<MP3>(token_album,5);
                                 Song song(song_name, artist_name, mp3_ptr);
                                 album.addSong(song);
-                                std::cout << "Song: " << song_name << '\n';
+                                std::cout<<"Song: "<<song_name<<'\n';
                             }
                             else if (token_album.find(".ogg") != std::string::npos) {
                                 song_name = token_album.substr(token_album.find_last_of("\\") + 1);
@@ -96,7 +92,7 @@ void Player::load_files() {
                                 std::shared_ptr<AudioFile> ogg_ptr = std::make_shared<OGG>(token_album,5);
                                 Song song(song_name, artist_name, ogg_ptr);
                                 album.addSong(song);
-                                std::cout << "Song: " << song_name << '\n';
+                                std::cout<<"Song: "<<song_name<<'\n';
                             }
                         }
                         artist.addAlbum(album);
@@ -109,7 +105,7 @@ void Player::load_files() {
                         std::shared_ptr<AudioFile> flac_ptr = std::make_shared<FLAC>(token_artist,5);
                         Song song(song_name, artist_name, flac_ptr);
                         artist.addSong(song);
-                        std::cout << "Song: " << song_name << '\n';
+                        std::cout<<"Song: "<<song_name<<'\n';
                     } 
                     else if (token_artist.find(".mp3") != std::string::npos) {
                         song_name = token_artist.substr(token_artist.find_last_of("\\") + 1);
@@ -117,7 +113,7 @@ void Player::load_files() {
                         std::shared_ptr<AudioFile> mp3_ptr = std::make_shared<MP3>(token_artist,5);
                         Song song(song_name, artist_name, mp3_ptr);
                         artist.addSong(song);
-                        std::cout << "Song: " << song_name << '\n';
+                        std::cout<<"Song: "<<song_name<<'\n';
                     }
                     else if (token_artist.find(".ogg") != std::string::npos) {
                         song_name = token_artist.substr(token_artist.find_last_of("\\") + 1);
@@ -125,14 +121,14 @@ void Player::load_files() {
                         std::shared_ptr<AudioFile> ogg_ptr = std::make_shared<OGG>(token_artist,5);
                         Song song(song_name, artist_name, ogg_ptr);
                         artist.addSong(song);
-                        std::cout << "Song: " << song_name << '\n';
+                        std::cout<<"Song: "<<song_name<<'\n';
                     }
                 }
                 artists.push_back(artist);
             }
         }
     } catch (const is_not_directory& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
+        std::cerr<<"Error: "<<e.what()<<std::endl;
     }
 
 }
@@ -206,7 +202,7 @@ void Player::start(){
             } else {
                 int pos = 0;
                 std::cout<<"Queue: \n";
-                for(auto& song : song_queue){
+                for(auto const &song : song_queue){
                     std::cout<<++pos<<": ";
                     std::cout<<song;
                 }
@@ -265,7 +261,7 @@ void Player::start(){
         
         if(c=="queue-clear"){
             clear_queue();
-            std::cout << "Queue cleared.\n";
+            std::cout<<"Queue cleared.\n";
         }
         
         //---------------------------------------------------------------------------------------------------
@@ -279,25 +275,44 @@ void Player::start(){
             std::getline(std::cin, playlist_name, '\n');
             Playlist playlist(playlist_name,"rth");
             
-            std::cout<<"Type add song_name to add a song to the playlist. To save type: save\n";
+            std::cout<<"Type: add song_name -> to add a song to the playlist.       Type: save -> to save & exit\n";
             std::string token;
             while(std::cin>>token){
                 if(token == "add"){
                     Song song_found = find_song();
                     if(song_found.getTitle() != "--null"){
                         playlist.addSong(song_found);
-                        std::cout<<song_found.getTitle()<<" was found!\n";
-                        std::cout<<"Nr. of songs: "<<song_found.getCnt();
+                        std::cout<<"-> "<<song_found.getTitle()<<" was found & added!\n";
+                        std::cout<<"-> Song number: "<<song_found.getCnt()<<'\n';
                     }
-                    else std::cout<<"Song wasn't found.";
-                    std::cout<<'\n';
                 } else if(token == "save") {
                     break;
                 }
             }
             playlists.push_back(playlist);
-            std::cout<<"Playlist created!\n"<<playlist;
+            std::cout<<"-> Playlist "<<playlist<<" by "<<playlist.getCreatedBy()<<" created\n";
             playlist.showSongs();
+        }
+        
+        if(c=="playlist-remove"){
+            if(!playlists.empty()) {
+                std::cout<<"Name: ";
+                Playlist playlist_found = find_playlist();
+                if(playlist_found.getName() != "--null") {
+                    int position;
+                    std::cout<<"Position: ";
+                    std::cin >> position;
+                    std::vector<Song> playlist_songs = playlist_found.getSongs();
+                    std::cout<<"-> Song: "<<playlist_songs[position-1]<<"removed!\n";
+                    playlist_found.removeSongPos(position-1);
+                    }
+                else {
+                    std::cout<<"(!) Can't find playlist.\n";
+                }
+            }
+            else {
+                std::cout<<"(!) No playlists were created! Use: create-playlist\n";
+            }
         }
         
         //---------------------------------------------------------------------------------------------------
@@ -343,26 +358,26 @@ Song Player::find_song() {
     std::cin.get();
     std::getline(std::cin, song_name, '\n'); 
     Song song_found;
-    std::cout << "Searching for song: " << song_name << "\n";
+    std::cout<<"Searching for song: "<<song_name<<"\n";
 
     for (const auto& artist : artists) {
         for (const auto& search_song : artist.getSongs()) {
             if (search_song.getTitle() == song_name) {
-                //std::cout << "Song found: " << search_song.getTitle() << "\n";
+                //std::cout<<"Song found: "<<search_song.getTitle()<<"\n";
                 return search_song; 
             }
         }
         for (const auto& album : artist.getAlbums()) {
             for (const auto& search_song : album.getSongs()) {
                 if (search_song.getTitle() == song_name) {
-                    //std::cout << "Song found: " << search_song.getTitle() << "\n";
+                    //std::cout<<"Song found: "<<search_song.getTitle()<<"\n";
                     return search_song; 
                 }
             }
         }
     }
 
-    std::cout << "Song not found.\n";
+    std::cout<<"(!) Song not found.\n";
     return song_found; 
 }
 
@@ -373,17 +388,19 @@ Playlist Player::find_playlist(){
 
     std::cin.get();
     std::getline(std::cin, playlist_name, '\n');
-    playlist_name = playlist_name.substr(0, playlist_name.find_last_of('\n'));
+    if (!playlist_name.empty() && playlist_name.back() == '\n') {
+        playlist_name.pop_back();
+    }
 
     for (const auto& playlist : playlists) {
         if (playlist.getName() == playlist_name) {
-            std::cout << "Playlist found: " << playlist.getName() << "\n";
+            std::cout<<"Playlist found: "<<playlist.getName()<<"\n";
             playlist_found = playlist;
             return playlist_found;
         }
     }
 
-    std::cout << "Playlist not found.\n";
+    std::cout<<"Playlist not found.\n";
     Playlist playlist_not_found;
     return playlist_not_found;
 }
@@ -394,19 +411,22 @@ Album Player::find_album() {
 
     std::cin.get();
     std::getline(std::cin, album_name, '\n');
-    album_name = album_name.substr(0, album_name.find_last_of('\n'));
+    if (!album_name.empty() && album_name.back() == '\n') {
+        album_name.pop_back();
+    }
+
 
     for (const auto& artist : artists) {
         for (const auto& album : artist.getAlbums()) {
             if (album.getName() == album_name) {
-                std::cout << "Album found: " << album.getName() << "\n";
+                std::cout<<"Album found: "<<album.getName()<<"\n";
                 album_found = album;
                 return album_found;
             }
         }
     }
 
-    std::cout << "Album not found.\n";
+    std::cout<<"Album not found.\n";
     Album album_not_found;
     return album_not_found;
 }
@@ -430,7 +450,7 @@ void Player::remove_from_queue(const std::size_t position){
         std::advance(it, position);  
         song_queue.erase(it);
     } else {
-        std::cerr << "Invalid position\n";
+        std::cerr<<"Invalid position\n";
     }
 }
 
@@ -439,9 +459,9 @@ void Player::shuffle(std::deque<Song> &song_queue) {
     std::default_random_engine rng(seed);
     std::shuffle(std::begin(song_queue), std::end(song_queue), rng);
 
-    std::cout << "Shuffle queue:\n";
+    std::cout<<"Shuffle queue:\n";
     for (const auto& song : song_queue) {
-        std::cout << song;
+        std::cout<<song;
     }
 }
 
@@ -451,31 +471,35 @@ void Player::clear_queue(){
     }
 }
 
-void Player::play(std::deque<Song> &song_queue) {
+void Player::play(const std::deque<Song> &song_queue) {
     try {
-        Mix_PlayMusic(song_queue.front().getAudioFile()->file(), 2);
-        std::cout << "Playing: " << song_queue.front();
+        if(Mix_PlayMusic(song_queue.front().getAudioFile()->file(), 2) == -1){
+            throw check_playing();
+        }
+        std::cout<<"Playing: "<<song_queue.front();
     } catch (const check_playing& e) {
-        std::cerr << "Error playing song: " << e.what() << std::endl;
+        std::cerr<<"Error playing song: "<<e.what()<<std::endl;
     }
 }
 
-void Player::play(Song& song){
+void Player::play(const Song& song){
     try {
-        Mix_PlayMusic(song.getAudioFile()->file(), 2);
-        std::cout << "Playing: " << song;
+        if(Mix_PlayMusic(song.getAudioFile()->file(), 2) == -1){
+            throw check_playing();
+        }
+        std::cout<<"Playing: "<<song;
     } catch (const check_playing& e) {
-        std::cerr << "Error playing song: " << e.what() << std::endl;
+        std::cerr<<"Error playing song: "<<e.what()<<std::endl;
     }
 }
-void Player::play(Album& album){
+void Player::play(const Album& album){
     clear_queue();
     for(const auto& song : album.getSongs()){
         add_to_queue(song); 
     }
     play(song_queue);
 }
-void Player::play(Playlist& playlist){
+void Player::play(const Playlist& playlist){
     clear_queue();
     for(const auto& song : playlist.getSongs()){
         add_to_queue(song); 
@@ -483,10 +507,10 @@ void Player::play(Playlist& playlist){
     play(song_queue);
 }
 
-void Player::pause() const {
+void Player::pause() {
     Mix_PauseMusic();
 }
-void Player::resume() const{
+void Player::resume() {
     Mix_ResumeMusic();
 }
 

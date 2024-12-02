@@ -14,7 +14,7 @@ public:
     explicit AudioFile(const std::string& PATH);
     virtual ~AudioFile();
     
-    void play_info() const;
+    void interface() const;
     
     virtual Mix_Music* file() const = 0;
     virtual void display() const = 0;

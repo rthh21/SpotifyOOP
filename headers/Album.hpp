@@ -1,8 +1,8 @@
 #ifndef ALBUM_H
 #define ALBUM_H
 
-#include <string>
 #include <iostream>
+#include <string>
 #include <vector>
 #include "Song.hpp"
 

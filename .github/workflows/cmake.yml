@@ -77,7 +77,46 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # Windows MSVC Build with ASAN
+          - os: ubuntu-22.04
+            c: clang-18
+            cxx: clang++-18
+            clang_ver: "18"
+            clang_ver_full: "18.1.8"
+            name: "MSan: Ubuntu 22.04 Clang 18"
+            cmake_flags: "-DUSE_MSAN=ON -DCMAKE_INCLUDE_PATH=libs/SDL2/include;libs/SDL2_Mixer/include"
+            cmake_generator: Ninja
+            runs_msan: true
+
+          - os: ubuntu-22.04
+            c: gcc-12
+            cxx: g++-12
+            name: "ASan: Ubuntu 22.04 GCC 12"
+            cmake_flags: "-DUSE_ASAN=ON -DCMAKE_INCLUDE_PATH=libs/SDL2/include;libs/SDL2_Mixer/include"
+            cmake_generator: Ninja
+            runs_asan: true
+            asan_name: "-asan"
+
+          - os: ubuntu-22.04
+            c: gcc-12
+            cxx: g++-12
+            name: "Valgrind: Ubuntu 22.04 GCC 12"
+            cmake_flags: "-DCMAKE_INCLUDE_PATH=libs/SDL2/include;libs/SDL2_Mixer/include"
+            cmake_generator: Ninja
+            runs_valgrind: true
+
+          - os: macos-14
+            c: clang
+            cxx: clang++
+            name: "macOS 14 Apple Clang 15"
+            cmake_flags: "-DUSE_ASAN=OFF -DCMAKE_INCLUDE_PATH=libs/SDL2/include;libs/SDL2_Mixer/include"
+            runs_asan: false
+
+          - os: macos-14
+            c: gcc-13
+            cxx: g++-13
+            name: "macOS 14 GCC 13"
+            cmake_flags: "-DCMAKE_INCLUDE_PATH=libs/SDL2/include;libs/SDL2_Mixer/include"
+
           - os: windows-2022
             c: cl
             cxx: cl
@@ -85,55 +124,34 @@ jobs:
             cmake_flags: "-DUSE_ASAN=ON -DCMAKE_INCLUDE_PATH=libs/SDL2/include;libs/SDL2_Mixer/include"
             runs_asan: true
 
-          # Windows MinGW Build
           - os: windows-2022
             c: gcc
             cxx: g++
             name: "Windows 2022 MinGW GCC 13"
             cmake_flags: "-DCMAKE_INCLUDE_PATH=libs/SDL2/include;libs/SDL2_Mixer/include"
 
-          # macOS Build with Clang
-          - os: macos-14
-            c: clang
-            cxx: clang++
-            name: "macOS 14 Apple Clang 15"
-            cmake_flags: "-DUSE_ASAN=OFF -DCMAKE_INCLUDE_PATH=/usr/local/include;/usr/local/opt/sdl2/include;/usr/local/opt/sdl2_mixer/include"
-            runs_asan: false
-
-          # macOS Build with GCC
-          - os: macos-14
-            c: gcc-13
-            cxx: g++-13
-            name: "macOS 14 GCC 13"
-            cmake_flags: "-DCMAKE_INCLUDE_PATH=/usr/local/include;/usr/local/opt/sdl2/include;/usr/local/opt/sdl2_mixer/include"
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      # Linux setup
       - name: Install SDL2 and SDL2_mixer libraries (Linux)
         if: runner.os == 'Linux'
         run: |
           sudo apt update
           sudo apt install -y libsdl2-dev libsdl2-mixer-dev
 
-      # macOS setup
       - name: Install SDL2 and SDL2_mixer libraries (macOS)
         if: runner.os == 'macOS'
         run: |
           brew update
           brew install sdl2 sdl2_mixer
 
-      # Windows setup
       - name: Install SDL2 and SDL2_mixer libraries (Windows)
         if: runner.os == 'Windows'
         run: |
           git clone https://github.com/microsoft/vcpkg.git
           ./vcpkg/bootstrap-vcpkg.sh
           ./vcpkg/vcpkg install sdl2 sdl2-mixer
-        env:
-          VCPKG_ROOT: ${{ github.workspace }}/vcpkg
 
       - name: Set vcpkg environment (Windows)
         if: runner.os == 'Windows'

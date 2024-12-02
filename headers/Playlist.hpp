@@ -1,11 +1,11 @@
 #ifndef PLAYLIST_H
 #define PLAYLIST_H
 
-#include <string>
-#include <vector>
-#include <iostream>
 #include "Song.hpp"
 #include "Album.hpp"
+#include <iostream>
+#include <string>
+#include <vector>
 
 class Playlist {
     private:

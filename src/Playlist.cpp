@@ -8,7 +8,6 @@ Playlist::Playlist(const std::string& name, const std::string& createdBy)
 
 Playlist::Playlist(const Playlist& CpyPlaylist)
     : name(CpyPlaylist.name), createdBy(CpyPlaylist.createdBy), songs(CpyPlaylist.songs) {
-    std::cout << "Copy constructor for playlist: " << this->name << '\n';
 }
 
 Playlist::~Playlist() {}
@@ -17,7 +16,6 @@ Playlist& Playlist::operator=(const Playlist& equalPlaylist) {
     name = equalPlaylist.name;
     createdBy = equalPlaylist.createdBy;
     songs = equalPlaylist.songs;
-    std::cout << "Successfully '=' !\n";
     return *this;
 }
 
