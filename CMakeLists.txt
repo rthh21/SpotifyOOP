@@ -15,6 +15,7 @@ include(cmake/Options.cmake)
 
 ###############################################################################
 
+list(APPEND CMAKE_PREFIX_PATH ../libs/SDL2/cmake)
 
 if(WIN32)
     # On Windows, specify the path to SDL2 and SDL2_mixer manually if necessary
