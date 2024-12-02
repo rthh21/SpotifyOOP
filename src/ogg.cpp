@@ -1,7 +1,7 @@
 #include <iostream>
 #include "ogg.hpp"
 #include <SDL2/SDL.h>
-#include "SDL_mixer.h"
+#include <SDL2/SDL_mixer.h>
 
 OGG::OGG() : bitrate(0) {}
 OGG::OGG(const std::string& PATH, int bitrate) : AudioFile(PATH), bitrate(bitrate) {}

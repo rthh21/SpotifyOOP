@@ -1,7 +1,7 @@
 #include <iostream>
 #include "mp3.hpp"
 #include <SDL2/SDL.h>
-#include "SDL_mixer.h"
+#include <SDL2/SDL_mixer.h>
 
 MP3::MP3() : bitrate(0) {}
 MP3::MP3(const std::string& PATH, int bitrate) : AudioFile(PATH), bitrate(bitrate) {}

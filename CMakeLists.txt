@@ -90,8 +90,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/headers)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/music)
 
- 
-target_link_directories(${PROJECT_NAME} PRIVATE libs/SDL2/lib libs/SDL2_Mixer/lib)
+link_directories(${PROJECT_NAME} libs/SDL2/lib libs/SDL2_Mixer/lib)
 target_link_libraries(${PROJECT_NAME} PRIVATE SDL2 SDL2_mixer)
 # target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE ext/<SomeHppLib>/include)
 # target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE ${<SomeLib>_SOURCE_DIR}/include)

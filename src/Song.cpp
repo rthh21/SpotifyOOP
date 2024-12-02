@@ -1,7 +1,7 @@
 #include "Song.hpp"
 #include "AudioFile.hpp"
 #include <SDL2/SDL.h>
-#include "SDL_mixer.h"
+#include <SDL2/SDL_mixer.h>
 #include "Song.hpp"
 
 int Song::cnt = 0;

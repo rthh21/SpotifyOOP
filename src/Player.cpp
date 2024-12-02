@@ -18,7 +18,7 @@
 namespace fs = std::filesystem;
 
 #include <SDL2/SDL.h>
-#include "SDL_mixer.h"
+#include <SDL2/SDL_mixer.h>
 
 
 std::deque<Song> Player::song_queue;

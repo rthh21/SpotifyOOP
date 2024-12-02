@@ -4,7 +4,7 @@
 #define SDL_MAIN_HANDLED // fix pentru "main"
 
 #include <SDL2/SDL.h>
-#include "SDL_mixer.h"
+#include <SDL2/SDL_mixer.h>
 
 
 FLAC::FLAC() : compression(0) {}

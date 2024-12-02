@@ -7,8 +7,8 @@
 #define SDL_MAIN_HANDLED // fix pentru "main"
 
 #include "Player.hpp"
-#include "SDL.h"
-#include "SDL_mixer.h"
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_mixer.h>
 
 int main(){
     Player player;

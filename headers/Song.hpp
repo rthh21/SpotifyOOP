@@ -6,7 +6,7 @@
 #include <memory> 
 #include "AudioFile.hpp"
 #include <SDL2/SDL.h>
-#include "SDL_mixer.h"
+#include <SDL2/SDL_mixer.h>
 
 class Song {
 private:
