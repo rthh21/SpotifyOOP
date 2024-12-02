@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-cppcheck -Ilibs/SDL2/include -Ilibs/SDL2_mixer/include \
+cppcheck -Ilibs/SDL2/include -Ilibs/SDL2_Mixer/include \
     --enable=all \
     --inline-suppr \
     --project="${BUILD_DIR:-build}"/compile_commands.json \
