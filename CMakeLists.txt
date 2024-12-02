@@ -17,7 +17,7 @@ include(cmake/Options.cmake)
 
 list(APPEND CMAKE_PREFIX_PATH ../libs/SDL2/cmake)
 
-find_package(SDL2 REQUIRED)
+find_package(SDL2 REQUIRED CONFIG)
 find_package(SDL2_mixer REQUIRED)
 
 
