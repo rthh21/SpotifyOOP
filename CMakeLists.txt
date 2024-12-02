@@ -13,6 +13,9 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 include(cmake/Options.cmake)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+
 ###############################################################################
 
 list(APPEND CMAKE_PREFIX_PATH ../libs/SDL2/cmake/sdl2-config.cmake)

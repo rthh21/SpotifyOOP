@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 
-cppcheck --enable=all \
+cppcheck -Ilibs/SDL2/include -Ilibs/SDL2_mixer/include \
+    --enable=all \
     --inline-suppr \
     --project="${BUILD_DIR:-build}"/compile_commands.json \
     -i"${BUILD_DIR:-build}" --suppress="*:${BUILD_DIR:-build}/*" \
