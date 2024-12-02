@@ -1,6 +1,6 @@
 #include <iostream>
 #include "mp3.hpp"
-#include "SDL.h"
+#include <SDL2/SDL.h>
 #include "SDL_mixer.h"
 
 MP3::MP3() : bitrate(0) {}
