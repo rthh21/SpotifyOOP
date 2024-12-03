@@ -1,0 +1,23 @@
+\doxysection{Check\+Directory.\+hpp}
+\hypertarget{_check_directory_8hpp_source}{}\label{_check_directory_8hpp_source}\index{C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers/CheckDirectory.hpp@{C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers/CheckDirectory.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CHECKDIRECTORY\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CHECKDIRECTORY\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Exceptions.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//used\ in\ load\_songs()\ in\ Player.cpp}}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classis__not__directory}{is\_not\_directory}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_audio_exceptions}{AudioExceptions}}\{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00010\ \ \ \ \ std::string\ message;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classis__not__directory}{is\_not\_directory}}(\textcolor{keyword}{const}\ std::string\&\ path);}
+\DoxyCodeLine{00013\ \ \ \ \ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00015\ \};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

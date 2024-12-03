@@ -1,0 +1,134 @@
+\chapter{Aplicatie MP3 stil Spotify}
+\hypertarget{index}{}\label{index}\index{Aplicatie MP3 stil Spotify@{Aplicatie MP3 stil Spotify}}
+\label{index_md__c_1_2_users_2rth_2_documents_2_cod_2_an2_2_o_o_p_2mp3player_2_spotify_o_o_p_2_r_e_a_d_m_e}%
+\Hypertarget{index_md__c_1_2_users_2rth_2_documents_2_cod_2_an2_2_o_o_p_2mp3player_2_spotify_o_o_p_2_r_e_a_d_m_e}%
+\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Descriere proiect}{Descriere proiect}}\label{index_autotoc_md1}
+\doxylink{class_m_p3}{MP3} player folosind clase si diferite librarii pentru functionalitatea sa. Principala librarie folosita este SDL2 pentru audio playback. In acest moment, aplicatia este capabila sa incarce diferite melodii salvate local, sa le redea, play/pause/skip. Utilizatorii pot creea playlisturi si pot folosi functio shuffle.
+
+Acest program este simplu dar eficient.\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{Milestone \#0}{Milestone \#0}}\label{index_autotoc_md2}
+
+\begin{DoxyItemize}
+\item[\DoxyChecked] \doxylink{class_player}{Player} \doxylink{class_m_p3}{MP3} stil Spotify
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] Aplicatia consta intr-\/un \doxylink{class_m_p3}{MP3} player in care poti creea playlisturi, poti adauga artisti, albume si melodii. In plus, vei avea profiluri si functii precum shuffle.
+\end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{Milestone \#1}{Milestone \#1}}\label{index_autotoc_md3}
+\hypertarget{index_autotoc_md4}{}\doxysubsubsection{\texorpdfstring{Cerințe}{Cerințe}}\label{index_autotoc_md4}
+
+\begin{DoxyItemize}
+\item[\DoxyChecked] definirea a minim {\bfseries{3-\/4 clase}} folosind compunere cu clasele definite de voi
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] constructori de inițializare cu parametri
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] pentru o aceeași (singură) clasă\+: constructor de copiere, {\ttfamily operator=} de copiere, destructor
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] {\ttfamily operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}} pentru toate clasele pentru afișare (std\+::ostream)
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] cât mai multe {\ttfamily const} (unde este cazul)
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] implementarea a minim 3 funcții membru publice pentru funcționalități specifice temei alese, dintre care cel puțin 1-\/2 funcții mai complexe
+\begin{DoxyItemize}
+\item nu doar citiri/afișări sau adăugat/șters elemente într-\/un/dintr-\/un vector
+\end{DoxyItemize}
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] scenariu de utilizare a claselor definite\+:
+\begin{DoxyItemize}
+\item preferabil sub formă de teste unitare, mai ales dacă vorbim de aplicații consolă
+\item crearea de obiecte și apelarea tuturor funcțiilor membru publice în main
+\item vor fi adăugate în fișierul {\ttfamily tastatura.\+txt} DOAR exemple de date de intrare de la tastatură (dacă există); dacă aveți nevoie de date din fișiere, creați alte fișiere separat
+\end{DoxyItemize}
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] tag de {\ttfamily git}\+: de exemplu {\ttfamily v0.\+1}
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] serviciu de integrare continuă (CI); exemplu\+: Git\+Hub Actions
+\end{DoxyItemize}\hypertarget{index_autotoc_md5}{}\doxysection{\texorpdfstring{Milestone \#2}{Milestone \#2}}\label{index_autotoc_md5}
+\hypertarget{index_autotoc_md6}{}\doxysubsubsection{\texorpdfstring{Cerințe}{Cerințe}}\label{index_autotoc_md6}
+
+\begin{DoxyItemize}
+\item[\DoxyChecked] separarea codului din clase în {\ttfamily .h} (sau {\ttfamily .hpp}) și {\ttfamily .cpp}
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] moșteniri\+:
+\begin{DoxyItemize}
+\item minim o clasă de bază și {\bfseries{3 clase derivate}} din aceeași ierarhie
+\item ierarhia trebuie să fie cu bază proprie, nu derivată dintr-\/o clasă predefinită
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] funcții virtuale (pure) apelate prin pointeri de bază din clasa care conține atributul de tip pointer de bază
+\begin{DoxyItemize}
+\item minim o funcție virtuală va fi {\bfseries{specifică temei}} (e.\+g. nu simple citiri/afișări)
+\item constructori virtuali (clone)\+: sunt necesari, dar nu se consideră funcții specifice temei
+\item afișare virtuală, interfață non-\/virtuală
+\end{DoxyItemize}
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] apelarea constructorului din clasa de bază din constructori din derivate
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] clasă cu atribut de tip pointer la o clasă de bază cu derivate; aici apelați funcțiile virtuale prin pointer de bază, eventual prin interfața non-\/virtuală din bază
+\begin{DoxyItemize}
+\item[\DoxyChecked] suprascris cc/op= pentru copieri/atribuiri corecte, copy and swap
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] {\ttfamily dynamic\+\_\+cast}/{\ttfamily std\+::dynamic\+\_\+pointer\+\_\+cast} pentru downcast cu sens
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] smart pointers (recomandat, opțional)
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] excepții
+\begin{DoxyItemize}
+\item[\DoxyChecked] ierarhie proprie cu baza {\ttfamily std\+::exception} sau derivată din {\ttfamily std\+::exception}; minim {\bfseries{3}} clase pentru erori specifice
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] utilizare cu sens\+: de exemplu, {\ttfamily throw} în constructor (sau funcție care întoarce un obiect), {\ttfamily try}/{\ttfamily catch} în {\ttfamily main}
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item această ierarhie va fi complet independentă de ierarhia cu funcții virtuale
+\end{DoxyItemize}
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] funcții și atribute {\ttfamily static}
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] STL
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] cât mai multe {\ttfamily const}
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] funcții {\itshape de nivel înalt}, de eliminat cât mai mulți getters/setters/funcții low-\/level
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] tag de {\ttfamily git}\+: de exemplu {\ttfamily v0.\+2}
+\end{DoxyItemize}\hypertarget{index_autotoc_md7}{}\doxysection{\texorpdfstring{Milestone \#3}{Milestone \#3}}\label{index_autotoc_md7}
+\hypertarget{index_autotoc_md8}{}\doxysubsubsection{\texorpdfstring{Cerințe}{Cerințe}}\label{index_autotoc_md8}
+
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] 2 șabloane de proiectare (design patterns)
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] o clasă șablon cu sens; minim {\bfseries{2 instanțieri}}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] preferabil și o funcție șablon (template) cu sens; minim 2 instanțieri
+\end{DoxyItemize}
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] tag de {\ttfamily git}\+: de exemplu {\ttfamily v0.\+3} sau {\ttfamily v1.\+0}
+\end{DoxyItemize}\hypertarget{index_autotoc_md9}{}\doxysection{\texorpdfstring{Resurse}{Resurse}}\label{index_autotoc_md9}
+
+\begin{DoxyItemize}
+\item \href{https://www.doxygen.nl/}{\texttt{ https\+://www.\+doxygen.\+nl/}}
+\item \href{https://cmake.org/cmake/help/latest/}{\texttt{ https\+://cmake.\+org/cmake/help/latest/}}
+\item \href{https://github.com/libsdl-org}{\texttt{ https\+://github.\+com/libsdl-\/org}} 
+\end{DoxyItemize}

@@ -1,0 +1,213 @@
+\doxysection{Playlist Class Reference}
+\hypertarget{class_playlist}{}\label{class_playlist}\index{Playlist@{Playlist}}
+
+
+Represents a music playlist that can hold songs and albums.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_playlist_a164c4d4f8db3f7ac8c14c94ef98f3cf8}{add\+Song}} (const \mbox{\hyperlink{class_song}{Song}} \&song)
+\begin{DoxyCompactList}\small\item\em Adds a song to the playlist. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_playlist_a6a98eda5172a7e0ae7dfc4a169c6c911}{add\+Album}} (const \mbox{\hyperlink{class_album}{Album}} \&album)
+\begin{DoxyCompactList}\small\item\em Adds all songs from an album to the playlist. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_playlist_a694f5986f735a205e2c047fece566e7b}{remove\+Song\+Pos}} (int x)
+\begin{DoxyCompactList}\small\item\em Removes a song at a given position from the playlist. \end{DoxyCompactList}\item 
+\Hypertarget{class_playlist_a6619b0c3f81c10e9f74e79b48cbf98c3}\label{class_playlist_a6619b0c3f81c10e9f74e79b48cbf98c3} 
+void {\bfseries show\+Songs} ()
+\begin{DoxyCompactList}\small\item\em Displays all songs in the playlist with their respective positions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_playlist_a552544b46d58d1d099acf964c0825d6d}{Playlist}} (const std\+::string \&name, const std\+::string \&created\+By)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_playlist}{Playlist} object with a given name and creator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_playlist_ae3ac9681dc6addf9605e0c813c831f7d}{Playlist}} (const \mbox{\hyperlink{class_playlist}{Playlist}} \&Cpy\+Playlist)
+\begin{DoxyCompactList}\small\item\em Copy constructor for creating a \doxylink{class_playlist}{Playlist} object from an existing one. \end{DoxyCompactList}\item 
+\Hypertarget{class_playlist_aacd9a69e347fc19a9a0787d7a7ce9df4}\label{class_playlist_aacd9a69e347fc19a9a0787d7a7ce9df4} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Playlist} ()
+\begin{DoxyCompactList}\small\item\em Destroys the \doxylink{class_playlist}{Playlist} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_playlist}{Playlist}} \& \mbox{\hyperlink{class_playlist_a4cd7c539b979590376506c4e75c294a1}{operator=}} (const \mbox{\hyperlink{class_playlist}{Playlist}} \&equal\+Playlist)
+\begin{DoxyCompactList}\small\item\em Assigns the contents of one \doxylink{class_playlist}{Playlist} object to another. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{class_playlist_a6aeb5b1301c9f076f8b5df393b29a2cc}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Gets the name of the playlist. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{class_playlist_a04746d279e165cbc3a5091c713b56fa8}{get\+Created\+By}} () const
+\begin{DoxyCompactList}\small\item\em Gets the name of the creator of the playlist. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \& \mbox{\hyperlink{class_playlist_a47a7ba333c978e78ed6550a817d2ccb0}{get\+Songs}} () const
+\begin{DoxyCompactList}\small\item\em Gets the list of songs in the playlist. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_playlist_ac8b7197bb01eeb56e0f366ae60a2ec18}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_playlist}{Playlist}} \&playlist)
+\begin{DoxyCompactList}\small\item\em Overloads the output stream operator to print playlist information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a music playlist that can hold songs and albums. 
+
+The \doxylink{class_playlist}{Playlist} class provides methods for adding and removing songs, displaying songs, and retrieving information about the playlist such as its name, creator, and list of songs. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_playlist_a552544b46d58d1d099acf964c0825d6d}\index{Playlist@{Playlist}!Playlist@{Playlist}}
+\index{Playlist@{Playlist}!Playlist@{Playlist}}
+\doxysubsubsection{\texorpdfstring{Playlist()}{Playlist()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_playlist_a552544b46d58d1d099acf964c0825d6d} 
+Playlist\+::\+Playlist (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{, }\item[{const std\+::string \&}]{created\+By}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_playlist}{Playlist} object with a given name and creator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the playlist. \\
+\hline
+{\em created\+By} & The name of the person who created the playlist. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_playlist_ae3ac9681dc6addf9605e0c813c831f7d}\index{Playlist@{Playlist}!Playlist@{Playlist}}
+\index{Playlist@{Playlist}!Playlist@{Playlist}}
+\doxysubsubsection{\texorpdfstring{Playlist()}{Playlist()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_playlist_ae3ac9681dc6addf9605e0c813c831f7d} 
+Playlist\+::\+Playlist (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_playlist}{Playlist}} \&}]{Cpy\+Playlist}{}\end{DoxyParamCaption})}
+
+
+
+Copy constructor for creating a \doxylink{class_playlist}{Playlist} object from an existing one. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Cpy\+Playlist} & The \doxylink{class_playlist}{Playlist} object to copy. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_playlist_a6a98eda5172a7e0ae7dfc4a169c6c911}\index{Playlist@{Playlist}!addAlbum@{addAlbum}}
+\index{addAlbum@{addAlbum}!Playlist@{Playlist}}
+\doxysubsubsection{\texorpdfstring{addAlbum()}{addAlbum()}}
+{\footnotesize\ttfamily \label{class_playlist_a6a98eda5172a7e0ae7dfc4a169c6c911} 
+void Playlist\+::add\+Album (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_album}{Album}} \&}]{album}{}\end{DoxyParamCaption})}
+
+
+
+Adds all songs from an album to the playlist. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em album} & The \doxylink{class_album}{Album} object whose songs are to be added to the playlist. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_playlist_a164c4d4f8db3f7ac8c14c94ef98f3cf8}\index{Playlist@{Playlist}!addSong@{addSong}}
+\index{addSong@{addSong}!Playlist@{Playlist}}
+\doxysubsubsection{\texorpdfstring{addSong()}{addSong()}}
+{\footnotesize\ttfamily \label{class_playlist_a164c4d4f8db3f7ac8c14c94ef98f3cf8} 
+void Playlist\+::add\+Song (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_song}{Song}} \&}]{song}{}\end{DoxyParamCaption})}
+
+
+
+Adds a song to the playlist. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em song} & The \doxylink{class_song}{Song} object to add to the playlist. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_playlist_a04746d279e165cbc3a5091c713b56fa8}\index{Playlist@{Playlist}!getCreatedBy@{getCreatedBy}}
+\index{getCreatedBy@{getCreatedBy}!Playlist@{Playlist}}
+\doxysubsubsection{\texorpdfstring{getCreatedBy()}{getCreatedBy()}}
+{\footnotesize\ttfamily \label{class_playlist_a04746d279e165cbc3a5091c713b56fa8} 
+const std\+::string \& Playlist\+::get\+Created\+By (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the name of the creator of the playlist. 
+
+\begin{DoxyReturn}{Returns}
+A constant reference to the name of the creator. 
+\end{DoxyReturn}
+\Hypertarget{class_playlist_a6aeb5b1301c9f076f8b5df393b29a2cc}\index{Playlist@{Playlist}!getName@{getName}}
+\index{getName@{getName}!Playlist@{Playlist}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily \label{class_playlist_a6aeb5b1301c9f076f8b5df393b29a2cc} 
+const std\+::string \& Playlist\+::get\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the name of the playlist. 
+
+\begin{DoxyReturn}{Returns}
+A constant reference to the name of the playlist. 
+\end{DoxyReturn}
+\Hypertarget{class_playlist_a47a7ba333c978e78ed6550a817d2ccb0}\index{Playlist@{Playlist}!getSongs@{getSongs}}
+\index{getSongs@{getSongs}!Playlist@{Playlist}}
+\doxysubsubsection{\texorpdfstring{getSongs()}{getSongs()}}
+{\footnotesize\ttfamily \label{class_playlist_a47a7ba333c978e78ed6550a817d2ccb0} 
+const std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \& Playlist\+::get\+Songs (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the list of songs in the playlist. 
+
+\begin{DoxyReturn}{Returns}
+A constant reference to the vector containing songs in the playlist. 
+\end{DoxyReturn}
+\Hypertarget{class_playlist_a4cd7c539b979590376506c4e75c294a1}\index{Playlist@{Playlist}!operator=@{operator=}}
+\index{operator=@{operator=}!Playlist@{Playlist}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{class_playlist_a4cd7c539b979590376506c4e75c294a1} 
+\mbox{\hyperlink{class_playlist}{Playlist}} \& Playlist\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_playlist}{Playlist}} \&}]{equal\+Playlist}{}\end{DoxyParamCaption})}
+
+
+
+Assigns the contents of one \doxylink{class_playlist}{Playlist} object to another. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em equal\+Playlist} & The \doxylink{class_playlist}{Playlist} object to copy from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the current \doxylink{class_playlist}{Playlist} object. 
+\end{DoxyReturn}
+\Hypertarget{class_playlist_a694f5986f735a205e2c047fece566e7b}\index{Playlist@{Playlist}!removeSongPos@{removeSongPos}}
+\index{removeSongPos@{removeSongPos}!Playlist@{Playlist}}
+\doxysubsubsection{\texorpdfstring{removeSongPos()}{removeSongPos()}}
+{\footnotesize\ttfamily \label{class_playlist_a694f5986f735a205e2c047fece566e7b} 
+void Playlist\+::remove\+Song\+Pos (\begin{DoxyParamCaption}\item[{int}]{x}{}\end{DoxyParamCaption})}
+
+
+
+Removes a song at a given position from the playlist. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The position of the song to remove (1-\/based index). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_playlist_ac8b7197bb01eeb56e0f366ae60a2ec18}\index{Playlist@{Playlist}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Playlist@{Playlist}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily \label{class_playlist_ac8b7197bb01eeb56e0f366ae60a2ec18} 
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os}{, }\item[{const \mbox{\hyperlink{class_playlist}{Playlist}} \&}]{playlist}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Overloads the output stream operator to print playlist information. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The output stream to write to. \\
+\hline
+{\em playlist} & The \doxylink{class_playlist}{Playlist} object to print. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The modified output stream. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/rth/\+Documents/\+Cod/\+An2/\+OOP/mp3player/\+Spotify\+OOP/headers/Playlist.\+hpp\item 
+C\+:/\+Users/rth/\+Documents/\+Cod/\+An2/\+OOP/mp3player/\+Spotify\+OOP/src/\mbox{\hyperlink{_playlist_8cpp}{Playlist.\+cpp}}\end{DoxyCompactItemize}

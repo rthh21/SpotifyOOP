@@ -1,0 +1,143 @@
+\doxysection{OGG Class Reference}
+\hypertarget{class_o_g_g}{}\label{class_o_g_g}\index{OGG@{OGG}}
+
+
+Represents an \doxylink{class_o_g_g}{OGG} audio file with additional properties and methods.  
+
+
+Inheritance diagram for OGG\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_o_g_g}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_o_g_g_a525af8dfb673fbf864a906d0f043d93d}{OGG}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{class_o_g_g}{OGG} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_o_g_g_a377581160e06e4b64987efda649229d1}{OGG}} (const std\+::string \&PATH, int bitrate)
+\begin{DoxyCompactList}\small\item\em Constructs an \doxylink{class_o_g_g}{OGG} object with a given file path and bitrate. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_o_g_g_a0ee843167319b03a3742123056fdfde6}{\texorpdfstring{$\sim$}{\string~}\+OGG}} () override
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{class_o_g_g}{OGG} class. \end{DoxyCompactList}\item 
+Mix\+\_\+\+Music \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_o_g_g_ad1f1342dc48b2ca38f13abb17a18e4c9}{file}} () const override
+\begin{DoxyCompactList}\small\item\em Loads and returns an SDL\+\_\+\+Mixer music object from the \doxylink{class_o_g_g}{OGG} file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_o_g_g_a495494325eb7a11efadbf494ffc97dc0}{display}} () const override
+\begin{DoxyCompactList}\small\item\em Displays a placeholder message to indicate the display functionality. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_audio_file}{Audio\+File}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_o_g_g_a395d7408a490affd278e094a8eced2da}{clone}} () const override
+\begin{DoxyCompactList}\small\item\em Clones the current \doxylink{class_o_g_g}{OGG} object and returns a new instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_audio_file}{Audio\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Audio\+File} (const std\+::string \&PATH)
+\item 
+void {\bfseries interface} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_audio_file}{Audio\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string {\bfseries PATH}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents an \doxylink{class_o_g_g}{OGG} audio file with additional properties and methods. 
+
+The \doxylink{class_o_g_g}{OGG} class extends the \doxylink{class_audio_file}{Audio\+File} class and provides specific handling for \doxylink{class_o_g_g}{OGG} files, including loading, displaying, and cloning functionality. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_o_g_g_a525af8dfb673fbf864a906d0f043d93d}\index{OGG@{OGG}!OGG@{OGG}}
+\index{OGG@{OGG}!OGG@{OGG}}
+\doxysubsubsection{\texorpdfstring{OGG()}{OGG()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_o_g_g_a525af8dfb673fbf864a906d0f043d93d} 
+OGG\+::\+OGG (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Default constructor for the \doxylink{class_o_g_g}{OGG} class. 
+
+Initializes an \doxylink{class_o_g_g}{OGG} object with a bitrate of 0. \Hypertarget{class_o_g_g_a377581160e06e4b64987efda649229d1}\index{OGG@{OGG}!OGG@{OGG}}
+\index{OGG@{OGG}!OGG@{OGG}}
+\doxysubsubsection{\texorpdfstring{OGG()}{OGG()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_o_g_g_a377581160e06e4b64987efda649229d1} 
+OGG\+::\+OGG (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{PATH}{, }\item[{int}]{bitrate}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs an \doxylink{class_o_g_g}{OGG} object with a given file path and bitrate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em PATH} & The path to the \doxylink{class_o_g_g}{OGG} audio file. \\
+\hline
+{\em bitrate} & The bitrate of the \doxylink{class_o_g_g}{OGG} audio file. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_o_g_g_a0ee843167319b03a3742123056fdfde6}\index{OGG@{OGG}!````~OGG@{\texorpdfstring{$\sim$}{\string~}OGG}}
+\index{````~OGG@{\texorpdfstring{$\sim$}{\string~}OGG}!OGG@{OGG}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}OGG()}{\string~OGG()}}
+{\footnotesize\ttfamily \label{class_o_g_g_a0ee843167319b03a3742123056fdfde6} 
+OGG\+::\texorpdfstring{$\sim$}{\string~}\+OGG (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Destructor for the \doxylink{class_o_g_g}{OGG} class. 
+
+Cleans up any resources associated with the \doxylink{class_o_g_g}{OGG} object. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_o_g_g_a395d7408a490affd278e094a8eced2da}\index{OGG@{OGG}!clone@{clone}}
+\index{clone@{clone}!OGG@{OGG}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \label{class_o_g_g_a395d7408a490affd278e094a8eced2da} 
+\mbox{\hyperlink{class_audio_file}{Audio\+File}} \texorpdfstring{$\ast$}{*} OGG\+::clone (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Clones the current \doxylink{class_o_g_g}{OGG} object and returns a new instance. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to a newly created \doxylink{class_audio_file}{Audio\+File} object that is a copy of the current \doxylink{class_o_g_g}{OGG} object. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_audio_file}{Audio\+File}}.
+
+\Hypertarget{class_o_g_g_a495494325eb7a11efadbf494ffc97dc0}\index{OGG@{OGG}!display@{display}}
+\index{display@{display}!OGG@{OGG}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily \label{class_o_g_g_a495494325eb7a11efadbf494ffc97dc0} 
+void OGG\+::display (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Displays a placeholder message to indicate the display functionality. 
+
+
+
+Implements \mbox{\hyperlink{class_audio_file}{Audio\+File}}.
+
+\Hypertarget{class_o_g_g_ad1f1342dc48b2ca38f13abb17a18e4c9}\index{OGG@{OGG}!file@{file}}
+\index{file@{file}!OGG@{OGG}}
+\doxysubsubsection{\texorpdfstring{file()}{file()}}
+{\footnotesize\ttfamily \label{class_o_g_g_ad1f1342dc48b2ca38f13abb17a18e4c9} 
+Mix\+\_\+\+Music \texorpdfstring{$\ast$}{*} OGG\+::file (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Loads and returns an SDL\+\_\+\+Mixer music object from the \doxylink{class_o_g_g}{OGG} file. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the Mix\+\_\+\+Music object representing the loaded audio file, or nullptr if loading fails. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_audio_file}{Audio\+File}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/rth/\+Documents/\+Cod/\+An2/\+OOP/mp3player/\+Spotify\+OOP/headers/ogg.\+hpp\item 
+C\+:/\+Users/rth/\+Documents/\+Cod/\+An2/\+OOP/mp3player/\+Spotify\+OOP/src/\mbox{\hyperlink{ogg_8cpp}{ogg.\+cpp}}\end{DoxyCompactItemize}

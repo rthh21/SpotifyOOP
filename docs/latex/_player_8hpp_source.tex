@@ -1,0 +1,63 @@
+\doxysection{Player.\+hpp}
+\hypertarget{_player_8hpp_source}{}\label{_player_8hpp_source}\index{C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers/Player.hpp@{C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers/Player.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PLAYER\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PLAYER\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Song.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Artist.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Playlist.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_player}{Player}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ volume;\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ sq;\ }
+\DoxyCodeLine{00018\ \ \ \ \ std::string\ c;\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{static}\ std::deque<Song>\ song\_queue;\ }
+\DoxyCodeLine{00020\ \ \ \ \ std::vector<Artist>\ artists;\ }
+\DoxyCodeLine{00021\ \ \ \ \ std::vector<Playlist>\ playlists;\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player}}();}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player}}(\textcolor{keywordtype}{int}\ volume);}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_player_a749d2c00e1fe0f5c2746f7505a58c062}{\string~Player}}();}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a015ea21fa1e7273e47d48cb20d9b12e3}{init}}();}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_aaa510923fdb47f5be69fe09e69c76fe8}{load\_files}}();}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_song}{Song}}\&\ \mbox{\hyperlink{class_player_a1f1e21e2a292d34b54c8cfdcf62b9ff0}{load\_file\_type}}(\textcolor{keyword}{const}\ std::string\&\ token\_artist);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_af31ce24439e0865a411fd398686781e3}{start}}();}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a68fdc9d587b542998267e71d712c9218}{stop}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ help()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a06994be0d7a0dd229d29af3431c94ed0}{play}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_song}{Song}}\&\ song);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a06994be0d7a0dd229d29af3431c94ed0}{play}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_album}{Album}}\&\ album);}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a06994be0d7a0dd229d29af3431c94ed0}{play}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_playlist}{Playlist}}\&\ playlist);}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a06994be0d7a0dd229d29af3431c94ed0}{play}}(\textcolor{keyword}{const}\ std::deque<Song>\&\ song\_queue);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_aa7749254cf909d029127d4622670c522}{pause}}();}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_aa286cb87328b067ffd2e722d0d389755}{resume}}();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a9d0089db9ec716c0c8325fad3041782a}{add\_to\_queue}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_song}{Song}}\&\ song);}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a9d0089db9ec716c0c8325fad3041782a}{add\_to\_queue}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_album}{Album}}\&\ album);}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a9d0089db9ec716c0c8325fad3041782a}{add\_to\_queue}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_playlist}{Playlist}}\&\ playlist);}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a9108d59339be8347134b58678b06a0c5}{remove\_from\_queue}}(\textcolor{keyword}{const}\ std::size\_t\ position);}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_ab4268c726ce23c67945ab7560b192ebf}{clear\_queue}}();}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a64c9449a88fb2634af2b824befdb676b}{shuffle}}(std::deque<Song>\&\ song\_queue);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{class_playlist}{Playlist}}\ \mbox{\hyperlink{class_player_ab591911fe9f3cd44261b0dbf2c7d0e1a}{find\_playlist}}();}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{class_song}{Song}}\ \mbox{\hyperlink{class_player_aa5cd275bc6e06da67eafd1562b5db7fa}{find\_song}}();}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{class_album}{Album}}\ \mbox{\hyperlink{class_player_a9c2d8859074d444b45c3cf8dbdd1827e}{find\_album}}();}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a602a4ef6665060cd472510a69f13b32a}{print\_flac\_songs}}();}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_ae5c68d322b03c7dbb61d2491746f5f32}{print\_mp3\_songs}}();}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a6d85fb6e6559524511bca1858383679e}{print\_ogg\_songs}}();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_aaab9a470388f34e053b1cbf8326750a6}{song\_cnt}}();}
+\DoxyCodeLine{00060\ \};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

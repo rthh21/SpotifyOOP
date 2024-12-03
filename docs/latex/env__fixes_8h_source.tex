@@ -1,0 +1,23 @@
+\doxysection{C\+:/\+Users/rth/\+Documents/\+Cod/\+An2/\+OOP/mp3player/\+Spotify\+OOP/env\+\_\+fixes.h}
+\hypertarget{env__fixes_8h_source}{}\label{env__fixes_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ marius\ on\ 02.02.2024.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ OOP\_ENV\_FIXES\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ OOP\_ENV\_FIXES\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifdef\ \_\_linux\_\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <X11/Xlib.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keywordtype}{void}\ init\_threads()\ \{}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifdef\ \_\_linux\_\_}}
+\DoxyCodeLine{00014\ \ \ \ \ XInitThreads();}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00016\ \}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//OOP\_ENV\_FIXES\_H}}
+
+\end{DoxyCode}

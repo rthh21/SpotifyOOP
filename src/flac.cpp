@@ -25,8 +25,9 @@ Mix_Music* FLAC::file() const {
 
 
 void FLAC::display() const {
-    std::cout<<"display";
+    std::cout << "FLAC audio file with path: " << PATH << " and compression level: " << compression << ".\n";
 }
+
 
 AudioFile* FLAC::clone() const {
     return new FLAC(PATH, compression); 

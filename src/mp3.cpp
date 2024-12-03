@@ -17,12 +17,12 @@ Mix_Music* MP3::file() const {
         SDL_Quit();
         return nullptr;
     }
-    // Returning the pointer to the caller
+    
     return music;
 }
 
-void MP3::display() const{
-    std::cout<<"display";
+void MP3::display() const {
+    std::cout << "MP3 audio file with path: " << PATH << " and bitrate level: " << bitrate << ".\n";
 }
 AudioFile* MP3::clone() const{
     return new MP3(PATH, bitrate);

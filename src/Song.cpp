@@ -1,3 +1,14 @@
+/**
+ * @file Song.cpp
+ * @author rthh (andreythstan25@gmail.com)
+ * @brief This file handles the loaded songs
+ * @details This file has a shared pointer used to manage the type of the audio file
+ * @version 0.2
+ * @date 03-12-2024
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
 #include "Song.hpp"
 #include "AudioFile.hpp"
 #include <SDL2/SDL.h>

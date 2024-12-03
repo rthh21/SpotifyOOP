@@ -1,0 +1,28 @@
+\doxysection{ogg.\+hpp}
+\hypertarget{ogg_8hpp_source}{}\label{ogg_8hpp_source}\index{C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers/ogg.hpp@{C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers/ogg.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ OGG\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ OGG\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}AudioFile.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_mixer.h>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_o_g_g}{OGG}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_audio_file}{AudioFile}}\{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ bitrate;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_o_g_g_a525af8dfb673fbf864a906d0f043d93d}{OGG}}();}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_o_g_g_a525af8dfb673fbf864a906d0f043d93d}{OGG}}(\textcolor{keyword}{const}\ std::string\&\ PATH,\ \textcolor{keywordtype}{int}\ bitrate);}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_o_g_g_a0ee843167319b03a3742123056fdfde6}{\string~OGG}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00016\ \ \ \ \ }
+\DoxyCodeLine{00017\ \ \ \ \ Mix\_Music*\ \mbox{\hyperlink{class_o_g_g_ad1f1342dc48b2ca38f13abb17a18e4c9}{file}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_o_g_g_a495494325eb7a11efadbf494ffc97dc0}{display}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_audio_file}{AudioFile}}*\ \mbox{\hyperlink{class_o_g_g_a395d7408a490affd278e094a8eced2da}{clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00020\ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

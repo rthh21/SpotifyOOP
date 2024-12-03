@@ -1,0 +1,462 @@
+\doxysection{Player Class Reference}
+\hypertarget{class_player}{}\label{class_player}\index{Player@{Player}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_player}{Player}\+:\+: \doxylink{class_player}{Player} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_player_adb410995204ec7795b260866f44ad596}{Player}} (int volume)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_player}{Player}\+:\+: \doxylink{class_player}{Player} object with a specified volume. \end{DoxyCompactList}\item 
+\Hypertarget{class_player_a749d2c00e1fe0f5c2746f7505a58c062}\label{class_player_a749d2c00e1fe0f5c2746f7505a58c062} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Player} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \doxylink{class_player}{Player}\+:\+: \doxylink{class_player}{Player} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a015ea21fa1e7273e47d48cb20d9b12e3}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the audio player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_aaa510923fdb47f5be69fe09e69c76fe8}{load\+\_\+files}} ()
+\begin{DoxyCompactList}\small\item\em Loads the files from "{}../music"{}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_song}{Song}} \& \mbox{\hyperlink{class_player_a1f1e21e2a292d34b54c8cfdcf62b9ff0}{load\+\_\+file\+\_\+type}} (const std\+::string \&token\+\_\+artist)
+\item 
+void \mbox{\hyperlink{class_player_af31ce24439e0865a411fd398686781e3}{start}} ()
+\begin{DoxyCompactList}\small\item\em Program loop start. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a68fdc9d587b542998267e71d712c9218}{stop}} () const
+\begin{DoxyCompactList}\small\item\em Stops playback and shuts down the audio system. \end{DoxyCompactList}\item 
+\Hypertarget{class_player_a7eb694088351f9672a3a4674863ee589}\label{class_player_a7eb694088351f9672a3a4674863ee589} 
+void {\bfseries help} () const
+\item 
+void \mbox{\hyperlink{class_player_a06994be0d7a0dd229d29af3431c94ed0}{play}} (const \mbox{\hyperlink{class_song}{Song}} \&song)
+\begin{DoxyCompactList}\small\item\em This function handles the playback of a specified song. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a037912d5d88a7021d893eafbe0fa8ce1}{play}} (const \mbox{\hyperlink{class_album}{Album}} \&album)
+\begin{DoxyCompactList}\small\item\em Plays all songs from an album. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_aa879c8a01f07784f6390b513f032ac2c}{play}} (const \mbox{\hyperlink{class_playlist}{Playlist}} \&playlist)
+\begin{DoxyCompactList}\small\item\em Plays all songs from a playlist. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a9d0089db9ec716c0c8325fad3041782a}{add\+\_\+to\+\_\+queue}} (const \mbox{\hyperlink{class_song}{Song}} \&song)
+\begin{DoxyCompactList}\small\item\em This function adds a specified song by its title to the song\+\_\+queue deque. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a18262024ae50a08d1a70b7722a44188a}{add\+\_\+to\+\_\+queue}} (const \mbox{\hyperlink{class_album}{Album}} \&album)
+\begin{DoxyCompactList}\small\item\em The function adds the songs of a specified album to the song\+\_\+queue deque. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a315836e06834332f705ba35cc044f93d}{add\+\_\+to\+\_\+queue}} (const \mbox{\hyperlink{class_playlist}{Playlist}} \&playlist)
+\begin{DoxyCompactList}\small\item\em The function adds the songs of a playlist to the song\+\_\+queue deque. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a9108d59339be8347134b58678b06a0c5}{remove\+\_\+from\+\_\+queue}} (const std\+::size\+\_\+t position)
+\begin{DoxyCompactList}\small\item\em The function handles removes a specified position from the song\+\_\+queue deque. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_ab4268c726ce23c67945ab7560b192ebf}{clear\+\_\+queue}} ()
+\begin{DoxyCompactList}\small\item\em This function clears the queue of songs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a64c9449a88fb2634af2b824befdb676b}{shuffle}} (std\+::deque$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \&song\+\_\+queue)
+\begin{DoxyCompactList}\small\item\em Shuffles the song queue to randomize the order of songs. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_playlist}{Playlist}} \mbox{\hyperlink{class_player_ab591911fe9f3cd44261b0dbf2c7d0e1a}{find\+\_\+playlist}} ()
+\begin{DoxyCompactList}\small\item\em This function handles the search (by name) of a song. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_song}{Song}} \mbox{\hyperlink{class_player_aa5cd275bc6e06da67eafd1562b5db7fa}{find\+\_\+song}} ()
+\begin{DoxyCompactList}\small\item\em Program loop end. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_album}{Album}} \mbox{\hyperlink{class_player_a9c2d8859074d444b45c3cf8dbdd1827e}{find\+\_\+album}} ()
+\begin{DoxyCompactList}\small\item\em This function handles the search (by name) of an album. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a602a4ef6665060cd472510a69f13b32a}{print\+\_\+flac\+\_\+songs}} ()
+\begin{DoxyCompactList}\small\item\em Prints all songs in \doxylink{class_f_l_a_c}{FLAC} format. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_ae5c68d322b03c7dbb61d2491746f5f32}{print\+\_\+mp3\+\_\+songs}} ()
+\begin{DoxyCompactList}\small\item\em Prints all songs in \doxylink{class_m_p3}{MP3} format. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a6d85fb6e6559524511bca1858383679e}{print\+\_\+ogg\+\_\+songs}} ()
+\begin{DoxyCompactList}\small\item\em Prints all songs in \doxylink{class_o_g_g}{OGG} format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_player_a0d7ed184b3d9725f50259215ce5e354d}{play}} (const std\+::deque$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \&song\+\_\+queue)
+\begin{DoxyCompactList}\small\item\em This function handles the playback of the first song in the queue. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_player_aa7749254cf909d029127d4622670c522}{pause}} ()
+\begin{DoxyCompactList}\small\item\em Pauses the currently playing music. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_player_aa286cb87328b067ffd2e722d0d389755}{resume}} ()
+\begin{DoxyCompactList}\small\item\em Resumes the playback of the currently paused music. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_player_aaab9a470388f34e053b1cbf8326750a6}{song\+\_\+cnt}} ()
+\begin{DoxyCompactList}\small\item\em Prints the number of songs available. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8}\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8} 
+Player\+::\+Player (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{class_player}{Player}\+:\+: \doxylink{class_player}{Player} object. 
+
+Sets the default volume to 100. Sets sq (status queue) to 0 (no songs in queue). Sets c (command) to empty \Hypertarget{class_player_adb410995204ec7795b260866f44ad596}\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_player_adb410995204ec7795b260866f44ad596} 
+Player\+::\+Player (\begin{DoxyParamCaption}\item[{int}]{volume}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct a new \doxylink{class_player}{Player}\+:\+: \doxylink{class_player}{Player} object with a specified volume. 
+
+Sets the default volume to the desired value. Sets sq (status queue) to 0 (no songs in queue). Sets c (command) to empty 
+\begin{DoxyParams}{Parameters}
+{\em volume} & The audio volume of the player \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_player_a18262024ae50a08d1a70b7722a44188a}\index{Player@{Player}!add\_to\_queue@{add\_to\_queue}}
+\index{add\_to\_queue@{add\_to\_queue}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{add\_to\_queue()}{add\_to\_queue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_player_a18262024ae50a08d1a70b7722a44188a} 
+void Player\+::add\+\_\+to\+\_\+queue (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_album}{Album}} \&}]{album}{}\end{DoxyParamCaption})}
+
+
+
+The function adds the songs of a specified album to the song\+\_\+queue deque. 
+
+By going through all the songs in the album, the function adds them to the end using push\+\_\+back(). 
+\begin{DoxyParams}{Parameters}
+{\em album} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_a315836e06834332f705ba35cc044f93d}\index{Player@{Player}!add\_to\_queue@{add\_to\_queue}}
+\index{add\_to\_queue@{add\_to\_queue}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{add\_to\_queue()}{add\_to\_queue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_player_a315836e06834332f705ba35cc044f93d} 
+void Player\+::add\+\_\+to\+\_\+queue (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_playlist}{Playlist}} \&}]{playlist}{}\end{DoxyParamCaption})}
+
+
+
+The function adds the songs of a playlist to the song\+\_\+queue deque. 
+
+By going through all the songs in the playlist, the function adds them to the end using push\+\_\+back(). 
+\begin{DoxyParams}{Parameters}
+{\em playlist} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_a9d0089db9ec716c0c8325fad3041782a}\index{Player@{Player}!add\_to\_queue@{add\_to\_queue}}
+\index{add\_to\_queue@{add\_to\_queue}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{add\_to\_queue()}{add\_to\_queue()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_player_a9d0089db9ec716c0c8325fad3041782a} 
+void Player\+::add\+\_\+to\+\_\+queue (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_song}{Song}} \&}]{song}{}\end{DoxyParamCaption})}
+
+
+
+This function adds a specified song by its title to the song\+\_\+queue deque. 
+
+Adds a song to the end of song\+\_\+queue using push\+\_\+back() method. 
+\begin{DoxyParams}{Parameters}
+{\em song} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_ab4268c726ce23c67945ab7560b192ebf}\index{Player@{Player}!clear\_queue@{clear\_queue}}
+\index{clear\_queue@{clear\_queue}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{clear\_queue()}{clear\_queue()}}
+{\footnotesize\ttfamily \label{class_player_ab4268c726ce23c67945ab7560b192ebf} 
+void Player\+::clear\+\_\+queue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This function clears the queue of songs. 
+
+This function calls remove\+\_\+from\+\_\+queue(0) until there are no more songs left. \Hypertarget{class_player_a9c2d8859074d444b45c3cf8dbdd1827e}\index{Player@{Player}!find\_album@{find\_album}}
+\index{find\_album@{find\_album}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{find\_album()}{find\_album()}}
+{\footnotesize\ttfamily \label{class_player_a9c2d8859074d444b45c3cf8dbdd1827e} 
+\mbox{\hyperlink{class_album}{Album}} Player\+::find\+\_\+album (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This function handles the search (by name) of an album. 
+
+This function inputs the name of a created playlist and searches it. \begin{DoxyNote}{Note}
+If the album is not found, the function returns a blank object with "{}-\/-\/null"{} name. "{}-\/-\/null"{} is used in \doxylink{class_player_af31ce24439e0865a411fd398686781e3}{start()} to determine if an album really exists or not.
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_song}{Song} 
+\end{DoxyReturn}
+\Hypertarget{class_player_ab591911fe9f3cd44261b0dbf2c7d0e1a}\index{Player@{Player}!find\_playlist@{find\_playlist}}
+\index{find\_playlist@{find\_playlist}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{find\_playlist()}{find\_playlist()}}
+{\footnotesize\ttfamily \label{class_player_ab591911fe9f3cd44261b0dbf2c7d0e1a} 
+\mbox{\hyperlink{class_playlist}{Playlist}} Player\+::find\+\_\+playlist (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This function handles the search (by name) of a song. 
+
+This function inputs the name of a created playlist and searches it. \begin{DoxyNote}{Note}
+If the playlist is not found, the function returns a blank object with "{}-\/-\/null"{} name. "{}-\/-\/null"{} is used in \doxylink{class_player_af31ce24439e0865a411fd398686781e3}{start()} to determine if a playlist really exists or not.
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_song}{Song} 
+\end{DoxyReturn}
+\Hypertarget{class_player_aa5cd275bc6e06da67eafd1562b5db7fa}\index{Player@{Player}!find\_song@{find\_song}}
+\index{find\_song@{find\_song}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{find\_song()}{find\_song()}}
+{\footnotesize\ttfamily \label{class_player_aa5cd275bc6e06da67eafd1562b5db7fa} 
+\mbox{\hyperlink{class_song}{Song}} Player\+::find\+\_\+song (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Program loop end. 
+
+This function handles the search of a song
+
+This function inputs the title of the song and searches it by going throught each artist object and album object. \begin{DoxyNote}{Note}
+If the song is not found, the function returns a blank object with "{}-\/-\/null"{} name. "{}-\/-\/null"{} is used in \doxylink{class_player_af31ce24439e0865a411fd398686781e3}{start()} to determine if a song really exists or not.
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_song}{Song} 
+\end{DoxyReturn}
+\Hypertarget{class_player_a015ea21fa1e7273e47d48cb20d9b12e3}\index{Player@{Player}!init@{init}}
+\index{init@{init}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{class_player_a015ea21fa1e7273e47d48cb20d9b12e3} 
+void Player\+::init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the audio player. 
+
+This function initializes the audio player and verifies that everything is working. \begin{DoxyNote}{Note}
+This function must be called at the start of the program (It\textquotesingle{}s called in function "{}start()"{}) 
+\end{DoxyNote}
+\texorpdfstring{$<$}{<} Calls "{}load\+\_\+files()"{} as part of init.\Hypertarget{class_player_a1f1e21e2a292d34b54c8cfdcf62b9ff0}\index{Player@{Player}!load\_file\_type@{load\_file\_type}}
+\index{load\_file\_type@{load\_file\_type}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{load\_file\_type()}{load\_file\_type()}}
+{\footnotesize\ttfamily \label{class_player_a1f1e21e2a292d34b54c8cfdcf62b9ff0} 
+\mbox{\hyperlink{class_song}{Song}} \& Player\+::load\+\_\+file\+\_\+type (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{token\+\_\+artist}{}\end{DoxyParamCaption})}
+
+Playback Methods \Hypertarget{class_player_aaa510923fdb47f5be69fe09e69c76fe8}\index{Player@{Player}!load\_files@{load\_files}}
+\index{load\_files@{load\_files}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{load\_files()}{load\_files()}}
+{\footnotesize\ttfamily \label{class_player_aaa510923fdb47f5be69fe09e69c76fe8} 
+void Player\+::load\+\_\+files (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Loads the files from "{}../music"{}. 
+
+This function loads the music files from "{}../music"{}.
+
+The files inside "{}../music"{} have a "{}descriptor"{}. A descriptor has the format "{}type-\/name"{}. For examle\+: an artist "{}\+Travis Scott"{} has a directory named "{}\+Artist-\/\+Travis Scott"{}. Inside "{}\+Artist-\/\+Travis Scott"{} is a directory named "{}\+Album-\/\+Utopia"{}, creating the album Utopia. The artist or album directory can contain songs. A song has the descriptor "{}\+Song-\/name"{}.
+
+This function opens each file and creates an object based on the type and the name of the directort (from descriptor). By iterating through each file using for loops, the code has now loaded all the songs. \Hypertarget{class_player_aa7749254cf909d029127d4622670c522}\index{Player@{Player}!pause@{pause}}
+\index{pause@{pause}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{pause()}{pause()}}
+{\footnotesize\ttfamily \label{class_player_aa7749254cf909d029127d4622670c522} 
+void Player\+::pause (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Pauses the currently playing music. 
+
+This function pauses playback of the currently playing music using the audio library. \Hypertarget{class_player_a037912d5d88a7021d893eafbe0fa8ce1}\index{Player@{Player}!play@{play}}
+\index{play@{play}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_player_a037912d5d88a7021d893eafbe0fa8ce1} 
+void Player\+::play (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_album}{Album}} \&}]{album}{}\end{DoxyParamCaption})}
+
+
+
+Plays all songs from an album. 
+
+This function clears the current queue, adds all songs from the specified album to the queue, and then plays the queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em album} & A constant reference to an {\ttfamily \doxylink{class_album}{Album}} object that represents the album whose songs are to be played. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_aa879c8a01f07784f6390b513f032ac2c}\index{Player@{Player}!play@{play}}
+\index{play@{play}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_player_aa879c8a01f07784f6390b513f032ac2c} 
+void Player\+::play (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_playlist}{Playlist}} \&}]{playlist}{}\end{DoxyParamCaption})}
+
+
+
+Plays all songs from a playlist. 
+
+This function clears the current queue, adds all songs from the specified playlist to the queue, and then plays the queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em playlist} & A constant reference to a {\ttfamily \doxylink{class_playlist}{Playlist}} object that represents the playlist whose songs are to be played. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_a06994be0d7a0dd229d29af3431c94ed0}\index{Player@{Player}!play@{play}}
+\index{play@{play}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_player_a06994be0d7a0dd229d29af3431c94ed0} 
+void Player\+::play (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_song}{Song}} \&}]{song}{}\end{DoxyParamCaption})}
+
+
+
+This function handles the playback of a specified song. 
+
+\begin{DoxyNote}{Note}
+This function handles the error of not playing the audio file; 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em song\+\_\+queue} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_a0d7ed184b3d9725f50259215ce5e354d}\index{Player@{Player}!play@{play}}
+\index{play@{play}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_player_a0d7ed184b3d9725f50259215ce5e354d} 
+void Player\+::play (\begin{DoxyParamCaption}\item[{const std\+::deque$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \&}]{song\+\_\+queue}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This function handles the playback of the first song in the queue. 
+
+\begin{DoxyNote}{Note}
+This function handles the error of not playing the audio file; 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em song\+\_\+queue} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_a602a4ef6665060cd472510a69f13b32a}\index{Player@{Player}!print\_flac\_songs@{print\_flac\_songs}}
+\index{print\_flac\_songs@{print\_flac\_songs}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{print\_flac\_songs()}{print\_flac\_songs()}}
+{\footnotesize\ttfamily \label{class_player_a602a4ef6665060cd472510a69f13b32a} 
+void Player\+::print\+\_\+flac\+\_\+songs (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Prints all songs in \doxylink{class_f_l_a_c}{FLAC} format. 
+
+This function iterates over all artists and their albums, printing each song that is in \doxylink{class_f_l_a_c}{FLAC} format. \Hypertarget{class_player_ae5c68d322b03c7dbb61d2491746f5f32}\index{Player@{Player}!print\_mp3\_songs@{print\_mp3\_songs}}
+\index{print\_mp3\_songs@{print\_mp3\_songs}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{print\_mp3\_songs()}{print\_mp3\_songs()}}
+{\footnotesize\ttfamily \label{class_player_ae5c68d322b03c7dbb61d2491746f5f32} 
+void Player\+::print\+\_\+mp3\+\_\+songs (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Prints all songs in \doxylink{class_m_p3}{MP3} format. 
+
+This function iterates over all artists and their albums, printing each song that is in \doxylink{class_m_p3}{MP3} format. \Hypertarget{class_player_a6d85fb6e6559524511bca1858383679e}\index{Player@{Player}!print\_ogg\_songs@{print\_ogg\_songs}}
+\index{print\_ogg\_songs@{print\_ogg\_songs}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{print\_ogg\_songs()}{print\_ogg\_songs()}}
+{\footnotesize\ttfamily \label{class_player_a6d85fb6e6559524511bca1858383679e} 
+void Player\+::print\+\_\+ogg\+\_\+songs (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Prints all songs in \doxylink{class_o_g_g}{OGG} format. 
+
+Static methods
+
+This function iterates over all artists and their albums, printing each song that is in \doxylink{class_o_g_g}{OGG} format. \Hypertarget{class_player_a9108d59339be8347134b58678b06a0c5}\index{Player@{Player}!remove\_from\_queue@{remove\_from\_queue}}
+\index{remove\_from\_queue@{remove\_from\_queue}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{remove\_from\_queue()}{remove\_from\_queue()}}
+{\footnotesize\ttfamily \label{class_player_a9108d59339be8347134b58678b06a0c5} 
+void Player\+::remove\+\_\+from\+\_\+queue (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{position}{}\end{DoxyParamCaption})}
+
+
+
+The function handles removes a specified position from the song\+\_\+queue deque. 
+
+The function checks if the position is in the range of the queue and deletes it using erase. If the position given is not in the queue, it prints an error message.
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position to be removed from the queue \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_aa286cb87328b067ffd2e722d0d389755}\index{Player@{Player}!resume@{resume}}
+\index{resume@{resume}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{resume()}{resume()}}
+{\footnotesize\ttfamily \label{class_player_aa286cb87328b067ffd2e722d0d389755} 
+void Player\+::resume (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Resumes the playback of the currently paused music. 
+
+Queue Management Methods
+
+This function resumes playback of the music that was previously paused using the audio library. \Hypertarget{class_player_a64c9449a88fb2634af2b824befdb676b}\index{Player@{Player}!shuffle@{shuffle}}
+\index{shuffle@{shuffle}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{shuffle()}{shuffle()}}
+{\footnotesize\ttfamily \label{class_player_a64c9449a88fb2634af2b824befdb676b} 
+void Player\+::shuffle (\begin{DoxyParamCaption}\item[{std\+::deque$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \&}]{song\+\_\+queue}{}\end{DoxyParamCaption})}
+
+
+
+Shuffles the song queue to randomize the order of songs. 
+
+Song/\+Album/\+Playlist methods
+
+This function generates a random seed based on the current system time, and uses it to shuffle the queue using {\ttfamily std\+::shuffle}. After shuffling, it outputs the contents of the queue to the console.
+
+
+\begin{DoxyParams}{Parameters}
+{\em song\+\_\+queue} & A reference to a {\ttfamily std\+::deque\texorpdfstring{$<$}{<}\doxylink{class_song}{Song}\texorpdfstring{$>$}{>}} that represents the queue of songs to be shuffled. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_aaab9a470388f34e053b1cbf8326750a6}\index{Player@{Player}!song\_cnt@{song\_cnt}}
+\index{song\_cnt@{song\_cnt}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{song\_cnt()}{song\_cnt()}}
+{\footnotesize\ttfamily \label{class_player_aaab9a470388f34e053b1cbf8326750a6} 
+void Player\+::song\+\_\+cnt (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Prints the number of songs available. 
+
+This function prints the total number of songs managed by the {\ttfamily \doxylink{class_song}{Song}} object, decrementing by one (likely due to a specific count requirement). \Hypertarget{class_player_af31ce24439e0865a411fd398686781e3}\index{Player@{Player}!start@{start}}
+\index{start@{start}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily \label{class_player_af31ce24439e0865a411fd398686781e3} 
+void Player\+::start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Program loop start. 
+
+The loop of the program. The function handles the user-\/input.
+
+This function creates a console-\/like environment for user interaction and processes commands to control the audio playback, manage playlists, and interact with loaded songs. It continuously runs until the user decides to exit, responding to commands for volume control, song playback, and queue management.
+
+The available commands are\+:
+
+
+\begin{DoxyItemize}
+\item volume\+: Prints the current volume level.
+\item set-\/volume \mbox{[}int\mbox{]}\+: Sets the volume to a specified value.
+\item mute\+: Mutes the audio (sets the volume to 0).
+\item unmute\+: Unmutes the audio (restores the volume to the previous level).
+\item song-\/count\+: Prints the number of songs loaded.
+\item flac\+: Prints the songs with "{}.\+flac"{} extension.
+\item mp3\+: Prints the songs with "{}.\+mp3"{} extension.
+\item ogg\+: Prints the songs with "{}.\+ogg"{} extension.
+\item play-\/song \mbox{[}title\mbox{]}\+: Searches for and plays a specific song by title, if found.
+\item play-\/playlist \mbox{[}title\mbox{]}\+: Plays the playlist with the given title, if it exists.
+\item play-\/album \mbox{[}title\mbox{]}\+: Plays the album with the given title, if it exists.
+\item queue\+: Displays the current queue of songs.
+\item queue-\/play\+: Plays the first song in the queue and removes it from the queue.
+\item queue-\/add \mbox{[}n\mbox{]} \mbox{[}title\mbox{]}\+: Adds a song, album, or playlist to the queue. n\+: 1-\/song 2-\/album 3-\/playlist
+\item queue-\/remove \mbox{[}position\mbox{]}\+: Removes a song from the queue at the specified position.
+\item queue-\/clear\+: Clears the entire queue.
+\item create-\/playlist\+: Allows the user to create a new playlist and add songs to it.
+\item playlist-\/remove\+: Removes a song from a specified playlist.
+\item skip\+: Skips to the next song in the queue or pauses playback if the queue is empty.
+\item shuffle\+: Shuffles the order of the songs in the queue.
+\item pause\+: Pauses the currently playing music.
+\item resume\+: Resumes playback of paused music.
+\item stop\+: Stops the playback, ends the program, and waits for user input before exiting. 
+\end{DoxyItemize}\Hypertarget{class_player_a68fdc9d587b542998267e71d712c9218}\index{Player@{Player}!stop@{stop}}
+\index{stop@{stop}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily \label{class_player_a68fdc9d587b542998267e71d712c9218} 
+void Player\+::stop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Stops playback and shuts down the audio system. 
+
+This function closes the audio library, quits its operations, and de-\/initializes SDL. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/rth/\+Documents/\+Cod/\+An2/\+OOP/mp3player/\+Spotify\+OOP/headers/Player.\+hpp\item 
+C\+:/\+Users/rth/\+Documents/\+Cod/\+An2/\+OOP/mp3player/\+Spotify\+OOP/src/\mbox{\hyperlink{_player_8cpp}{Player.\+cpp}}\end{DoxyCompactItemize}

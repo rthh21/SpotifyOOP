@@ -1,0 +1,41 @@
+\doxysection{Playlist.\+hpp}
+\hypertarget{_playlist_8hpp_source}{}\label{_playlist_8hpp_source}\index{C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers/Playlist.hpp@{C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers/Playlist.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PLAYLIST\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PLAYLIST\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Song.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Album.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_playlist}{Playlist}}\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ std::string\ name;}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ std::string\ createdBy;}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ std::vector<Song>\ songs;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_playlist_a164c4d4f8db3f7ac8c14c94ef98f3cf8}{addSong}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_song}{Song}}\&\ song);}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_playlist_a6a98eda5172a7e0ae7dfc4a169c6c911}{addAlbum}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_album}{Album}}\&\ album);}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_playlist_a694f5986f735a205e2c047fece566e7b}{removeSongPos}}(\textcolor{keywordtype}{int}\ x);}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_playlist_a6619b0c3f81c10e9f74e79b48cbf98c3}{showSongs}}();}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_playlist}{Playlist}}();}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_playlist}{Playlist}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ std::string\&\ createdBy);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_playlist}{Playlist}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_playlist}{Playlist}}\&\ CpyPlaylist);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_playlist_aacd9a69e347fc19a9a0787d7a7ce9df4}{\string~Playlist}}();}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_playlist}{Playlist}}\&\ \mbox{\hyperlink{class_playlist_a4cd7c539b979590376506c4e75c294a1}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_playlist}{Playlist}}\&\ equalPlaylist);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{class_playlist_a6aeb5b1301c9f076f8b5df393b29a2cc}{getName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{class_playlist_a04746d279e165cbc3a5091c713b56fa8}{getCreatedBy}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Song>\&\ \mbox{\hyperlink{class_playlist_a47a7ba333c978e78ed6550a817d2ccb0}{getSongs}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ \mbox{\hyperlink{class_playlist_ac8b7197bb01eeb56e0f366ae60a2ec18}{operator<<}}(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_playlist}{Playlist}}\&\ playlist);}
+\DoxyCodeLine{00033\ \};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,7 +1,9 @@
 # Aplicatie MP3 stil Spotify
 
 ## Descriere proiect
-Aplicatia consta intr-un MP3 player in care poti creea playlisturi, poti adauga artisti, albume si melodii. In plus, vei avea profiluri si functii precum shuffle.
+MP3 player folosind clase si diferite librarii pentru functionalitatea sa. Principala librarie folosita este SDL2 pentru audio playback. In acest moment, aplicatia este capabila sa incarce diferite melodii salvate local, sa le redea, play/pause/skip. Utilizatorii pot creea playlisturi si pot folosi functio shuffle.
+
+Acest program este simplu dar eficient. 
 
 ## Milestone #0
 
@@ -61,4 +63,6 @@ Aplicatia consta intr-un MP3 player in care poti creea playlisturi, poti adauga 
 - [ ] tag de `git`: de exemplu `v0.3` sau `v1.0`
 
 ## Resurse
-- adăugați trimiteri către resursele externe care v-au ajutat sau pe care le-ați folosit
+- https://www.doxygen.nl/
+- https://cmake.org/cmake/help/latest/
+- https://github.com/libsdl-org

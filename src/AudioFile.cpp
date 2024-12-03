@@ -7,6 +7,7 @@ AudioFile::AudioFile(const std::string& PATH) : PATH(PATH) {}
 AudioFile::~AudioFile() {}
 
 void AudioFile::interface() const{
+    display();
     Mix_Music* music = file();
     if (music) {
         std::cout << "Music loaded successfully from: " << PATH << "\n";
