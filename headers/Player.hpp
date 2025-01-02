@@ -16,13 +16,14 @@ private:
     int volume; /**< Global player volume. Used to set a specific value (range: 0-100) */
     int sq; /**< Global queue status flag. 0 - no songs in queue / 1 - songs in queue. It is used to play the next song from the queue when the previous one has finished playing. */
     std::string c; /**< This string is used to get the commands of the user. */
+    std::string current_song;
     static std::deque<Song> song_queue; /**< An array made out of "Song" objects. Used as a versatile queue for the player */
     std::vector<Artist> artists; /**< An array made out of "Artist" artists. Used as a way to store all the artists loaded from /music/ directory */
     std::vector<Playlist> playlists; /**< An array made out of "Playlist" artists. Used to store all the user-created playlists*/
 
 public:
     Player();
-    explicit Player(int volume);
+    Player(int volume, const std::string& current_song);
     ~Player();
     void init();
     void load_files();
@@ -50,6 +51,7 @@ public:
     /**< Song/Album/Playlist methods*/
     Playlist find_playlist();
     Song find_song();
+    Song find_song(const std::string& title);
     Album find_album();
     void print_flac_songs();
     void print_mp3_songs();

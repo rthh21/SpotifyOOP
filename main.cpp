@@ -7,12 +7,16 @@
 #define SDL_MAIN_HANDLED // fix pentru "main"
 
 #include "Player.hpp"
+#include "SaveState.hpp"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_mixer.h>
 
 int main(){
-    Player player;
+    SaveState state;
+    state.load_file();
+    Player player(state.getCurrentVolume(),state.getCurrentSong());
     try {
+        
         player.init();
         player.start();
     } catch (const check_init &e){

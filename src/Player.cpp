@@ -14,6 +14,7 @@
 #include "flac.hpp"
 #include "mp3.hpp"
 #include "ogg.hpp"
+#include "SaveState.hpp"
 
 #include "Exceptions.hpp"
 #include "CheckDirectory.hpp"
@@ -24,6 +25,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_mixer.h>
 #include <filesystem>
+#include <fstream>
 namespace fs = std::filesystem;
 
 std::deque<Song> Player::song_queue;
@@ -32,14 +34,20 @@ std::deque<Song> Player::song_queue;
  * @brief Construct a new Player:: Player object.
  * @details Sets the default volume to 100. Sets sq (status queue) to 0 (no songs in queue). Sets c (command) to empty
  */
-Player::Player() : volume(100), sq(0), c("") {}
+Player::Player() : volume(100), sq(0), current_song("") {}
 
 /**
  * @brief Construct a new Player:: Player object with a specified volume
  * @details Sets the default volume to the desired value. Sets sq (status queue) to 0 (no songs in queue). Sets c (command) to empty
  * @param volume The audio volume of the player
  */
-Player::Player(int volume) : volume(volume), sq(0), c("") {}
+Player::Player(int volume, const std::string& current_song) : volume(volume), sq(0), current_song(current_song) {
+    std::cout << "Loaded from previous session:\n";
+    std::cout << "Volume: " << this->volume << '\n';
+    if(!current_song.empty()){
+        std::cout << "Current song: " << this->current_song << '\n'; 
+    }
+}
 
 /**
  * @brief Destroy the Player:: Player object
@@ -65,8 +73,15 @@ void Player::init() {
         stop();
         throw check_init("Mix_OpenAudio failed: ");
     }
-
+    
     load_files(); /**< Calls "load_files()" as part of init. */
+    
+    Mix_VolumeMusic(volume);
+    if(!current_song.empty()) {
+        Song song_found = find_song(current_song);
+        play(song_found);
+        pause();
+    }
 }
  
 /**
@@ -270,6 +285,7 @@ void Player::start(){
             Song song_found = find_song();
             if(song_found.getTitle() != "--null"){
                 play(song_found);
+                current_song = song_found.getTitle();
                 // std::cout<<song_found.getTitle()<<" was found!\n";
             }
             else std::cout<<"(!) Song not found.\n";
@@ -474,6 +490,29 @@ Song Player::find_song() {
     Song song_found;
     std::cout<<"-> Searching for song: "<<song_name<<"\n";
 
+    for (const auto& artist : artists) {
+        for (const auto& search_song : artist.getSongs()) {
+            if (search_song.getTitle() == song_name) {
+                //std::cout<<"Song found: "<<search_song.getTitle()<<"\n";
+                return search_song; 
+            }
+        }
+        for (const auto& album : artist.getAlbums()) {
+            for (const auto& search_song : album.getSongs()) {
+                if (search_song.getTitle() == song_name) {
+                    //std::cout<<"Song found: "<<search_song.getTitle()<<"\n";
+                    return search_song; 
+                }
+            }
+        }
+    }
+
+    std::cout<<"(!) Song not found.\n";
+    return song_found; 
+}
+
+Song Player::find_song(const std::string& song_name) {
+    Song song_found;
     for (const auto& artist : artists) {
         for (const auto& search_song : artist.getSongs()) {
             if (search_song.getTitle() == song_name) {
@@ -825,6 +864,19 @@ void Player::help() const {
  * @details This function closes the audio library, quits its operations, and de-initializes SDL.
  */
 void Player::stop() const {
+    std::ofstream sfout("state.txt");
+    
+    if(sfout.is_open()){
+        sfout << volume <<'\n';
+        sfout << current_song;
+        sfout.close();
+    }
+    else {
+        std::cout << "Can't open save file!\n";
+    }
+    
+    sfout.close();
+    
     Mix_CloseAudio();
     Mix_Quit();
     SDL_Quit();
