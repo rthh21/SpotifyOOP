@@ -16,13 +16,13 @@
 
 int Song::cnt = 0;
 
-Song::Song() : title("--null"), genre("--null"), audiofile(nullptr) {++cnt;}  // nullptr instead of NULL
+Song::Song() : title("--null"), genre("--null"), duration(0), audiofile(nullptr) {++cnt;}  // nullptr instead of NULL
 
-Song::Song(const std::string& title, const std::string& genre, std::shared_ptr<AudioFile> audiofile)
-    : title(title), genre(genre), audiofile(std::move(audiofile)) {++cnt;}  // Move the smart pointer
+Song::Song(const std::string& title, const std::string& genre, double duration, std::shared_ptr<AudioFile> audiofile)
+    : title(title), genre(genre), duration(duration), audiofile(std::move(audiofile)) {++cnt;}  // Move the smart pointer
 
 Song::Song(const Song& other)
-    : title(other.title), genre(other.genre), audiofile(other.audiofile) {}
+    : title(other.title), genre(other.genre), duration(other.duration), audiofile(other.audiofile) {}
 
 Song::~Song() {}  
 
@@ -38,18 +38,23 @@ const std::string& Song::getGenre() const {
     return genre;
 }
 
+int Song::getDuration() const {
+    return duration;
+}
+
 std::shared_ptr<AudioFile> Song::getAudioFile() const {
     return audiofile;
 }
 
 std::ostream& operator<<(std::ostream& os, const Song& auxSong) {
-    os << "Song name: " << auxSong.getTitle() << ", genre: " << auxSong.getGenre() << '\n';
+    os << "Song name: " << auxSong.getTitle() << ", duration (s): " << auxSong.getDuration() << '\n';
     return os;
 }
 
 Song& Song::operator=(Song other) {
     std::swap(title, other.title);
     std::swap(genre, other.genre);
+    std::swap(duration, other.duration);
     std::swap(audiofile, other.audiofile);
     return *this;
 }

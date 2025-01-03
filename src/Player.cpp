@@ -15,6 +15,7 @@
 #include "mp3.hpp"
 #include "ogg.hpp"
 #include "SaveState.hpp"
+#include "LongestMediaFinder.hpp"
 
 #include "Exceptions.hpp"
 #include "CheckDirectory.hpp"
@@ -42,10 +43,10 @@ Player::Player() : volume(100), sq(0), current_song("") {}
  * @param volume The audio volume of the player
  */
 Player::Player(int volume, const std::string& current_song) : volume(volume), sq(0), current_song(current_song) {
-    std::cout << "Loaded from previous session:\n";
+    std::cout << "\nLoaded from previous session:\n";
     std::cout << "Volume: " << this->volume << '\n';
     if(!current_song.empty()){
-        std::cout << "Current song: " << this->current_song << '\n'; 
+        std::cout << "Current song: " << this->current_song << "\n\n"; 
     }
 }
 
@@ -81,6 +82,7 @@ void Player::init() {
         Song song_found = find_song(current_song);
         play(song_found);
         pause();
+        std::cout<<"\n(!)   Type 'resume' to play the previous session song!\n";
     }
 }
  
@@ -126,15 +128,16 @@ void Player::load_files() {
                                 song_name = token_album.substr(token_album.find_last_of("\\") + 1);
                                 song_name = song_name.substr(song_name.find('-') + 1, song_name.find(".flac") - song_name.find('-') - 1);
                                 std::shared_ptr<AudioFile> flac_ptr = std::make_shared<FLAC>(token_album,5);
-                                Song song(song_name, artist_name, flac_ptr);
+                                Song song(song_name, artist_name, Mix_MusicDuration(flac_ptr->file()), flac_ptr);
                                 album.addSong(song);
                                 std::cout<<"Song: "<<song_name<<'\n';
+                                
                             } 
                             else if (token_album.find(".mp3") != std::string::npos) {
                                 song_name = token_album.substr(token_album.find_last_of("\\") + 1);
                                 song_name = song_name.substr(song_name.find('-') + 1, song_name.find(".mp3") - song_name.find('-') - 1);
                                 std::shared_ptr<AudioFile> mp3_ptr = std::make_shared<MP3>(token_album,5);
-                                Song song(song_name, artist_name, mp3_ptr);
+                                Song song(song_name, artist_name, Mix_MusicDuration(mp3_ptr->file()), mp3_ptr);
                                 album.addSong(song);
                                 std::cout<<"Song: "<<song_name<<'\n';
                             }
@@ -142,12 +145,22 @@ void Player::load_files() {
                                 song_name = token_album.substr(token_album.find_last_of("\\") + 1);
                                 song_name = song_name.substr(song_name.find('-') + 1, song_name.find(".ogg") - song_name.find('-') - 1);
                                 std::shared_ptr<AudioFile> ogg_ptr = std::make_shared<OGG>(token_album,5);
-                                Song song(song_name, artist_name, ogg_ptr);
+                                Song song(song_name, artist_name, Mix_MusicDuration(ogg_ptr->file()), ogg_ptr);
                                 album.addSong(song);
                                 std::cout<<"Song: "<<song_name<<'\n';
                             }
                         }
                         artist.addAlbum(album);
+                        
+                        //longest media
+                        
+                        LongestMediaFinder<Song> longestSongFinder(album.getSongs());
+                        Song longestSong = longestSongFinder.getLongestMedia();
+                        if (longestSong.getDuration() > 0) {
+                            std::cout << "Longest Song from " << album.getName() << " is: " << longestSong.getTitle() << "\n";
+                        } else {
+                            std::cout << "No songs available." << std::endl;
+                        }
                     }
                     
                     //melodie
@@ -155,7 +168,7 @@ void Player::load_files() {
                         song_name = token_artist.substr(token_artist.find_last_of("\\") + 1);
                         song_name = song_name.substr(song_name.find('-') + 1, song_name.find(".flac") - song_name.find('-') - 1);
                         std::shared_ptr<AudioFile> flac_ptr = std::make_shared<FLAC>(token_artist,5);
-                        Song song(song_name, artist_name, flac_ptr);
+                        Song song(song_name, artist_name, Mix_MusicDuration(flac_ptr->file()), flac_ptr);
                         artist.addSong(song);
                         std::cout<<"Song: "<<song_name<<'\n';
                     } 
@@ -163,7 +176,7 @@ void Player::load_files() {
                         song_name = token_artist.substr(token_artist.find_last_of("\\") + 1);
                         song_name = song_name.substr(song_name.find('-') + 1, song_name.find(".mp3") - song_name.find('-') - 1);
                         std::shared_ptr<AudioFile> mp3_ptr = std::make_shared<MP3>(token_artist,5);
-                        Song song(song_name, artist_name, mp3_ptr);
+                        Song song(song_name, artist_name, Mix_MusicDuration(mp3_ptr->file()), mp3_ptr);
                         artist.addSong(song);
                         std::cout<<"Song: "<<song_name<<'\n';
                     }
@@ -171,7 +184,7 @@ void Player::load_files() {
                         song_name = token_artist.substr(token_artist.find_last_of("\\") + 1);
                         song_name = song_name.substr(song_name.find('-') + 1, song_name.find(".ogg") - song_name.find('-') - 1);
                         std::shared_ptr<AudioFile> ogg_ptr = std::make_shared<OGG>(token_artist,5);
-                        Song song(song_name, artist_name, ogg_ptr);
+                        Song song(song_name, artist_name,Mix_MusicDuration(ogg_ptr->file()), ogg_ptr);
                         artist.addSong(song);
                         std::cout<<"Song: "<<song_name<<'\n';
                     }
@@ -267,7 +280,20 @@ void Player::start(){
         //---------------------------------------------------------------------------------------------------
         
         //---------------------------------------------------------------------------------------------------
- 
+        
+        if(c=="albums"){
+            for (const auto& artist : artists) {
+                std::cout<<"-> "<<artist.getName()<<'\n';
+                for (const auto& album : artist.getAlbums()) {
+                    AlbumIterator iterator = album.createIterator();
+                    while (iterator.hasNext()) {
+                        Song song = iterator.next();
+                        std::cout <<"   "<< song.getTitle() << " - " << song.getDuration() << " seconds\n";
+                    }
+                }
+            }
+        }
+        
         if(c=="song-count"){
             song_cnt();
         }
@@ -288,7 +314,6 @@ void Player::start(){
                 current_song = song_found.getTitle();
                 // std::cout<<song_found.getTitle()<<" was found!\n";
             }
-            else std::cout<<"(!) Song not found.\n";
         }
         
         if(c=="play-playlist"){
@@ -329,15 +354,18 @@ void Player::start(){
         
         if (c == "queue-play" && !song_queue.empty()) {
             play(song_queue);
+            current_song = song_queue.front().getTitle();
             song_queue.pop_front();
             sq = 1; 
         } else if (!song_queue.empty() && !Mix_PlayingMusic() && sq == 1) {
             play(song_queue);
+            current_song = song_queue.front().getTitle();
             song_queue.pop_front();
         }
         
         if (song_queue.empty() && !Mix_PlayingMusic() && sq == 1) {
             sq = 0; 
+            current_song = "";
             std::cout << "-> Queue is empty!\n";
         }
         
@@ -424,8 +452,27 @@ void Player::start(){
                     std::vector<Song> playlist_songs = playlist_found.getSongs();
                     std::cout<<"-> Song: "<<playlist_songs[position-1]<<"removed!\n";
                     playlist_found.removeSongPos(position-1);
+                } else {
+                    std::cout<<"(!) Can't find playlist.\n";
+                }
+            } else {
+                std::cout<<"(!) No playlists were created! Use: create-playlist\n";
+            }
+        }
+        
+        if(c=="playlist-longest-song"){
+            if(!playlists.empty()) {
+                std::cout<<"Name: ";
+                Playlist playlist_found = find_playlist();
+                if(playlist_found.getName() != "--null") {
+                    LongestMediaFinder<Song> longestSongFinder(playlist_found.getSongs());
+                    Song longestSong = longestSongFinder.getLongestMedia();
+                    if (longestSong.getDuration() > 0) {
+                        std::cout << "Longest Song from " << playlist_found.getName() << " is: " << longestSong.getTitle() << "\n";
+                    } else {
+                        std::cout << "No songs available." << std::endl;
                     }
-                else {
+                } else {
                     std::cout<<"(!) Can't find playlist.\n";
                 }
             }
@@ -442,10 +489,12 @@ void Player::start(){
             if(!song_queue.empty()){
                 pause();
                 play(song_queue);
+                current_song = song_queue.front().getTitle();
                 song_queue.pop_front();
             }
             else{
                 pause();
+                current_song = "";
             }
         }
         
@@ -719,6 +768,7 @@ void Player::play(const Album& album){
         add_to_queue(song); 
     }
     play(song_queue);
+    current_song = song_queue.front().getTitle();
     song_queue.pop_front();
 }
 
@@ -735,6 +785,7 @@ void Player::play(const Playlist& playlist){
         add_to_queue(song); 
     }
     play(song_queue);
+    current_song = song_queue.front().getTitle();
 }
 
 /**

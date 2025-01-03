@@ -12,7 +12,9 @@ void SaveState::load_file(){
     if(sfin.is_open()){
         sfin >> volume;
         sfin.ignore();
-        std::getline(sfin,current_song);
+        if(!std::getline(sfin,current_song)){
+            current_song = "";
+        }
         sfin.close();
     }
     else {
