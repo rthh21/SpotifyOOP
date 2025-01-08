@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/player.dir/generated/src/Helper.cpp.obj"
+  "CMakeFiles/player.dir/generated/src/Helper.cpp.obj.d"
+  "CMakeFiles/player.dir/main.cpp.obj"
+  "CMakeFiles/player.dir/main.cpp.obj.d"
+  "CMakeFiles/player.dir/src/Album.cpp.obj"
+  "CMakeFiles/player.dir/src/Album.cpp.obj.d"
+  "CMakeFiles/player.dir/src/Artist.cpp.obj"
+  "CMakeFiles/player.dir/src/Artist.cpp.obj.d"
+  "CMakeFiles/player.dir/src/AudioFile.cpp.obj"
+  "CMakeFiles/player.dir/src/AudioFile.cpp.obj.d"
+  "CMakeFiles/player.dir/src/CheckDirectory.cpp.obj"
+  "CMakeFiles/player.dir/src/CheckDirectory.cpp.obj.d"
+  "CMakeFiles/player.dir/src/CheckInit.cpp.obj"
+  "CMakeFiles/player.dir/src/CheckInit.cpp.obj.d"
+  "CMakeFiles/player.dir/src/CheckPlaying.cpp.obj"
+  "CMakeFiles/player.dir/src/CheckPlaying.cpp.obj.d"
+  "CMakeFiles/player.dir/src/Exceptions.cpp.obj"
+  "CMakeFiles/player.dir/src/Exceptions.cpp.obj.d"
+  "CMakeFiles/player.dir/src/Player.cpp.obj"
+  "CMakeFiles/player.dir/src/Player.cpp.obj.d"
+  "CMakeFiles/player.dir/src/Playlist.cpp.obj"
+  "CMakeFiles/player.dir/src/Playlist.cpp.obj.d"
+  "CMakeFiles/player.dir/src/SaveState.cpp.obj"
+  "CMakeFiles/player.dir/src/SaveState.cpp.obj.d"
+  "CMakeFiles/player.dir/src/Song.cpp.obj"
+  "CMakeFiles/player.dir/src/Song.cpp.obj.d"
+  "CMakeFiles/player.dir/src/flac.cpp.obj"
+  "CMakeFiles/player.dir/src/flac.cpp.obj.d"
+  "CMakeFiles/player.dir/src/mp3.cpp.obj"
+  "CMakeFiles/player.dir/src/mp3.cpp.obj.d"
+  "CMakeFiles/player.dir/src/ogg.cpp.obj"
+  "CMakeFiles/player.dir/src/ogg.cpp.obj.d"
+  "libplayer.dll.a"
+  "player.exe"
+  "player.exe.manifest"
+  "player.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/player.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

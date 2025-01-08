@@ -1,0 +1,35 @@
+\doxysection{Save\+State.\+hpp}
+\hypertarget{_save_state_8hpp_source}{}\label{_save_state_8hpp_source}\index{C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers/SaveState.hpp@{C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers/SaveState.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SAVESTATE\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SAVESTATE\_HPP\ }}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Song.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Player.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_save_state}{SaveState}}\{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ volume;}
+\DoxyCodeLine{00019\ \ \ \ \ std::string\ current\_song;}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_save_state}{SaveState}}();}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_save_state}{SaveState}}(\textcolor{keywordtype}{int}\ volume,\ \textcolor{keyword}{const}\ std::string\&\ current\_song);}
+\DoxyCodeLine{00023\ \ \ \ \ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ load\_file();}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ save\_file(\textcolor{keywordtype}{int}\ volume,\ \textcolor{keyword}{const}\ std::string\&\ current\_song);}
+\DoxyCodeLine{00026\ \ \ \ \ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ getCurrentVolume()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ getCurrentSong()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00029\ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_player}{Player}};}
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

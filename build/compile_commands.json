@@ -1,0 +1,98 @@
+[
+{
+  "directory": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/player.dir/includes_CXX.rsp -g -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic -o CMakeFiles\\player.dir\\main.cpp.obj -c C:\\Users\\rth\\Documents\\Cod\\An2\\OOP\\mp3player\\SpotifyOOP\\main.cpp",
+  "file": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/main.cpp",
+  "output": "CMakeFiles/player.dir/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/player.dir/includes_CXX.rsp -g -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic -o CMakeFiles\\player.dir\\generated\\src\\Helper.cpp.obj -c C:\\Users\\rth\\Documents\\Cod\\An2\\OOP\\mp3player\\SpotifyOOP\\generated\\src\\Helper.cpp",
+  "file": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/generated/src/Helper.cpp",
+  "output": "CMakeFiles/player.dir/generated/src/Helper.cpp.obj"
+},
+{
+  "directory": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/player.dir/includes_CXX.rsp -g -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic -o CMakeFiles\\player.dir\\src\\Album.cpp.obj -c C:\\Users\\rth\\Documents\\Cod\\An2\\OOP\\mp3player\\SpotifyOOP\\src\\Album.cpp",
+  "file": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/Album.cpp",
+  "output": "CMakeFiles/player.dir/src/Album.cpp.obj"
+},
+{
+  "directory": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/player.dir/includes_CXX.rsp -g -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic -o CMakeFiles\\player.dir\\src\\Artist.cpp.obj -c C:\\Users\\rth\\Documents\\Cod\\An2\\OOP\\mp3player\\SpotifyOOP\\src\\Artist.cpp",
+  "file": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/Artist.cpp",
+  "output": "CMakeFiles/player.dir/src/Artist.cpp.obj"
+},
+{
+  "directory": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/player.dir/includes_CXX.rsp -g -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic -o CMakeFiles\\player.dir\\src\\AudioFile.cpp.obj -c C:\\Users\\rth\\Documents\\Cod\\An2\\OOP\\mp3player\\SpotifyOOP\\src\\AudioFile.cpp",
+  "file": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/AudioFile.cpp",
+  "output": "CMakeFiles/player.dir/src/AudioFile.cpp.obj"
+},
+{
+  "directory": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/player.dir/includes_CXX.rsp -g -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic -o CMakeFiles\\player.dir\\src\\CheckDirectory.cpp.obj -c C:\\Users\\rth\\Documents\\Cod\\An2\\OOP\\mp3player\\SpotifyOOP\\src\\CheckDirectory.cpp",
+  "file": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/CheckDirectory.cpp",
+  "output": "CMakeFiles/player.dir/src/CheckDirectory.cpp.obj"
+},
+{
+  "directory": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/player.dir/includes_CXX.rsp -g -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic -o CMakeFiles\\player.dir\\src\\CheckInit.cpp.obj -c C:\\Users\\rth\\Documents\\Cod\\An2\\OOP\\mp3player\\SpotifyOOP\\src\\CheckInit.cpp",
+  "file": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/CheckInit.cpp",
+  "output": "CMakeFiles/player.dir/src/CheckInit.cpp.obj"
+},
+{
+  "directory": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/player.dir/includes_CXX.rsp -g -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic -o CMakeFiles\\player.dir\\src\\CheckPlaying.cpp.obj -c C:\\Users\\rth\\Documents\\Cod\\An2\\OOP\\mp3player\\SpotifyOOP\\src\\CheckPlaying.cpp",
+  "file": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/CheckPlaying.cpp",
+  "output": "CMakeFiles/player.dir/src/CheckPlaying.cpp.obj"
+},
+{
+  "directory": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/player.dir/includes_CXX.rsp -g -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic -o CMakeFiles\\player.dir\\src\\Exceptions.cpp.obj -c C:\\Users\\rth\\Documents\\Cod\\An2\\OOP\\mp3player\\SpotifyOOP\\src\\Exceptions.cpp",
+  "file": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/Exceptions.cpp",
+  "output": "CMakeFiles/player.dir/src/Exceptions.cpp.obj"
+},
+{
+  "directory": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/player.dir/includes_CXX.rsp -g -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic -o CMakeFiles\\player.dir\\src\\Player.cpp.obj -c C:\\Users\\rth\\Documents\\Cod\\An2\\OOP\\mp3player\\SpotifyOOP\\src\\Player.cpp",
+  "file": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/Player.cpp",
+  "output": "CMakeFiles/player.dir/src/Player.cpp.obj"
+},
+{
+  "directory": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/player.dir/includes_CXX.rsp -g -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic -o CMakeFiles\\player.dir\\src\\Playlist.cpp.obj -c C:\\Users\\rth\\Documents\\Cod\\An2\\OOP\\mp3player\\SpotifyOOP\\src\\Playlist.cpp",
+  "file": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/Playlist.cpp",
+  "output": "CMakeFiles/player.dir/src/Playlist.cpp.obj"
+},
+{
+  "directory": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/player.dir/includes_CXX.rsp -g -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic -o CMakeFiles\\player.dir\\src\\SaveState.cpp.obj -c C:\\Users\\rth\\Documents\\Cod\\An2\\OOP\\mp3player\\SpotifyOOP\\src\\SaveState.cpp",
+  "file": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/SaveState.cpp",
+  "output": "CMakeFiles/player.dir/src/SaveState.cpp.obj"
+},
+{
+  "directory": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/player.dir/includes_CXX.rsp -g -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic -o CMakeFiles\\player.dir\\src\\Song.cpp.obj -c C:\\Users\\rth\\Documents\\Cod\\An2\\OOP\\mp3player\\SpotifyOOP\\src\\Song.cpp",
+  "file": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/Song.cpp",
+  "output": "CMakeFiles/player.dir/src/Song.cpp.obj"
+},
+{
+  "directory": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/player.dir/includes_CXX.rsp -g -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic -o CMakeFiles\\player.dir\\src\\flac.cpp.obj -c C:\\Users\\rth\\Documents\\Cod\\An2\\OOP\\mp3player\\SpotifyOOP\\src\\flac.cpp",
+  "file": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/flac.cpp",
+  "output": "CMakeFiles/player.dir/src/flac.cpp.obj"
+},
+{
+  "directory": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/player.dir/includes_CXX.rsp -g -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic -o CMakeFiles\\player.dir\\src\\mp3.cpp.obj -c C:\\Users\\rth\\Documents\\Cod\\An2\\OOP\\mp3player\\SpotifyOOP\\src\\mp3.cpp",
+  "file": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/mp3.cpp",
+  "output": "CMakeFiles/player.dir/src/mp3.cpp.obj"
+},
+{
+  "directory": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/player.dir/includes_CXX.rsp -g -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic -o CMakeFiles\\player.dir\\src\\ogg.cpp.obj -c C:\\Users\\rth\\Documents\\Cod\\An2\\OOP\\mp3player\\SpotifyOOP\\src\\ogg.cpp",
+  "file": "C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/ogg.cpp",
+  "output": "CMakeFiles/player.dir/src/ogg.cpp.obj"
+}
+]

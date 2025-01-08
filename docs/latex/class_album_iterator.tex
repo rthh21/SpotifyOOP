@@ -1,0 +1,61 @@
+\doxysection{Album\+Iterator Class Reference}
+\hypertarget{class_album_iterator}{}\label{class_album_iterator}\index{AlbumIterator@{AlbumIterator}}
+
+
+\doxylink{class_album_iterator}{Album\+Iterator}.  
+
+
+
+
+{\ttfamily \#include $<$Album.\+hpp$>$}
+
+Inheritance diagram for Album\+Iterator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_album_iterator}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_album_iterator_af850c346fbe967d922ba78e68b2b334c}\label{class_album_iterator_af850c346fbe967d922ba78e68b2b334c} 
+{\bfseries Album\+Iterator} (const std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \&songs)
+\item 
+bool \mbox{\hyperlink{class_album_iterator_a6f457ba3af353c98644ba4ea5ebfa427}{has\+Next}} () override
+\item 
+\mbox{\hyperlink{class_song}{Song}} \mbox{\hyperlink{class_album_iterator_a243ac91057372013f8e93e32cf68bd1b}{next}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_iterator}{Iterator$<$ Song $>$}}}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_album_iterator}{Album\+Iterator}. 
+
+This class is part of the \doxylink{class_iterator}{Iterator} Design Pattern. Used to go iterate over each song element. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_album_iterator_a6f457ba3af353c98644ba4ea5ebfa427}\index{AlbumIterator@{AlbumIterator}!hasNext@{hasNext}}
+\index{hasNext@{hasNext}!AlbumIterator@{AlbumIterator}}
+\doxysubsubsection{\texorpdfstring{hasNext()}{hasNext()}}
+{\footnotesize\ttfamily \label{class_album_iterator_a6f457ba3af353c98644ba4ea5ebfa427} 
+bool Album\+Iterator\+::has\+Next (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Used to determine if an object exists after the current one 
+
+Implements \mbox{\hyperlink{class_iterator_ac739493f5b0ef3333abf23c551e416f0}{Iterator$<$ Song $>$}}.
+
+\Hypertarget{class_album_iterator_a243ac91057372013f8e93e32cf68bd1b}\index{AlbumIterator@{AlbumIterator}!next@{next}}
+\index{next@{next}!AlbumIterator@{AlbumIterator}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily \label{class_album_iterator_a243ac91057372013f8e93e32cf68bd1b} 
+\mbox{\hyperlink{class_song}{Song}} Album\+Iterator\+::next (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_iterator}{Iterator$<$ Song $>$}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/rth/\+Documents/\+Cod/\+An2/\+OOP/mp3player/\+Spotify\+OOP/headers/Album.\+hpp\end{DoxyCompactItemize}
