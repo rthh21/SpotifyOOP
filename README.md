@@ -1,7 +1,10 @@
-# Aplicatie MP3 stil Spotify
+# C++ Audio Player 
 
 ## Descriere proiect
-MP3 player folosind clase si diferite librarii pentru functionalitatea sa. Principala librarie folosita este SDL2 pentru audio playback. In acest moment, aplicatia este capabila sa incarce diferite melodii salvate local, sa le redea, play/pause/skip. Utilizatorii pot creea playlisturi si pot folosi functio shuffle.
+Un audio player command prompt ce foloseste clase si libraria SDL pentru functiile sale.
+SDL2 este folosit pentru manipularea redarii audio.
+Utilizatorii pot folosi comenzi precum play, pause, skip. Pot creea playlisturi si manipula volumul si queue-ul. 
+Functie de shuffle implementata.
 
 Acest program este simplu dar eficient. 
 
@@ -60,9 +63,12 @@ Acest program este simplu dar eficient.
 - [x] 2 șabloane de proiectare (design patterns)
 - [x] o clasă șablon cu sens; minim **2 instanțieri**
   - [x] preferabil și o funcție șablon (template) cu sens; minim 2 instanțieri
-- [ ] tag de `git`: de exemplu `v0.3` sau `v1.0`
+- [x] tag de `git`: de exemplu `v0.3` sau `v1.0`
 
 ## Resurse
 - https://www.doxygen.nl/
+- https://wiki.libsdl.org/SDL3/FrontPage
 - https://cmake.org/cmake/help/latest/
 - https://github.com/libsdl-org
+- https://refactoring.guru/design-patterns
+- https://www.geeksforgeeks.org/
