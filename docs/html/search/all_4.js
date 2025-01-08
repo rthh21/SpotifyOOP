@@ -4,8 +4,12 @@ var searchData=
   ['addalbum_1',['addAlbum',['../class_playlist.html#a6a98eda5172a7e0ae7dfc4a169c6c911',1,'Playlist']]],
   ['addsong_2',['addSong',['../class_playlist.html#a164c4d4f8db3f7ac8c14c94ef98f3cf8',1,'Playlist']]],
   ['album_3',['Album',['../class_album.html',1,'']]],
-  ['aplicatie_20mp3_20stil_20spotify_4',['Aplicatie MP3 stil Spotify',['../index.html',1,'']]],
-  ['artist_5',['Artist',['../class_artist.html',1,'']]],
-  ['audioexceptions_6',['AudioExceptions',['../class_audio_exceptions.html',1,'']]],
-  ['audiofile_7',['AudioFile',['../class_audio_file.html',1,'']]]
+  ['album_2ecpp_4',['Album.cpp',['../_album_8cpp.html',1,'']]],
+  ['albumiterator_5',['AlbumIterator',['../class_album_iterator.html',1,'']]],
+  ['aplicatie_20mp3_20stil_20spotify_6',['Aplicatie MP3 stil Spotify',['../index.html',1,'']]],
+  ['artist_7',['Artist',['../class_artist.html',1,'']]],
+  ['artist_2ecpp_8',['Artist.cpp',['../_artist_8cpp.html',1,'']]],
+  ['audioexceptions_9',['AudioExceptions',['../class_audio_exceptions.html',1,'']]],
+  ['audiofile_10',['AudioFile',['../class_audio_file.html',1,'']]],
+  ['audiofile_2ecpp_11',['AudioFile.cpp',['../_audio_file_8cpp.html',1,'']]]
 ];

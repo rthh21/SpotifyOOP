@@ -97,9 +97,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:affe0cc3cb714f6deb4e62f0c0d3f1fd8" id="r_affe0cc3cb714f6deb4e62f0c0d3f1fd8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#affe0cc3cb714f6deb4e62f0c0d3f1fd8">Player</a> ()</td></tr>
 <tr class="memdesc:affe0cc3cb714f6deb4e62f0c0d3f1fd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="class_player.html">Player</a>:: <a class="el" href="class_player.html">Player</a> object.  <br /></td></tr>
 <tr class="separator:affe0cc3cb714f6deb4e62f0c0d3f1fd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb410995204ec7795b260866f44ad596" id="r_adb410995204ec7795b260866f44ad596"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb410995204ec7795b260866f44ad596">Player</a> (int volume)</td></tr>
-<tr class="memdesc:adb410995204ec7795b260866f44ad596"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="class_player.html">Player</a>:: <a class="el" href="class_player.html">Player</a> object with a specified volume.  <br /></td></tr>
-<tr class="separator:adb410995204ec7795b260866f44ad596"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9908c6e11264aa55b5085b4eab0457b" id="r_af9908c6e11264aa55b5085b4eab0457b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9908c6e11264aa55b5085b4eab0457b">Player</a> (int volume, const std::string &amp;current_song)</td></tr>
+<tr class="memdesc:af9908c6e11264aa55b5085b4eab0457b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="class_player.html">Player</a>:: <a class="el" href="class_player.html">Player</a> object with a specified volume.  <br /></td></tr>
+<tr class="separator:af9908c6e11264aa55b5085b4eab0457b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a749d2c00e1fe0f5c2746f7505a58c062" id="r_a749d2c00e1fe0f5c2746f7505a58c062"><td class="memItemLeft" align="right" valign="top"><a id="a749d2c00e1fe0f5c2746f7505a58c062" name="a749d2c00e1fe0f5c2746f7505a58c062"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~Player</b> ()</td></tr>
 <tr class="memdesc:a749d2c00e1fe0f5c2746f7505a58c062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="class_player.html">Player</a>:: <a class="el" href="class_player.html">Player</a> object. <br /></td></tr>
@@ -154,6 +154,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>help</b> () const</td
 <tr class="memitem:aa5cd275bc6e06da67eafd1562b5db7fa" id="r_aa5cd275bc6e06da67eafd1562b5db7fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_song.html">Song</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5cd275bc6e06da67eafd1562b5db7fa">find_song</a> ()</td></tr>
 <tr class="memdesc:aa5cd275bc6e06da67eafd1562b5db7fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Program loop end.  <br /></td></tr>
 <tr class="separator:aa5cd275bc6e06da67eafd1562b5db7fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cc0c1dff6f2ab02bc145103ecdea42c" id="r_a2cc0c1dff6f2ab02bc145103ecdea42c"><td class="memItemLeft" align="right" valign="top"><a id="a2cc0c1dff6f2ab02bc145103ecdea42c" name="a2cc0c1dff6f2ab02bc145103ecdea42c"></a>
+<a class="el" href="class_song.html">Song</a>&#160;</td><td class="memItemRight" valign="bottom"><b>find_song</b> (const std::string &amp;title)</td></tr>
+<tr class="separator:a2cc0c1dff6f2ab02bc145103ecdea42c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c2d8859074d444b45c3cf8dbdd1827e" id="r_a9c2d8859074d444b45c3cf8dbdd1827e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_album.html">Album</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c2d8859074d444b45c3cf8dbdd1827e">find_album</a> ()</td></tr>
 <tr class="memdesc:a9c2d8859074d444b45c3cf8dbdd1827e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function handles the search (by name) of an album.  <br /></td></tr>
 <tr class="separator:a9c2d8859074d444b45c3cf8dbdd1827e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -203,27 +206,23 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="adb410995204ec7795b260866f44ad596" name="adb410995204ec7795b260866f44ad596"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb410995204ec7795b260866f44ad596">&#9670;&#160;</a></span>Player() <span class="overload">[2/2]</span></h2>
+<a id="af9908c6e11264aa55b5085b4eab0457b" name="af9908c6e11264aa55b5085b4eab0457b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9908c6e11264aa55b5085b4eab0457b">&#9670;&#160;</a></span>Player() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">Player::Player </td>
           <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>volume</em></span></td><td>)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>volume</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>current_song</em></span>&#160;)</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Construct a new <a class="el" href="class_player.html">Player</a>:: <a class="el" href="class_player.html">Player</a> object with a specified volume. </p>
@@ -412,8 +411,9 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initializes the audio player. </p>
-<p>This function initializes the audio player and verifies that everything is working. </p><dl class="section note"><dt>Note</dt><dd>This function must be called at the start of the program (It's called in function "start()") </dd></dl>
+<p>This function initializes the audio player and verifies that everything is working. If another session existed, it will load the last song listened and the volume from the last session. -&gt; Memento design pattern &lt;- </p><dl class="section note"><dt>Note</dt><dd>This function must be called at the start of the program (It's called in function "start()") </dd></dl>
 <p>&lt; Calls "load_files()" as part of init.</p>
+<p>&lt; Calls "Mix_VolumeMusic(int) to set the previous session volume."</p>
 
 </div>
 </div>
@@ -454,6 +454,10 @@ Static Public Member Functions</h2></td></tr>
 <p>This function loads the music files from "../music".</p>
 <p>The files inside "../music" have a "descriptor". A descriptor has the format "type-name". For examle: an artist "Travis Scott" has a directory named "Artist-Travis Scott". Inside "Artist-Travis Scott" is a directory named "Album-Utopia", creating the album Utopia. The artist or album directory can contain songs. A song has the descriptor "Song-name".</p>
 <p>This function opens each file and creates an object based on the type and the name of the directort (from descriptor). By iterating through each file using for loops, the code has now loaded all the songs. </p>
+<p>search artists</p>
+<p>search albums</p>
+<p>longest media - template</p>
+<p>search individual songs</p>
 
 </div>
 </div>
@@ -504,7 +508,7 @@ Static Public Member Functions</h2></td></tr>
 <p>This function clears the current queue, adds all songs from the specified album to the queue, and then plays the queue.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">album</td><td>A constant reference to an <code><a class="el" href="class_album.html">Album</a></code> object that represents the album whose songs are to be played. </td></tr>
+    <tr><td class="paramname">album</td><td>A constant reference to an <code><a class="el" href="class_album.html" title="Album class.">Album</a></code> object that represents the album whose songs are to be played. </td></tr>
   </table>
   </dd>
 </dl>
@@ -792,6 +796,7 @@ Static Public Member Functions</h2></td></tr>
 <li>set-volume [int]: Sets the volume to a specified value.</li>
 <li>mute: Mutes the audio (sets the volume to 0).</li>
 <li>unmute: Unmutes the audio (restores the volume to the previous level).</li>
+<li>albums: Prints all the albums loaded.</li>
 <li>song-count: Prints the number of songs loaded.</li>
 <li>flac: Prints the songs with ".flac" extension.</li>
 <li>mp3: Prints the songs with ".mp3" extension.</li>
@@ -806,12 +811,14 @@ Static Public Member Functions</h2></td></tr>
 <li>queue-clear: Clears the entire queue.</li>
 <li>create-playlist: Allows the user to create a new playlist and add songs to it.</li>
 <li>playlist-remove: Removes a song from a specified playlist.</li>
+<li>playlist-longest-song: Prints the longest song from a playlist.</li>
 <li>skip: Skips to the next song in the queue or pauses playback if the queue is empty.</li>
 <li>shuffle: Shuffles the order of the songs in the queue.</li>
 <li>pause: Pauses the currently playing music.</li>
 <li>resume: Resumes playback of paused music.</li>
 <li>stop: Stops the playback, ends the program, and waits for user input before exiting. </li>
 </ul>
+<p>iterator</p>
 
 </div>
 </div>

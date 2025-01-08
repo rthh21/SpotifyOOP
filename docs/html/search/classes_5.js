@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mp3_0',['MP3',['../class_m_p3.html',1,'']]]
+  ['longestmediafinder_0',['LongestMediaFinder',['../class_longest_media_finder.html',1,'']]]
 ];

@@ -6,31 +6,35 @@
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SONG\_H}}
 \DoxyCodeLine{00003\ }
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}AudioFile.hpp"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <memory>}}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_song}{Song}}\ \{}
-\DoxyCodeLine{00010\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00011\ \ \ \ \ std::string\ title;}
-\DoxyCodeLine{00012\ \ \ \ \ std::string\ genre;}
-\DoxyCodeLine{00013\ \ \ \ \ std::shared\_ptr<AudioFile>\ audiofile;\ }
-\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ cnt;}
-\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_song}{Song}}();}
-\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_song}{Song}}(\textcolor{keyword}{const}\ std::string\&\ title,\ \textcolor{keyword}{const}\ std::string\&\ genre,\ std::shared\_ptr<AudioFile>\ audiofile);\ \ }
-\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_song}{Song}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_song}{Song}}\&\ other);}
-\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_song}{\string~Song}}();\ }
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ getCnt()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ getTitle()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ getGenre()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00024\ \ \ \ \ std::shared\_ptr<AudioFile>\ getAudioFile()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00025\ \ \ \ \ }
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ operator<<(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_song}{Song}}\&\ auxSong);}
-\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_song}{Song}}\ \&operator=(\mbox{\hyperlink{class_song}{Song}}\ other);}
-\DoxyCodeLine{00028\ \};}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_mixer.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_song}{Song}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00013\ \ \ \ \ std::string\ title;}
+\DoxyCodeLine{00014\ \ \ \ \ std::string\ genre;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{double}\ duration;}
+\DoxyCodeLine{00016\ \ \ \ \ std::shared\_ptr<AudioFile>\ audiofile;\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ cnt;}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_song}{Song}}();}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_song}{Song}}(\textcolor{keyword}{const}\ std::string\&\ title,\ \textcolor{keyword}{const}\ std::string\&\ genre,\ \textcolor{keywordtype}{double}\ duration,\ std::shared\_ptr<AudioFile>\ audiofile);\ \ }
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_song}{Song}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_song}{Song}}\&\ other);}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_song}{\string~Song}}();\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ getCnt()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ getTitle()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ getGenre()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ getDuration()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00028\ \ \ \ \ std::shared\_ptr<AudioFile>\ getAudioFile()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00029\ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ operator<<(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_song}{Song}}\&\ auxSong);}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{class_song}{Song}}\ \&operator=(\mbox{\hyperlink{class_song}{Song}}\ other);}
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

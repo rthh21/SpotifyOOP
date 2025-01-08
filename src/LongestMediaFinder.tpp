@@ -1,5 +1,9 @@
-#ifndef LONGEST_MEDIA_FINDER_TPP
-#define LONGEST_MEDIA_FINDER_TPP
+/**
+ * @brief Construct a new Longest Media Finder< T>:: Longest Media Finder object
+ * 
+ * @tparam T 
+ * @param mediaCollection 
+ */
 
 template <typename T>
 LongestMediaFinder<T>::LongestMediaFinder(const std::vector<T>& mediaCollection) : collection(mediaCollection) {}
@@ -19,5 +23,3 @@ T LongestMediaFinder<T>::getLongestMedia() const {
 
     return longest;
 }
-
-#endif

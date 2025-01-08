@@ -1,5 +1,14 @@
 \doxysection{Album Class Reference}
 \hypertarget{class_album}{}\label{class_album}\index{Album@{Album}}
+
+
+\doxylink{class_album}{Album} class.  
+
+
+
+
+{\ttfamily \#include $<$Album.\+hpp$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -15,8 +24,10 @@ const std\+::string \& {\bfseries get\+Name} () const
 \Hypertarget{class_album_a67e535f025079af0fd0a05a9cb1ccedb}\label{class_album_a67e535f025079af0fd0a05a9cb1ccedb} 
 const std\+::string \& {\bfseries get\+Genre} () const
 \item 
-\Hypertarget{class_album_a2e453d389a39ad050e57bfb810a859ea}\label{class_album_a2e453d389a39ad050e57bfb810a859ea} 
-const std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \& {\bfseries get\+Songs} () const
+const std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \& \mbox{\hyperlink{class_album_a2e453d389a39ad050e57bfb810a859ea}{get\+Songs}} () const
+\item 
+\Hypertarget{class_album_adf7db7679b229993c55f99f3616cf564}\label{class_album_adf7db7679b229993c55f99f3616cf564} 
+\mbox{\hyperlink{class_album_iterator}{Album\+Iterator}} {\bfseries create\+Iterator} () const
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Friends}
 \begin{DoxyCompactItemize}
@@ -26,7 +37,21 @@ std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \mbox{\
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+\doxylink{class_album}{Album} class. 
+
+This class is used to store each album that\textquotesingle{}s loaded in "{}music"{} file. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_album_a2e453d389a39ad050e57bfb810a859ea}\index{Album@{Album}!getSongs@{getSongs}}
+\index{getSongs@{getSongs}!Album@{Album}}
+\doxysubsubsection{\texorpdfstring{getSongs()}{getSongs()}}
+{\footnotesize\ttfamily \label{class_album_a2e453d389a39ad050e57bfb810a859ea} 
+const std\+::vector$<$ \mbox{\hyperlink{class_song}{Song}} $>$ \& Album\+::get\+Songs (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Part of the \doxylink{class_iterator}{Iterator} Design Pattern 
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 C\+:/\+Users/rth/\+Documents/\+Cod/\+An2/\+OOP/mp3player/\+Spotify\+OOP/headers/Album.\+hpp\item 
-C\+:/\+Users/rth/\+Documents/\+Cod/\+An2/\+OOP/mp3player/\+Spotify\+OOP/src/Album.\+cpp\end{DoxyCompactItemize}
+C\+:/\+Users/rth/\+Documents/\+Cod/\+An2/\+OOP/mp3player/\+Spotify\+OOP/src/\mbox{\hyperlink{_album_8cpp}{Album.\+cpp}}\end{DoxyCompactItemize}

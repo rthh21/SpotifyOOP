@@ -7,12 +7,16 @@
 #include "Album.hpp"
 #include "Song.hpp"
 
+/**
+ * @brief Artist class
+ * @details This class is used to store each artist that's loaded in "music" file.
+ */
 class Artist {
 private:
-    std::string name;
-    std::string genre;
-    std::vector<Album> albums;
-    std::vector<Song> songs;
+    std::string name; /**< The name of the artist */
+    std::string genre; 
+    std::vector<Album> albums; /**< An vector of Album type objects. It is used to store the albums of an artist */
+    std::vector<Song> songs; /**< An vector of Song type objects. It is used to store the songs of an artist */
 public:
     void addAlbum(const Album& album);
     void addSong(const Song& song);

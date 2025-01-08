@@ -4,7 +4,7 @@
  * @brief Manages music playback, song queue, and created playlists.
  * @details This file defines the Player class, which handles functionalities related to playing music, 
  *          managing song queues, and supporting the creation, modification, and playback of playlists.
- * @version 0.2
+ * @version 0.3
  * @date 03-12-2024
  * 
  * @copyright Copyright (c) 2024

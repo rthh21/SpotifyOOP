@@ -1,3 +1,13 @@
+/**
+ * @file Artist.cpp
+ * @author rthh (andreythstan25@gmail.com)
+ * @version 0.3
+ * @date 08-01-2025
+ * 
+ * @copyright Copyright (c) 2025
+ * 
+ */
+ 
 #include "Artist.hpp"
 
 Artist::Artist(const std::string& name, const std::string& genre)

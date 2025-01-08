@@ -4,7 +4,7 @@
 #include "Exceptions.hpp"
 #include "CheckInit.hpp"
 
-#define SDL_MAIN_HANDLED // fix pentru "main"
+#define SDL_MAIN_HANDLED /// fix pentru thread "main"
 
 #include "Player.hpp"
 #include "SaveState.hpp"
@@ -16,7 +16,6 @@ int main(){
     state.load_file();
     Player player(state.getCurrentVolume(),state.getCurrentSong());
     try {
-        
         player.init();
         player.start();
     } catch (const check_init &e){

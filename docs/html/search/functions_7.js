@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['ogg_0',['OGG',['../class_o_g_g.html#a525af8dfb673fbf864a906d0f043d93d',1,'OGG::OGG()'],['../class_o_g_g.html#a377581160e06e4b64987efda649229d1',1,'OGG::OGG(const std::string &amp;PATH, int bitrate)']]],
-  ['operator_3c_3c_1',['operator&lt;&lt;',['../_playlist_8cpp.html#ac8b7197bb01eeb56e0f366ae60a2ec18',1,'Playlist.cpp']]],
-  ['operator_3d_2',['operator=',['../class_playlist.html#a4cd7c539b979590376506c4e75c294a1',1,'Playlist']]]
+  ['load_5ffile_5ftype_0',['load_file_type',['../class_player.html#a1f1e21e2a292d34b54c8cfdcf62b9ff0',1,'Player']]],
+  ['load_5ffiles_1',['load_files',['../class_player.html#aaa510923fdb47f5be69fe09e69c76fe8',1,'Player']]]
 ];

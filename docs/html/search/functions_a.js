@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['showsongs_0',['showSongs',['../class_playlist.html#a6619b0c3f81c10e9f74e79b48cbf98c3',1,'Playlist']]],
-  ['shuffle_1',['shuffle',['../class_player.html#a64c9449a88fb2634af2b824befdb676b',1,'Player']]],
-  ['song_5fcnt_2',['song_cnt',['../class_player.html#aaab9a470388f34e053b1cbf8326750a6',1,'Player']]],
-  ['start_3',['start',['../class_player.html#af31ce24439e0865a411fd398686781e3',1,'Player']]],
-  ['stop_4',['stop',['../class_player.html#a68fdc9d587b542998267e71d712c9218',1,'Player']]]
+  ['remove_5ffrom_5fqueue_0',['remove_from_queue',['../class_player.html#a9108d59339be8347134b58678b06a0c5',1,'Player']]],
+  ['removesongpos_1',['removeSongPos',['../class_playlist.html#a694f5986f735a205e2c047fece566e7b',1,'Playlist']]],
+  ['resume_2',['resume',['../class_player.html#aa286cb87328b067ffd2e722d0d389755',1,'Player']]]
 ];

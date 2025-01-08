@@ -91,6 +91,11 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">AudioFile Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="class_audio_file.html" title="AudioFile class.">AudioFile</a> class.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_audio_file_8hpp_source.html">AudioFile.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for AudioFile:</div>
 <div class="dyncontent">
@@ -106,7 +111,7 @@ Inheritance diagram for AudioFile:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:adf554cf6f0badcf559ed750ed3476998" id="r_adf554cf6f0badcf559ed750ed3476998"><td class="memItemLeft" align="right" valign="top"><a id="adf554cf6f0badcf559ed750ed3476998" name="adf554cf6f0badcf559ed750ed3476998"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>AudioFile</b> (const std::string &amp;PATH)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>AudioFile</b> (const std::string &amp;<a class="el" href="#ae89b75a0b2c5af04caff3d0040c9b1c5">PATH</a>)</td></tr>
 <tr class="separator:adf554cf6f0badcf559ed750ed3476998"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cece097b2d67d6cdbba839bb590bb9e" id="r_a0cece097b2d67d6cdbba839bb590bb9e"><td class="memItemLeft" align="right" valign="top"><a id="a0cece097b2d67d6cdbba839bb590bb9e" name="a0cece097b2d67d6cdbba839bb590bb9e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>interface</b> () const</td></tr>
@@ -120,11 +125,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>interface</b> () cons
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:ae89b75a0b2c5af04caff3d0040c9b1c5" id="r_ae89b75a0b2c5af04caff3d0040c9b1c5"><td class="memItemLeft" align="right" valign="top"><a id="ae89b75a0b2c5af04caff3d0040c9b1c5" name="ae89b75a0b2c5af04caff3d0040c9b1c5"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>PATH</b></td></tr>
+<tr class="memitem:ae89b75a0b2c5af04caff3d0040c9b1c5" id="r_ae89b75a0b2c5af04caff3d0040c9b1c5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae89b75a0b2c5af04caff3d0040c9b1c5">PATH</a></td></tr>
 <tr class="separator:ae89b75a0b2c5af04caff3d0040c9b1c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="class_audio_file.html" title="AudioFile class.">AudioFile</a> class. </p>
+<p>This class is used to store additional information about a song. Using SDl2, it creates a music type object. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="af2e193de631213d80bec0c6d1a2b0fe8" name="af2e193de631213d80bec0c6d1a2b0fe8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af2e193de631213d80bec0c6d1a2b0fe8">&#9670;&#160;</a></span>clone()</h2>
 
@@ -206,9 +213,33 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>PATH</b></td><
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ae89b75a0b2c5af04caff3d0040c9b1c5" name="ae89b75a0b2c5af04caff3d0040c9b1c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae89b75a0b2c5af04caff3d0040c9b1c5">&#9670;&#160;</a></span>PATH</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string AudioFile::PATH</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The path of a song. Used for SDL2 Mix_Music </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/headers/<a class="el" href="_audio_file_8hpp_source.html">AudioFile.hpp</a></li>
-<li>C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/<b>AudioFile.cpp</b></li>
+<li>C:/Users/rth/Documents/Cod/An2/OOP/mp3player/SpotifyOOP/src/<a class="el" href="_audio_file_8cpp.html">AudioFile.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

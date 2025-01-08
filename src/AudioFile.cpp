@@ -1,3 +1,13 @@
+/**
+ * @file AudioFile.cpp
+ * @author rthh (andreythstan25@gmail.com)
+ * @version 0.3
+ * @date 08-01-2025
+ * 
+ * @copyright Copyright (c) 2025
+ * 
+ */
+ 
 #include "AudioFile.hpp"
 
 AudioFile::AudioFile() : PATH("NULL") {}

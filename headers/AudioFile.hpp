@@ -6,9 +6,13 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_mixer.h>
 
+/**
+ * @brief AudioFile class
+ * @details This class is used to store additional information about a song. Using SDl2, it creates a music type object.
+ */
 class AudioFile{
 protected:
-    std::string PATH;
+    std::string PATH; /**< The path of a song. Used for SDL2 Mix_Music */
 public:
     AudioFile();
     explicit AudioFile(const std::string& PATH);

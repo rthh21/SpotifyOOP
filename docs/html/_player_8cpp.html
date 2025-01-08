@@ -92,13 +92,15 @@ $(function(){ initResizable(false); });
 </div><!--header-->
 <div class="contents">
 
-<p>This file handles the command loop and anything related to playback.  
+<p><a class="el" href="class_player.html">Player</a> class.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;Player.hpp&quot;</code><br />
 <code>#include &quot;AudioFile.hpp&quot;</code><br />
 <code>#include &quot;flac.hpp&quot;</code><br />
 <code>#include &quot;mp3.hpp&quot;</code><br />
 <code>#include &quot;ogg.hpp&quot;</code><br />
+<code>#include &quot;SaveState.hpp&quot;</code><br />
+<code>#include &quot;LongestMediaFinder.hpp&quot;</code><br />
 <code>#include &quot;Exceptions.hpp&quot;</code><br />
 <code>#include &quot;CheckDirectory.hpp&quot;</code><br />
 <code>#include &quot;CheckInit.hpp&quot;</code><br />
@@ -107,12 +109,13 @@ $(function(){ initResizable(false); });
 <code>#include &lt;SDL2/SDL.h&gt;</code><br />
 <code>#include &lt;SDL2/SDL_mixer.h&gt;</code><br />
 <code>#include &lt;filesystem&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
 </div><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file handles the command loop and anything related to playback. </p>
+<div class="textblock"><p><a class="el" href="class_player.html">Player</a> class. </p>
 <dl class="section author"><dt>Author</dt><dd>rthh (<a href="#" onclick="location.href='mai'+'lto:'+'and'+'re'+'yth'+'st'+'an2'+'5@'+'gma'+'il'+'.co'+'m'; return false;">andre<span class="obfuscator">.nosp@m.</span>yths<span class="obfuscator">.nosp@m.</span>tan25<span class="obfuscator">.nosp@m.</span>@gma<span class="obfuscator">.nosp@m.</span>il.co<span class="obfuscator">.nosp@m.</span>m</a>) </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>0.2 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>03-12-2024</dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2024 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.3 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>08-01-2025</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2025 </dd></dl>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
